@@ -12,7 +12,7 @@ An illustrated portfolio of **AI agents, browser automation, fingerprinting tool
 - **Instant search** — English and Russian queries across curated project content, with suggestions, match highlights and filters.
 - **Private project overviews** — reviewed capability summaries alongside public work.
 - **Illustrated interface** — project artwork, responsive layouts, keyboard navigation and reduced-motion support.
-- **Static delivery** — no backend or API keys needed to serve the site. Search runs in the browser; GitHub stars are a dated snapshot.
+- **Static delivery** — no backend or API keys needed to serve the site. Search runs in the browser. GitHub star counts refresh from the public API on page load and when returning to the tab; saved counts remain available offline.
 
 ## 🛠️ Stack
 
@@ -55,6 +55,8 @@ Publish the contents of **`dist/`** to a static web host. See [deployment notes]
 
 ## 🔎 About the project data
 
-Search uses curated summaries of project capabilities. Private project entries contain descriptions only; their source repositories remain private. The catalog does not fetch private repositories or use credentials at runtime.
+Search uses curated summaries of project capabilities. Private project entries contain descriptions only; their source repositories remain private. The catalog does not fetch private repositories or use credentials at runtime. Star counts use a single public repository-list request for the current account size, with sequential pagination if needed. Requests are deduplicated, rapid tab switches are debounced, and GitHub rate-limit/reset headers are respected. A device-local cache stores the last successful counts; the bundled snapshot is the offline fallback. A small refresh button is available beside the star-update status.
 
 Third-party font and library notices are retained in `dist/assets/fonts/` and `dist/vendor/`.
+
+GitHub API references: [public repositories](https://docs.github.com/en/rest/repos/repos#list-repositories-for-a-user), [rate limits](https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api).

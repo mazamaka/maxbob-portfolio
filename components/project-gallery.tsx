@@ -1,12 +1,16 @@
 import * as React from "react";
-import {X,LockKeyhole,Star,SlidersHorizontal,ArrowUpRight,BookOpen,Globe,Workflow,AudioLines,ScanText,Bot,CodeXml} from "lucide-react";
+import {X,LockKeyhole,Star,SlidersHorizontal,ArrowUpRight,BookOpen,Globe,Workflow,AudioLines,ScanText,Bot,CodeXml,RefreshCw} from "lucide-react";
 import {InteractiveTravelCard} from "@/components/ui/3d-card";
 import {ActionSearchBar,type Action} from "@/components/ui/action-search-bar";
 import {projects,starsUpdatedAt} from "@/src/projects";
 import {allProjects,searchHits,directions,stacks,highlightParts,type CatalogProject} from "@/src/search";
+import {currentStars} from "@/src/github-stars";
+import {useGitHubStars} from "@/src/use-github-stars";
 function Highlight({text,query}:{text:string;query:string}){return <>{highlightParts(text,query).map((part,i)=>part.match?<mark key={i}>{part.text}</mark>:<React.Fragment key={i}>{part.text}</React.Fragment>)}</>;}
 const interests=[{query:"Google",icon:Globe,detail:"Ads, Gmail, Sheets & AI integrations"},{query:"AI agents",icon:Bot,detail:"Tools, models & autonomous workflows"},{query:"browser automation",icon:Workflow,detail:"Playwright, CDP & browser profiles"},{query:"voice",icon:AudioLines,detail:"Realtime audio & assistants"},{query:"OCR",icon:ScanText,detail:"Document processing & extraction"}];
 export function ProjectGallery(){
+ const githubStars=useGitHubStars();
+ const checkedAt=githubStars.snapshot?.checkedAt??starsUpdatedAt;
  const [query,setQuery]=React.useState("");
  const [direction,setDirection]=React.useState("all"),[visibility,setVisibility]=React.useState("all"),[stack,setStack]=React.useState("all");
  const [browseAll,setBrowseAll]=React.useState(false),[ready,setReady]=React.useState(false),[filtersOpen,setFiltersOpen]=React.useState(false);
@@ -14,7 +18,7 @@ export function ProjectGallery(){
  const dialog=React.useRef<HTMLDialogElement>(null),resultRegion=React.useRef<HTMLDivElement>(null),previousFocus=React.useRef<HTMLElement|null>(null);
  const filterCount=Number(direction!=="all")+Number(visibility!=="all")+Number(stack!=="all");
  const active=!!query.trim()||filterCount>0||browseAll;
- const hits=React.useMemo(()=>searchHits(query,direction,visibility,stack),[query,direction,visibility,stack]);
+ const hits=React.useMemo(()=>searchHits(query,direction,visibility,stack).map(hit=>({...hit,project:{...hit.project,stars:currentStars(hit.project.repo,hit.project.stars,githubStars.snapshot)}})),[query,direction,visibility,stack,githubStars.snapshot]);
  React.useEffect(()=>{
   const p=new URLSearchParams(location.search);
   setQuery(p.get("q")??"");setDirection(directions.includes(p.get("direction")??"")?p.get("direction")!:"all");
@@ -47,7 +51,7 @@ export function ProjectGallery(){
   </div>
   <div className="catalog-status"><p role="status" aria-live="polite" aria-atomic="true">{active?<><strong>{hits.length}</strong> {hits.length===1?"project":"projects"} found{hits.length>0&&<span className="result-breakdown"> · {hits.filter(h=>h.project.visibility==="public").length} public / {hits.filter(h=>h.project.visibility==="private").length} private</span>}</>:<>Selected work <span>· Explore {allProjects.length} projects</span></>}</p><button onClick={()=>active?reset():setBrowseAll(true)} disabled={!ready}>{active?"Back to selected":"Browse all projects"}<ArrowUpRight size={14}/></button></div>
   <div id="catalog-results" ref={resultRegion} tabIndex={-1} aria-label="Project results">
-   {!active?<div className="p-grid">{projects.map(project=><InteractiveTravelCard key={project.title} {...project} subtitle={project.category} actionHref={project.caseHref??project.live??project.href} actionText={project.caseHref?"Read case study":project.live?"Explore live project":"View on GitHub"}/>)}</div>
+   {!active?<div className="p-grid">{projects.map(project=><InteractiveTravelCard key={project.title} {...project} stars={currentStars(project.repo,project.stars,githubStars.snapshot)} subtitle={project.category} actionHref={project.caseHref??project.live??project.href} actionText={project.caseHref?"Read case study":project.live?"Explore live project":"View on GitHub"}/>)}</div>
    :hits.length?<div className="catalog-list">{hits.map(({project,excerpt,matchedIn})=><article key={project.id} className="catalog-result">
     <div><div className="result-meta"><span>{project.category}</span><span>{project.visibility==="private"?<><LockKeyhole size={13} aria-hidden="true"/>Private project</>:"Public repository"}</span>{project.stars!==undefined&&<span aria-label={`${project.stars} GitHub stars`}><Star size={13} aria-hidden="true"/>{project.stars}</span>}</div>
      <h3><Highlight text={project.title} query={query}/></h3><p><Highlight text={project.description} query={query}/></p>
@@ -61,7 +65,7 @@ export function ProjectGallery(){
    </article>)}</div>:<div className="catalog-empty"><SearchEmpty/><h3>No matching projects.</h3><p>{filterCount?"Try removing a filter or use a broader term.":"Try an integration, technology or task — Google, voice, OCR or browser automation."}</p><button className="p-primary" onClick={reset}>Reset search</button></div>}
   </div>
   <noscript><p className="catalog-nojs">Search needs JavaScript. The selected projects and their links are available above.</p></noscript>
-  <div className="p-gallery-note"><span>Total GitHub stars · <time dateTime={starsUpdatedAt.slice(0,10)}>Updated {new Intl.DateTimeFormat("en-GB",{day:"numeric",month:"short",year:"numeric",timeZone:"UTC"}).format(new Date(starsUpdatedAt))}</time></span><a href="https://github.com/mazamaka?tab=repositories" target="_blank" rel="noreferrer">All public repositories</a></div>
+  <div className="p-gallery-note"><div className="stars-status"><span aria-live="polite" title={githubStars.status==="limited"?"GitHub is temporarily limiting requests. Showing the last available counts.":githubStars.status==="error"?"GitHub could not be reached. Showing the last available counts.":"Total public GitHub stars, including the repository owner's star."}>Total GitHub stars · {githubStars.refreshing?"Checking…":<>{githubStars.status==="live"?"Checked":"Saved"} <time dateTime={checkedAt}>{new Intl.DateTimeFormat("en-GB",githubStars.status==="live"?{hour:"2-digit",minute:"2-digit",timeZone:"UTC"}:{day:"numeric",month:"short",year:"numeric",timeZone:"UTC"}).format(new Date(checkedAt))}{githubStars.status==="live"?" UTC":""}</time></>}</span><button type="button" className="stars-refresh" onClick={githubStars.refresh} disabled={githubStars.refreshing} aria-label="Refresh GitHub stars" title="Refresh GitHub stars"><RefreshCw size={13} aria-hidden="true"/></button></div><a href="https://github.com/mazamaka?tab=repositories" target="_blank" rel="noreferrer">All public repositories</a></div>
   <dialog ref={dialog} className="project-dialog" aria-labelledby="overview-title" onClose={()=>{setSelected(null);previousFocus.current?.focus();}} onClick={e=>{if(e.target===dialog.current)dialog.current.close();}}>
    {selected&&<><div className="overview-top"><span>{selected.visibility==="private"?<LockKeyhole size={15}/>:<CodeXml size={15}/>} {selected.visibility==="private"?"Private project":"Public project"}</span><button autoFocus aria-label="Close project overview" onClick={()=>dialog.current?.close()}><X size={21}/></button></div>
     <p className="project-kicker">{selected.category}</p><h2 id="overview-title">{selected.title}</h2><p className="overview-description">{selected.description}</p>
