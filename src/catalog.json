@@ -1,0 +1,1146 @@
+{
+  "updatedAt": "2026-10-04T11:24:17.585Z",
+  "projects": [
+    {
+      "id": "llm-latency-tracker",
+      "title": "LLM Latency Tracker",
+      "repo": "llm-latency-tracker",
+      "description": "Regional AI API latency & uptime, open datasets, JSON API and MCP.",
+      "category": "AI & agents",
+      "tags": [
+        "Python",
+        "MCP"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/llm-latency-tracker",
+      "stars": 2,
+      "searchContent": [
+        "Distributed probes measure API availability, network time to first byte (TTFB) and optional inference time to first token (TTFT).",
+        "Regional p50 and p95 statistics, historical snapshots and open datasets are available through a JSON API and MCP."
+      ]
+    },
+    {
+      "id": "claudegate",
+      "title": "Claudegate",
+      "repo": "claudegate",
+      "description": "OpenAI-compatible Claude Code API: streaming, tools, images & persistent sessions.",
+      "category": "Automation",
+      "tags": [
+        "Python",
+        "OpenAI",
+        "Claude"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/claudegate",
+      "stars": 0,
+      "searchContent": [
+        "An OpenAI-compatible API connects applications to Claude Code with streamed responses, tool calls, image input and persistent sessions.",
+        "Gateway adapters translate request and response formats for AI applications."
+      ]
+    },
+    {
+      "id": "claude-code-server-ops",
+      "title": "Claude Code Server Ops",
+      "repo": "claude-code-server-ops",
+      "description": "systemd deployment, real-completion health probes & end-to-end smoke checks.",
+      "category": "Backend & ops",
+      "tags": [
+        "Python",
+        "Claude",
+        "systemd"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/claude-code-server-ops",
+      "stars": 2,
+      "searchContent": [
+        "Linux systemd service deployment for Claude Code API services.",
+        "Completion-based health probes and end-to-end smoke checks verify that the service can produce a response."
+      ]
+    },
+    {
+      "id": "browser-automation-system",
+      "title": "Browser Automation System",
+      "repo": "browser-automation-system",
+      "description": "Experimental browser runner: FastAPI, React, execution history & checkpoints.",
+      "category": "Automation",
+      "tags": [
+        "Python",
+        "FastAPI",
+        "React"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/browser-automation-system",
+      "stars": 1,
+      "searchContent": [
+        "AI-driven browser tasks retain execution history, checkpoints and reusable patterns.",
+        "The browser-use runner is exposed through a FastAPI backend and React interface."
+      ]
+    },
+    {
+      "id": "alpha-scout",
+      "title": "Alpha Scout",
+      "repo": "alpha-scout",
+      "description": "Multi-source collection → deduplication → LLM analysis → Telegram alerts & dashboard.",
+      "category": "AI & agents",
+      "tags": [
+        "Python",
+        "Telegram",
+        "LLM"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/alpha-scout",
+      "stars": 1,
+      "searchContent": [
+        "Scheduled collectors gather ideas from Reddit, GitHub, Hacker News, Polymarket, RSS and X, with a labelled news fallback.",
+        "Content-hash deduplication, two-stage Claude screening and deeper analysis lead to configurable scores, Telegram alerts and a FastAPI dashboard. Collection is scheduled rather than real-time."
+      ]
+    },
+    {
+      "id": "octo-mcp",
+      "title": "Octo MCP",
+      "repo": "octo-mcp",
+      "description": "Async Octo Browser profile management & Playwright/CDP automation via MCP.",
+      "category": "AI & agents",
+      "tags": [
+        "Python",
+        "MCP",
+        "Playwright",
+        "CDP"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/octo-mcp",
+      "stars": 7,
+      "searchContent": [
+        "MCP tools connect AI agents to Octo Browser Local and Cloud APIs, with asynchronous profile management and Playwright page actions over CDP.",
+        "Remote browser hosts, CDP endpoint rewriting and bounded retries for API rate limits are configurable."
+      ]
+    },
+    {
+      "id": "seo-skills-claude-code",
+      "title": "seo-skills-claude-code",
+      "repo": "seo-skills-claude-code",
+      "description": "Claude Code skills for SEO: keyword clustering, briefs, content refresh, internal linking",
+      "category": "Automation",
+      "tags": [
+        "Python",
+        "Claude"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/seo-skills-claude-code",
+      "stars": 0,
+      "searchContent": [
+        "Reusable Claude Code skills cover keyword clustering, content briefs, content refresh and internal linking."
+      ]
+    },
+    {
+      "id": "nodriver-antidetect",
+      "title": "nodriver-antidetect",
+      "repo": "nodriver-antidetect",
+      "description": "CDP browser fingerprint customization, Docker runtime & detection checks.",
+      "category": "Antifraud",
+      "tags": [
+        "Python",
+        "CDP",
+        "Docker",
+        "Fingerprinting"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/nodriver-antidetect",
+      "stars": 6,
+      "searchContent": [
+        "CDP-level browser configuration controls fingerprints in isolated Docker environments.",
+        "Rendering and platform characteristics are inspected with diagnostic checks; observations do not guarantee universal undetectability."
+      ]
+    },
+    {
+      "id": "ipqs-checker",
+      "title": "IPQS Checker",
+      "repo": "ipqs-checker",
+      "description": "Device-fingerprint & IP-quality diagnostics via FastAPI and browser extensions.",
+      "category": "Antifraud",
+      "tags": [
+        "HTML",
+        "FastAPI",
+        "Fingerprinting"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/ipqs-checker",
+      "stars": 4,
+      "searchContent": [
+        "IP reputation and device fingerprint diagnostics combine a FastAPI service with Chrome and Firefox extensions.",
+        "Browser and network signals are inspected together, including rendering characteristics."
+      ]
+    },
+    {
+      "id": "movie-recommender",
+      "title": "Movie Recommender",
+      "repo": "movie-recommender",
+      "description": "Watch-history ingestion, metadata enrichment & movie recommendations via Telegram.",
+      "category": "Data & bots",
+      "tags": [
+        "Python",
+        "Telegram"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/movie-recommender",
+      "stars": 1,
+      "searchContent": [
+        "Lampa watch-history ingestion and metadata enrichment feed content-based movie recommendations.",
+        "Genre, actor and director features, Bayesian ranking and reaction feedback influence recommendation scores.",
+        "Telegram publishes recommendations and scheduled jobs refresh the collection."
+      ]
+    },
+    {
+      "id": "polymarket-bot",
+      "title": "Polymarket Bot",
+      "repo": "polymarket-bot",
+      "description": "Prediction-market research with LLM analysis, weather data and news signals.",
+      "category": "Markets & Web3",
+      "tags": [
+        "Python",
+        "LLM"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/polymarket-bot",
+      "stars": 4,
+      "searchContent": [
+        "Prediction-market research combines Claude LLM analysis with weather data and breaking-news signals.",
+        "Asynchronous Python workflows collect inputs for market research."
+      ]
+    },
+    {
+      "id": "bluestacks-antidetect",
+      "title": "BlueStacks Antidetect",
+      "repo": "bluestacks-antidetect",
+      "description": "Android instance management, device fingerprints, proxy routing, FastAPI & ADB.",
+      "category": "Antifraud",
+      "tags": [
+        "Python",
+        "FastAPI",
+        "ADB",
+        "Fingerprinting"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/bluestacks-antidetect",
+      "stars": 3,
+      "searchContent": [
+        "FastAPI and Android Debug Bridge (ADB) manage BlueStacks emulator instances and device profiles.",
+        "Device fingerprints and proxy routing are configured separately from instance management."
+      ]
+    },
+    {
+      "id": "mobile-cloaking",
+      "title": "Mobile Cloaking",
+      "repo": "mobile-cloaking",
+      "description": "API for mobile traffic routing, geo-targeting & configurable cloaking rules.",
+      "category": "Antifraud",
+      "tags": [
+        "Python"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/mobile-cloaking",
+      "stars": 3,
+      "searchContent": [
+        "An API applies configurable mobile traffic routing and geographic targeting rules."
+      ]
+    },
+    {
+      "id": "btc-sniper",
+      "title": "btc-sniper",
+      "repo": "btc-sniper",
+      "description": "Bitcoin price sniper — multi-source price tracking, volatility analysis, alert system",
+      "category": "Markets & Web3",
+      "tags": [
+        "Python"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/btc-sniper",
+      "stars": 2,
+      "searchContent": [
+        "Multi-source Bitcoin price tracking, volatility analysis and alert delivery."
+      ]
+    },
+    {
+      "id": "Solana-Sniper-Bot",
+      "title": "Solana Sniper Bot",
+      "repo": "Solana-Sniper-Bot",
+      "description": "Solana trading with transaction simulation, trade storage & TP/SL strategies.",
+      "category": "Markets & Web3",
+      "tags": [
+        "Python",
+        "Solana"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/Solana-Sniper-Bot",
+      "stars": 2,
+      "searchContent": [
+        "Solana transaction simulation and trade storage support configurable take-profit and stop-loss strategies."
+      ]
+    },
+    {
+      "id": "claude-swarm-system",
+      "title": "Claude Swarm System",
+      "repo": "claude-swarm-system",
+      "description": "Specialized Claude Code agents for planning, coding, review, testing & deployment.",
+      "category": "AI & agents",
+      "tags": [
+        "Shell",
+        "Claude"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/claude-swarm-system",
+      "stars": 2,
+      "searchContent": [
+        "Specialized Claude Code agents cover planning, implementation, review, testing and deployment."
+      ]
+    },
+    {
+      "id": "detect-expert-client",
+      "title": "Detect Expert Client",
+      "repo": "detect-expert-client",
+      "description": "Python client for detect.expert DNS checks with browser-style TLS fingerprints.",
+      "category": "Antifraud",
+      "tags": [
+        "Python",
+        "Fingerprinting"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/detect-expert-client",
+      "stars": 2,
+      "searchContent": [
+        "A Python client queries detect.expert DNS checks using browser-style TLS fingerprints.",
+        "Pagination, retries for pending results and JSON/CSV exports expose DNS resolver data through a CLI."
+      ]
+    },
+    {
+      "id": "AutoLand",
+      "title": "AutoLand",
+      "repo": "AutoLand",
+      "description": "AI landing-page generation with text and images from multiple model providers.",
+      "category": "AI & agents",
+      "tags": [
+        "Python"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/AutoLand",
+      "stars": 2,
+      "searchContent": [
+        "AI-generated landing pages combine model-written HTML, CSS and JavaScript with Flux image generation.",
+        "Parallel background steps, a SQLAdmin panel, WebSocket progress and checks for markup, SEO and accessibility support generation."
+      ]
+    },
+    {
+      "id": "Fast_Coin_Bob",
+      "title": "Fast Coin Bob",
+      "repo": "Fast_Coin_Bob",
+      "description": "Crypto trading backend with a FastAPI dashboard and Solana/Raydium integrations.",
+      "category": "Markets & Web3",
+      "tags": [
+        "Python",
+        "FastAPI",
+        "Solana"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/Fast_Coin_Bob",
+      "stars": 1,
+      "searchContent": [
+        "A Solana copy-trading backend monitors wallet transactions through WebSocket subscriptions.",
+        "Multi-DEX parsers, a Starlette admin dashboard and PostgreSQL storage connect transaction ingestion to configurable trading workflows."
+      ]
+    },
+    {
+      "id": "5-google-logflow",
+      "title": "LogFlow",
+      "repo": "5-google-logflow",
+      "description": "Centralized log ingestion via FastAPI, PostgreSQL metadata & MinIO storage.",
+      "category": "Backend & ops",
+      "tags": [
+        "Python",
+        "FastAPI",
+        "PostgreSQL",
+        "MinIO"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/5-google-logflow",
+      "stars": 1,
+      "searchContent": [
+        "FastAPI batch log ingestion tracks automation runs, execution status and metadata.",
+        "Filtering by task, profile, action, severity and time helps inspect workflow failures. PostgreSQL stores metadata and MinIO retains artifacts."
+      ],
+      "aliases": [
+        "google-logflow"
+      ]
+    },
+    {
+      "id": "url_validator",
+      "title": "URL Validator",
+      "repo": "url_validator",
+      "description": "Scheduled checks with PostgreSQL storage, Prometheus metrics & Grafana dashboards.",
+      "category": "Automation",
+      "tags": [
+        "Python",
+        "PostgreSQL",
+        "Prometheus",
+        "Grafana",
+        "aiohttp"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/url_validator",
+      "stars": 1,
+      "searchContent": [
+        "Async URL availability checks use asyncio and aiohttp with PostgreSQL storage.",
+        "PDF Content-Type validation, consecutive-failure tracking and dynamic Prometheus targets feed Grafana dashboards and Blackbox Exporter probes."
+      ],
+      "aliases": []
+    },
+    {
+      "id": "Flipper",
+      "title": "Flipper SubGHz API",
+      "repo": "Flipper",
+      "description": "FastAPI service to list and transmit Flipper Zero SubGHz files over USB.",
+      "category": "Automation",
+      "tags": [
+        "Python",
+        "FastAPI"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/Flipper",
+      "stars": 3,
+      "searchContent": [
+        "A FastAPI service lists and transmits Flipper Zero SubGHz files through a USB connection."
+      ]
+    },
+    {
+      "id": "virustotal-scraper",
+      "title": "VirusTotal Scraper",
+      "repo": "virustotal-scraper",
+      "description": "File-scan workflows combining browser automation and API integration.",
+      "category": "Data & bots",
+      "tags": [
+        "Python"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/virustotal-scraper",
+      "stars": 1,
+      "searchContent": [
+        "File, URL, domain and IP reputation checks combine browser workflows with the official VirusTotal API v3.",
+        "nodriver handles browser pages and Shadow DOM; rate limiting, retries, batch uploads and JSON persistence support scan processing."
+      ]
+    },
+    {
+      "id": "ai_playwright",
+      "title": "AI Playwright",
+      "repo": "ai_playwright",
+      "description": "LLM-driven Playwright workflows with page processing, provider adapters & AgentQL.",
+      "category": "AI & agents",
+      "tags": [
+        "Python",
+        "Playwright",
+        "AgentQL",
+        "LLM",
+        "Gemini"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/ai_playwright",
+      "stars": 2,
+      "searchContent": [
+        "Natural-language browser tasks use Playwright and AgentQL, with HTML cleaning and structured element queries.",
+        "Provider adapters support OpenAI, Anthropic Claude, Google Gemini, Groq and OpenRouter.",
+        "Faker supplies locale-aware test data and element highlighting provides feedback during automation."
+      ],
+      "aliases": []
+    },
+    {
+      "id": "Reddit_Farm",
+      "title": "Reddit Farm",
+      "repo": "Reddit_Farm",
+      "description": "Account/session management, workflow automation, proxies & an admin panel.",
+      "category": "Automation",
+      "tags": [
+        "Python",
+        "Celery",
+        "Redis",
+        "MySQL",
+        "SQLAlchemy",
+        "OpenAI"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/Reddit_Farm",
+      "stars": 2,
+      "searchContent": [
+        "A Starlette admin panel manages account sessions, proxies and scheduled Reddit workflows.",
+        "Celery and Redis run background tasks with Flower monitoring; MySQL and async SQLAlchemy store state.",
+        "OpenAI is integrated for content generation."
+      ],
+      "aliases": []
+    },
+    {
+      "id": "SIM_BANK",
+      "title": "SIM Bank",
+      "repo": "SIM_BANK",
+      "description": "Flask web app and Telegram bot for SIM-card management.",
+      "category": "Data & bots",
+      "tags": [
+        "Python",
+        "Flask",
+        "Telegram"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/SIM_BANK",
+      "stars": 0,
+      "searchContent": [
+        "A Flask web application and Telegram bot manage SIM-card workflows."
+      ]
+    },
+    {
+      "id": "browser-uae-ai",
+      "title": "Browser UAE AI",
+      "repo": "browser-uae-ai",
+      "description": "Multi-step web tasks through browser-use, OpenAI and Chrome CDP.",
+      "category": "AI & agents",
+      "tags": [
+        "Python",
+        "CDP",
+        "OpenAI"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/browser-uae-ai",
+      "stars": 2,
+      "searchContent": [
+        "Multi-step web tasks connect browser-use, OpenAI models and Chrome CDP sessions."
+      ]
+    },
+    {
+      "id": "company_classification",
+      "title": "company_classification",
+      "repo": "company_classification",
+      "description": "NLP company classifier using zero-shot transformers",
+      "category": "AI & agents",
+      "tags": [
+        "Automation"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/company_classification",
+      "stars": 1,
+      "searchContent": [
+        "Zero-shot NLP classification assigns company categories using transformer models."
+      ]
+    },
+    {
+      "id": "grimace-twitter",
+      "title": "Grimace Twitter",
+      "repo": "grimace-twitter",
+      "description": "AI-generated content, browser sessions & scheduled X/Twitter interactions.",
+      "category": "Automation",
+      "tags": [
+        "Python",
+        "React",
+        "WebSocket",
+        "PostgreSQL",
+        "Flask"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/grimace-twitter",
+      "stars": 3,
+      "searchContent": [
+        "An X / Twitter workflow combines AI content generation, content rewriting and scheduled browser interactions.",
+        "A React dashboard exposes WebSocket logs and configuration; Flask, PostgreSQL and Docker support the backend."
+      ],
+      "aliases": [
+        "Twitter",
+        "X"
+      ]
+    },
+    {
+      "id": "weekly-report-agent",
+      "title": "Weekly Report Agent",
+      "repo": "weekly-report-agent",
+      "description": "Git commit analysis → AI weekly reports & ClickUp task creation.",
+      "category": "AI & agents",
+      "tags": [
+        "Python",
+        "ClickUp",
+        "Claude"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/weekly-report-agent",
+      "stars": 1,
+      "searchContent": [
+        "Git commit analysis across multiple repositories generates AI-assisted weekly reports.",
+        "Claude groups changes into tasks; ClickUp API integration creates tasks with descriptions and time tracking."
+      ],
+      "aliases": []
+    },
+    {
+      "id": "car_iaai",
+      "title": "IAAI Scraper",
+      "repo": "car_iaai",
+      "description": "Async vehicle-auction data collection with aiohttp and SOCKS proxy support.",
+      "category": "Data & bots",
+      "tags": [
+        "Python",
+        "aiohttp"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/car_iaai",
+      "stars": 0,
+      "searchContent": [
+        "Asynchronous vehicle-auction data extraction uses aiohttp and SOCKS proxy support."
+      ]
+    },
+    {
+      "id": "VoiceHelper",
+      "title": "VoiceHelper",
+      "repo": "VoiceHelper",
+      "description": "Telegram voice/video transcription, reminder extraction & scheduled notifications.",
+      "category": "AI & agents",
+      "tags": [
+        "Python",
+        "Telegram",
+        "Google Speech Recognition",
+        "OpenAI",
+        "FFmpeg"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/VoiceHelper",
+      "stars": 0,
+      "searchContent": [
+        "Google Speech Recognition transcribes Telegram voice messages and video notes.",
+        "OpenAI analyzes transcripts for reminders; scheduled in-chat notifications and transcription caching complete the workflow.",
+        "FFmpeg processes audio; the bot supports Docker deployment."
+      ],
+      "aliases": []
+    },
+    {
+      "id": "FastCopyTradeSolana",
+      "title": "FastCopyTradeSolana",
+      "repo": "FastCopyTradeSolana",
+      "description": "Solana copy-trading: transaction analysis & automated trade execution.",
+      "category": "Markets & Web3",
+      "tags": [
+        "Python",
+        "Solana"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/FastCopyTradeSolana",
+      "stars": 1,
+      "searchContent": [
+        "Solana transaction analysis drives copy-trading workflows and automated execution."
+      ]
+    },
+    {
+      "id": "pdf_linkchecker_docker",
+      "title": "PDF Link Checker",
+      "repo": "pdf_linkchecker_docker",
+      "description": "Docker URL validation with redirect tracking, PDF detection & CSV reports.",
+      "category": "Automation",
+      "tags": [
+        "Python",
+        "Docker"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/pdf_linkchecker_docker",
+      "stars": 1,
+      "searchContent": [
+        "URL validation tracks redirects, detects PDF responses and exports CSV reports from a Docker runtime."
+      ]
+    },
+    {
+      "id": "GreenBit",
+      "title": "GreenBit",
+      "repo": "GreenBit",
+      "description": "Monobank-to-Binance purchase automation with transaction alerts in Telegram.",
+      "category": "Markets & Web3",
+      "tags": [
+        "Python",
+        "Telegram"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/GreenBit",
+      "stars": 1,
+      "searchContent": [
+        "Payment workflow automation connects Monobank and Binance with Telegram transaction notifications."
+      ]
+    },
+    {
+      "id": "antifraud-spy",
+      "title": "Antifraud Spy",
+      "repo": "antifraud-spy",
+      "description": "Chrome extension for tracing Canvas, WebGL and other fingerprinting API calls.",
+      "category": "Antifraud",
+      "tags": [
+        "JavaScript",
+        "Fingerprinting"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/antifraud-spy",
+      "stars": 3,
+      "searchContent": [
+        "Chrome extension instrumentation observes Canvas, WebGL and other browser fingerprinting API calls.",
+        "Inspect the browser signals requested by pages and antifraud checks."
+      ]
+    },
+    {
+      "id": "Auto_ria_tg_pars",
+      "title": "Auto.ria Telegram Parser",
+      "repo": "Auto_ria_tg_pars",
+      "description": "Vehicle-listing collection, filtering & matching notifications through Telegram.",
+      "category": "Data & bots",
+      "tags": [
+        "Python",
+        "Telegram"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/Auto_ria_tg_pars",
+      "stars": 0,
+      "searchContent": [
+        "Vehicle listings are collected, filtered and matched to criteria before Telegram notifications are sent."
+      ]
+    },
+    {
+      "id": "ai_desktop_agent",
+      "title": "AI Desktop Agent",
+      "repo": "ai_desktop_agent",
+      "description": "Claude Computer Use in Docker, with a virtual desktop and browser-based monitoring.",
+      "category": "AI & agents",
+      "tags": [
+        "Python",
+        "Docker",
+        "Claude",
+        "Monitoring"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/ai_desktop_agent",
+      "stars": 2,
+      "searchContent": [
+        "Claude Computer Use operates inside a Docker-hosted virtual desktop with browser-based monitoring."
+      ]
+    },
+    {
+      "id": "usphonebook-scraper",
+      "title": "USPhoneBook Scraper",
+      "repo": "usphonebook-scraper",
+      "description": "Containerized directory-record collection through browser automation.",
+      "category": "Data & bots",
+      "tags": [
+        "Python"
+      ],
+      "visibility": "public",
+      "href": "https://github.com/mazamaka/usphonebook-scraper",
+      "stars": 1,
+      "searchContent": [
+        "Containerized browser automation collects structured directory records."
+      ]
+    },
+    {
+      "id": "ai-website-platform",
+      "title": "AI Website Platform",
+      "description": "AI-powered platform for generating and managing site networks: MCP tools, background jobs, previews, automated deployment and monitoring.",
+      "category": "AI & agents",
+      "tags": [
+        "MCP",
+        "Monitoring"
+      ],
+      "visibility": "private",
+      "keywords": "AI Website Platform",
+      "overview": "AI-powered platform for generating and managing site networks: MCP tools, background jobs, previews, automated deployment and monitoring. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.",
+      "searchContent": [
+        "MCP tools and background jobs connect AI content generation, site previews, deployment and monitoring.",
+        "The platform manages networks of websites through an administration interface and automated publishing workflows."
+      ]
+    },
+    {
+      "id": "event-management-platform",
+      "title": "Event Management Platform",
+      "description": "Event platform with guest registration, invitations, QR check-in and seating; role-based admin access, notifications and audit trails.",
+      "category": "Automation",
+      "tags": [
+        "Automation"
+      ],
+      "visibility": "private",
+      "keywords": "Event Management Platform",
+      "overview": "Event platform with guest registration, invitations, QR check-in and seating; role-based admin access, notifications and audit trails. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.",
+      "searchContent": [
+        "Guest registration, invitations and QR check-in connect to seating management.",
+        "Role-based administration, notifications and audit trails support event operations."
+      ]
+    },
+    {
+      "id": "news-intelligence",
+      "title": "News Intelligence",
+      "description": "News, economic calendars and weather ingestion with scheduled collectors, embeddings and semantic search over PostgreSQL/pgvector; FastAPI dashboard.",
+      "category": "AI & agents",
+      "tags": [
+        "FastAPI",
+        "PostgreSQL",
+        "pgvector"
+      ],
+      "visibility": "private",
+      "keywords": "News Intelligence",
+      "overview": "News, economic calendars and weather ingestion with scheduled collectors, embeddings and semantic search over PostgreSQL/pgvector; FastAPI dashboard. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.",
+      "searchContent": [
+        "Scheduled collectors ingest news, economic calendars and weather.",
+        "Embeddings and PostgreSQL pgvector power semantic search through a FastAPI dashboard."
+      ]
+    },
+    {
+      "id": "document-ai-pipeline",
+      "title": "Document AI Pipeline",
+      "description": "Queued PDF processing: OCR, language detection, previews and duplicate checks, followed by LLM descriptions and metadata; RabbitMQ, PostgreSQL and S3.",
+      "category": "AI & agents",
+      "tags": [
+        "PostgreSQL",
+        "RabbitMQ",
+        "S3",
+        "OCR",
+        "LLM"
+      ],
+      "visibility": "private",
+      "keywords": "Document AI Pipeline",
+      "overview": "Queued PDF processing: OCR, language detection, previews and duplicate checks, followed by LLM descriptions and metadata; RabbitMQ, PostgreSQL and S3. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.",
+      "searchContent": [
+        "RabbitMQ queues PDF processing with OCR, language detection, document previews and duplicate checks.",
+        "LLM-generated descriptions and metadata follow extraction; PostgreSQL and S3 store records and files."
+      ]
+    },
+    {
+      "id": "modem-control-platform",
+      "title": "Modem Control Platform",
+      "description": "Control plane for modem and proxy fleets: 3proxy configuration, network switching, recovery, traffic statistics and SMS/USSD integrations.",
+      "category": "Backend & ops",
+      "tags": [
+        "Automation"
+      ],
+      "visibility": "private",
+      "keywords": "Modem Control Platform",
+      "overview": "Control plane for modem and proxy fleets: 3proxy configuration, network switching, recovery, traffic statistics and SMS/USSD integrations. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.",
+      "searchContent": [
+        "A modem and proxy control plane manages 3proxy configuration, network switching and recovery.",
+        "Traffic statistics, SMS and USSD integrations support fleet operations."
+      ]
+    },
+    {
+      "id": "maxbob-ai",
+      "title": "MaxBob AI",
+      "description": "Native iOS/macOS/watchOS AI assistant with SwiftUI, realtime voice and Apple integrations.",
+      "category": "AI & agents",
+      "tags": [
+        "SwiftUI",
+        "Swift"
+      ],
+      "visibility": "private",
+      "keywords": "MaxBob AI",
+      "overview": "Native iOS/macOS/watchOS AI assistant with SwiftUI, realtime voice and Apple integrations. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.",
+      "searchContent": [
+        "SwiftUI native interfaces span iOS, macOS and watchOS with realtime voice and a Python backend.",
+        "WebRTC carries audio; Apple integrations include reminders, shortcuts, music and cross-device synchronization."
+      ]
+    },
+    {
+      "id": "maxbob-backend",
+      "title": "maxbob-backend",
+      "description": "FastAPI backend for realtime voice over WebRTC, with calendar integration.",
+      "category": "AI & agents",
+      "tags": [
+        "FastAPI",
+        "WebRTC"
+      ],
+      "visibility": "private",
+      "keywords": "maxbob-backend",
+      "overview": "FastAPI backend for realtime voice over WebRTC, with calendar integration. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.",
+      "searchContent": [
+        "FastAPI provides a realtime voice backend over WebRTC with calendar integration."
+      ]
+    },
+    {
+      "id": "automation-control-platform",
+      "title": "Automation Control Platform",
+      "description": "Google workflow orchestration with Gmail/OAuth, Google Ads integrations, task management and browser profiles.",
+      "category": "Automation",
+      "tags": [
+        "Automation",
+        "Python",
+        "FastAPI",
+        "MCP",
+        "RabbitMQ",
+        "Google Ads",
+        "Gmail",
+        "OAuth",
+        "Gemini"
+      ],
+      "visibility": "private",
+      "keywords": "",
+      "overview": "Task orchestration, audit logs, payment integrations, live updates & exports. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.",
+      "searchContent": [
+        "Google workflow orchestration includes Gmail access, Google OAuth and Google Ads conversion integrations.",
+        "An administration service manages task generation, browser profiles, audit logs, live updates and exports. MCP tools expose task statistics and recent failures.",
+        "AI provider adapters include Google Gemini; RabbitMQ coordinates background tasks."
+      ],
+      "aliases": [
+        "google-admin",
+        "Google administration",
+        "гугл админ"
+      ]
+    },
+    {
+      "id": "ai-browser-task-runner",
+      "title": "AI Browser Task Runner",
+      "description": "AI-assisted Google and browser workflows with Octo Browser, Playwright, Temporal workers and execution tracking.",
+      "category": "AI & agents",
+      "tags": [
+        "Automation",
+        "LLM",
+        "Python",
+        "Playwright",
+        "Temporal",
+        "Google Ads",
+        "Octo Browser"
+      ],
+      "visibility": "private",
+      "keywords": "",
+      "overview": "AI browser task runner with Octo Browser, provider integrations & LLM usage tracking. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.",
+      "searchContent": [
+        "Google browser workflows use Octo Browser profiles, Playwright and Google Ads orchestration.",
+        "Temporal workers coordinate tasks and report execution status. Provider integrations and LLM usage tracking support AI-assisted browser actions."
+      ],
+      "aliases": [
+        "google-client",
+        "Google browser automation",
+        "гугл клиент"
+      ]
+    },
+    {
+      "id": "browser-interaction-service",
+      "title": "Browser Interaction Service",
+      "description": "Browser interaction emulation and behavioral metrics collection for automation workers.",
+      "category": "Data & bots",
+      "tags": [
+        "Automation"
+      ],
+      "visibility": "private",
+      "keywords": "",
+      "overview": "Browser interaction emulation and behavioral metrics collection for automation workers. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.",
+      "searchContent": [
+        "Automation workers emulate browser interactions and collect behavioral metrics."
+      ]
+    },
+    {
+      "id": "browser-worker-health",
+      "title": "Browser Worker Health",
+      "description": "Health monitoring and automatic recovery for browser-automation workers.",
+      "category": "Backend & ops",
+      "tags": [
+        "Automation",
+        "Monitoring"
+      ],
+      "visibility": "private",
+      "keywords": "",
+      "overview": "Health monitoring and automatic recovery for browser-automation workers. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.",
+      "searchContent": [
+        "Health monitoring detects failures in browser-automation workers and triggers recovery."
+      ]
+    },
+    {
+      "id": "apple-developer-workflows",
+      "title": "Apple Developer Workflows",
+      "description": "Apple Developer registration workflows with SMS providers and fingerprint analysis.",
+      "category": "Antifraud",
+      "tags": [
+        "Automation",
+        "Fingerprinting"
+      ],
+      "visibility": "private",
+      "keywords": "",
+      "overview": "Apple Developer registration workflows with SMS providers and fingerprint analysis. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.",
+      "searchContent": [
+        "Apple Developer registration workflows integrate SMS providers and browser fingerprint analysis."
+      ]
+    },
+    {
+      "id": "account-fingerprint-diagnostics",
+      "title": "Account & Fingerprint Diagnostics",
+      "description": "Apple account verification and browser fingerprint-quality diagnostics.",
+      "category": "Antifraud",
+      "tags": [
+        "Automation",
+        "Fingerprinting"
+      ],
+      "visibility": "private",
+      "keywords": "",
+      "overview": "Apple account verification and browser fingerprint-quality diagnostics. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.",
+      "searchContent": [
+        "Apple account verification is paired with browser fingerprint-quality diagnostics."
+      ]
+    },
+    {
+      "id": "recruiter-bot",
+      "title": "recruiter-bot",
+      "description": "Recruiting questionnaires, resume storage in MinIO & Google Sheets export.",
+      "category": "Data & bots",
+      "tags": [
+        "MinIO",
+        "Google Sheets",
+        "Python",
+        "Telegram"
+      ],
+      "visibility": "private",
+      "keywords": "recruiter-bot",
+      "overview": "Recruiting questionnaires, resume storage in MinIO & Google Sheets export. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.",
+      "searchContent": [
+        "Telegram recruiting questionnaires collect applications and resumes.",
+        "Google Sheets export, MinIO file storage and a web administration interface connect recruiting data to review workflows."
+      ],
+      "aliases": [
+        "recruiting",
+        "recruitment",
+        "резюме",
+        "найм"
+      ]
+    },
+    {
+      "id": "account-issuance-bot",
+      "title": "account-issuance-bot",
+      "description": "Account allocation with Google Sheets synchronization and MySQL storage.",
+      "category": "Data & bots",
+      "tags": [
+        "MySQL",
+        "Google Sheets",
+        "Python",
+        "Telegram"
+      ],
+      "visibility": "private",
+      "keywords": "account-issuance-bot",
+      "overview": "Account allocation with Google Sheets synchronization and MySQL storage. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.",
+      "searchContent": [
+        "A Telegram bot handles account allocation and updates availability in MySQL.",
+        "Google Sheets synchronization keeps the operational spreadsheet aligned with stored records."
+      ],
+      "aliases": []
+    },
+    {
+      "id": "income-vacancies-bot",
+      "title": "income-vacancies-bot",
+      "description": "Payment and vacancy approval workflows with Telegram handlers & an admin panel.",
+      "category": "Data & bots",
+      "tags": [
+        "Telegram"
+      ],
+      "visibility": "private",
+      "keywords": "income-vacancies-bot",
+      "overview": "Payment and vacancy approval workflows with Telegram handlers & an admin panel. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.",
+      "searchContent": [
+        "Telegram handlers connect payment and vacancy approval workflows to an administration panel."
+      ]
+    },
+    {
+      "id": "ugc-talent-hub-bot",
+      "title": "ugc-talent-hub-bot",
+      "description": "Telegram onboarding and structured data collection for content creators.",
+      "category": "Data & bots",
+      "tags": [
+        "Telegram"
+      ],
+      "visibility": "private",
+      "keywords": "ugc-talent-hub-bot",
+      "overview": "Telegram onboarding and structured data collection for content creators. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.",
+      "searchContent": [
+        "Telegram onboarding collects structured information from content creators."
+      ]
+    },
+    {
+      "id": "daily-report-bot",
+      "title": "daily-report-bot",
+      "description": "Collecting and aggregating daily reports through Telegram.",
+      "category": "Data & bots",
+      "tags": [
+        "Telegram"
+      ],
+      "visibility": "private",
+      "keywords": "daily-report-bot",
+      "overview": "Collecting and aggregating daily reports through Telegram. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.",
+      "searchContent": [
+        "Telegram conversations collect daily reports for aggregation and review."
+      ]
+    },
+    {
+      "id": "domain-bot",
+      "title": "domain-bot",
+      "description": "Domain and DNS management through Cloudflare API and Telegram commands.",
+      "category": "Data & bots",
+      "tags": [
+        "Telegram",
+        "Cloudflare"
+      ],
+      "visibility": "private",
+      "keywords": "domain-bot",
+      "overview": "Domain and DNS management through Cloudflare API and Telegram commands. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.",
+      "searchContent": [
+        "Telegram commands integrate with the Cloudflare API for domain and DNS management."
+      ]
+    },
+    {
+      "id": "sim-bank-bot",
+      "title": "sim-bank-bot",
+      "description": "SIM-card management workflows through a Telegram bot and web admin panel.",
+      "category": "Data & bots",
+      "tags": [
+        "Telegram"
+      ],
+      "visibility": "private",
+      "keywords": "sim-bank-bot",
+      "overview": "SIM-card management workflows through a Telegram bot and web admin panel. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.",
+      "searchContent": [
+        "SIM-card operations connect a Telegram bot to a web administration panel."
+      ]
+    },
+    {
+      "id": "inkhub",
+      "title": "InkHub",
+      "description": "Content platform with FastAPI, React, data collection, background scripts & monitoring.",
+      "category": "Backend & ops",
+      "tags": [
+        "FastAPI",
+        "React",
+        "Monitoring"
+      ],
+      "visibility": "private",
+      "keywords": "InkHub",
+      "overview": "Content platform with FastAPI, React, data collection, background scripts & monitoring. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.",
+      "searchContent": [
+        "FastAPI and React connect content management with data collection, background scripts and monitoring."
+      ]
+    },
+    {
+      "id": "temporal-workflows",
+      "title": "Temporal workflows",
+      "description": "Distributed automation workflows with Temporal workers & task orchestration.",
+      "category": "Backend & ops",
+      "tags": [
+        "Temporal"
+      ],
+      "visibility": "private",
+      "keywords": "Temporal workflows",
+      "overview": "Distributed automation workflows with Temporal workers & task orchestration. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.",
+      "searchContent": [
+        "Temporal workers execute distributed workflows and coordinate automation tasks."
+      ]
+    },
+    {
+      "id": "pump-fun-trading-bot",
+      "title": "Pump.fun trading bot",
+      "description": "Solana token monitoring with realtime ingestion, trading workflows & an admin panel.",
+      "category": "Markets & Web3",
+      "tags": [
+        "Solana",
+        "Monitoring"
+      ],
+      "visibility": "private",
+      "keywords": "Pump.fun trading bot",
+      "overview": "Solana token monitoring with realtime ingestion, trading workflows & an admin panel. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.",
+      "searchContent": [
+        "Realtime Solana token ingestion supports monitoring, trading workflows and an administration panel."
+      ]
+    }
+  ],
+  "searchIndexReviewedAt": "2026-10-04"
+}

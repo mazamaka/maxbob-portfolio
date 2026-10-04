@@ -1,0 +1,14 @@
+import {build} from 'esbuild';
+import {readFile,writeFile,mkdir,rm} from 'node:fs/promises';
+import {execFileSync} from 'node:child_process';
+import {pathToFileURL} from 'node:url';
+await mkdir('.sites-runtime',{recursive:true});
+await build({entryPoints:['src/cards.tsx'],bundle:true,minify:true,format:'esm',target:'es2022',outfile:'dist/projects.js',define:{'process.env.NODE_ENV':'"production"'}});
+await build({entryPoints:['src/render-cards.tsx'],bundle:true,platform:'node',format:'esm',packages:'external',outfile:'.sites-runtime/render-cards.mjs'});
+const {html}=await import(pathToFileURL(`${process.cwd()}/.sites-runtime/render-cards.mjs`));
+const source=await readFile('dist/index.html','utf8');
+if(!source.includes('<!-- PROJECT-GALLERY:START -->'))throw new Error('Missing project gallery marker');
+await writeFile('dist/index.html',source.replace(/<!-- PROJECT-GALLERY:START -->[\s\S]*?<!-- PROJECT-GALLERY:END -->/,`<!-- PROJECT-GALLERY:START --><div id="project-gallery">${html}</div><!-- PROJECT-GALLERY:END -->`));
+execFileSync('node_modules/.bin/tailwindcss',['-i','styles/projects.css','-o','dist/projects.css','--minify'],{stdio:'inherit'});
+await rm('.sites-runtime/render-cards.mjs');
+console.log('Built and prerendered project cards.');
