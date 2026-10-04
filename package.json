@@ -4,10 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "branding": "node scripts/build-brand-assets.cjs",
     "vendor": "node scripts/vendor.mjs",
-    "build": "node scripts/build-cards.mjs && python3 scripts/build-cases.py",
+    "build": "node scripts/build-cards.mjs && python3 scripts/build-seo.py && python3 scripts/build-cases.py",
     "typecheck": "tsc --noEmit",
-    "check": "python3 scripts/check-site.py && node scripts/check-search.mjs && node scripts/check-stars.mjs"
+    "check": "python3 scripts/check-site.py && python3 scripts/check-seo.py && node scripts/check-search.mjs && node scripts/check-stars.mjs"
   },
   "dependencies": {
     "clsx": "2.1.1",
@@ -24,6 +25,7 @@
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "esbuild": "0.28.2",
+    "sharp": "0.35.4",
     "tailwindcss": "4.3.0",
     "typescript": "7.0.2"
   }

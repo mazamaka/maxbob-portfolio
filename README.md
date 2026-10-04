@@ -45,11 +45,19 @@ Open [localhost:8000](http://localhost:8000). The checked-in `dist/` can also be
 | Search and gallery components | `src/search.ts`, `components/` |
 | Layout and styling | `dist/light-theme.css`, `styles/projects.css` |
 | Case-study pages | `scripts/build-cases.py` |
+| SEO, structured data and crawler directory | `scripts/site_metadata.py`, `scripts/build-seo.py` |
+| Browser icons and social previews | `dist/favicon.svg`, `scripts/build-brand-assets.cjs` |
 | Illustrations, font and downloadable CV | `dist/assets/` |
 
 The build replaces the gallery between the `PROJECT-GALLERY` markers and regenerates case-study pages. Keep the main page shell in `dist/index.html`; it is a build input as well as deployable output.
 
 To regenerate the CV, install the optional Python `reportlab` package and run `python3 scripts/build-cv.py`. The ready-to-download PDF is included.
+
+Run `npm run branding` to regenerate the PNG/ICO icons and four 1200 × 630 JPEG link previews. Existing illustrations are read-only inputs. The branding assets are committed, so a regular build does not need to regenerate them.
+
+The shared metadata builder keeps canonical URLs, Open Graph, Twitter cards and JSON-LD consistent across the home page and case studies. `/projects/` exposes the same reviewed catalog summaries in HTML, including when JavaScript is unavailable; private repository links are never generated. The existing page layout, copy and animation files do not depend on this directory. `/sitemap.xml` lists the canonical HTML pages, and `/llms.txt` is an optional navigation aid for tools that support it, not a ranking signal or indexing guarantee.
+
+Crawler access retains the existing allow-all `robots.txt` policy. AI search uses the same public content as visitors; no crawler-only claims, keyword stuffing, invented reviews or hidden private content are added. References: [Google Search AI features](https://developers.google.com/search/docs/appearance/ai-features), [OpenAI crawler controls](https://developers.openai.com/api/docs/bots), [Open Graph](https://ogp.me/).
 
 Publish the contents of **`dist/`** to a static web host. See [deployment notes](DEPLOYMENT.md) and [component notes](COMPONENTS.md).
 
