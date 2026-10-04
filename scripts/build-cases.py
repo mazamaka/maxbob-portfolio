@@ -1,6 +1,6 @@
 from pathlib import Path
 from html import escape
-import re
+from site_metadata import metadata, graph, replace_metadata, shared_layout, SITE
 
 ROOT = Path(__file__).resolve().parents[1]
 source = (ROOT / 'dist/index.html').read_text()
@@ -9,13 +9,7 @@ header = source[source.index('<header'):source.index('</header>')+9]
 footer = source[source.index('<footer'):source.index('</footer>')+9]
 
 def shared(text):
-    text = text.replace('href="#top"', 'href="../../"')
-    for anchor in ['work','experience','expertise']:
-        text = text.replace('href="#'+anchor+'"', 'href="../../#'+anchor+'"')
-    text = text.replace('href="assets/', 'href="../../assets/').replace('src="assets/', 'src="../../assets/')
-    text = text.replace('href="style.css"','href="../../style.css"').replace('href="light-theme.css','href="../../light-theme.css').replace('href="projects.css','href="../../projects.css')
-    text = text.replace('src="vendor/','src="../../vendor/').replace('src="motion.js','src="../../motion.js')
-    return text
+    return shared_layout(text, '../../')
 
 CASES = [
  {
@@ -63,12 +57,17 @@ CASES = [
 ]
 
 for case in CASES:
-    h = shared(head)
-    h = h.replace('https://cv.maxbob.xyz/','https://cv.maxbob.xyz/cases/'+case['slug']+'/')
-    h = re.sub(r'<meta property="og:title" content="[^\"]*">', '<meta property="og:title" content="'+escape(case['name'],quote=True)+' — Maksym Babenko">',h)
-    h = re.sub(r'<meta property="og:description" content="[^\"]*">', '<meta property="og:description" content="'+escape(case['description'],quote=True)+'">',h)
-    h = re.sub(r'<title>.*?</title>', '<title>'+escape(case['name'])+' — Maksym Babenko</title>',h)
-    h = re.sub(r'<meta name="description" content="[^"]*">', '<meta name="description" content="'+escape(case['description'],quote=True)+'">',h)
+    path = '/cases/' + case['slug'] + '/'
+    page_title = case['name'] + ' — Engineering Case Study | MaxBob'
+    data = graph(path, page_title, case['description'], extra={
+        'mainEntity': {'@type': 'CreativeWork', 'name': case['name'], 'description': case['lead'],
+                       'author': {'@id': SITE + '/#person'}, 'url': SITE + path,
+                       'sameAs': [url for _, url in case['links']]},
+        'breadcrumb': {'@type': 'BreadcrumbList', 'itemListElement': [
+            {'@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': SITE + '/'},
+            {'@type': 'ListItem', 'position': 2, 'name': case['name'], 'item': SITE + path}]}})
+    h = shared(replace_metadata(head, metadata(path, page_title, case['description'],
+        image=case['slug'] + '-v1.jpg', image_alt=case['name'] + ' — engineering case study by Maksym Babenko.', data=data)))
     links=''.join('<a href="'+url+'" target="_blank" rel="noreferrer">'+escape(label)+'</a>' for label,url in case['links'])
     role=''.join('<li>'+escape(item)+'</li>' for item in case['role'])
     decisions=''.join('<p><strong>'+escape(title)+'.</strong> '+escape(body)+'</p>' for title,body in case['decisions'])

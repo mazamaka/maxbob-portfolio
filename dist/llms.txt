@@ -1,0 +1,22 @@
+# MaxBob — Maksym Babenko
+
+> Senior AI & Automation Engineer with 8+ years in software. AI agents, MCP tools, browser automation, antifraud and Python systems.
+
+This index describes the public portfolio. Private work is represented only by reviewed public summaries; private source code is not published here.
+
+## Portfolio
+
+- [Profile and experience](https://cv.maxbob.xyz/): Background, selected projects, expertise and contact links.
+- [Complete project directory](https://cv.maxbob.xyz/projects/): Readable HTML with project capabilities, technologies and public source links.
+- [CV PDF](https://cv.maxbob.xyz/assets/Maksym-Babenko-CV.pdf): Professional experience, project selection and clickable links.
+
+## Engineering cases
+
+- [octo-mcp](https://cv.maxbob.xyz/cases/octo-mcp/): MCP tools, browser profiles, Playwright and CDP.
+- [alpha-scout](https://cv.maxbob.xyz/cases/alpha-scout/): Scheduled collection, deduplication, LLM analysis and Telegram alerts.
+- [Browser fingerprinting](https://cv.maxbob.xyz/cases/browser-fingerprinting/): Browser configuration and IP/device diagnostics.
+
+## Public profiles
+
+- [GitHub](https://github.com/mazamaka)
+- [LinkedIn](https://www.linkedin.com/in/max-bob-python/)
