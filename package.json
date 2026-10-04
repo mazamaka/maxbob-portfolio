@@ -1,0 +1,30 @@
+{
+  "name": "maxbob-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "vendor": "node scripts/vendor.mjs",
+    "build": "node scripts/build-cards.mjs && python3 scripts/build-cases.py",
+    "typecheck": "tsc --noEmit",
+    "check": "python3 scripts/check-site.py && node scripts/check-search.mjs"
+  },
+  "dependencies": {
+    "clsx": "2.1.1",
+    "framer-motion": "14.0.0",
+    "gsap": "3.15.0",
+    "lucide-react": "1.52.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "tailwind-merge": "3.7.0",
+    "three": "0.186.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.3.0",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "esbuild": "0.28.2",
+    "tailwindcss": "4.3.0",
+    "typescript": "7.0.2"
+  }
+}
