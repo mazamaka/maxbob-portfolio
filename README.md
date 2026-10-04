@@ -4,7 +4,7 @@ An illustrated portfolio of **AI agents, browser automation, fingerprinting tool
 
 🌐 **[Live portfolio](https://cv.maxbob.xyz/)** · 🐙 **[GitHub profile](https://github.com/mazamaka)** · 📄 **[Download CV](https://cv.maxbob.xyz/assets/Maksym-Babenko-CV.pdf)** · [Resume — EN / RU](https://github.com/mazamaka/resume)
 
-![MaxBob illustrated developer workshop](dist/assets/developer-workshop-v1.webp)
+![MaxBob illustrated developer workshop](dist/assets/developer-workshop-morning-v2.webp)
 
 ## ✨ What’s inside
 
