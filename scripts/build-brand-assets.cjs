@@ -26,7 +26,7 @@ async function main() {
   });
   await fs.writeFile(path.join(dist, 'favicon.ico'), Buffer.concat([header, ...frames]));
   const cards = [
-    {slug:'maxbob', image:'developer-workshop-v1.webp', kicker:'SENIOR AI & AUTOMATION ENGINEER', title:['Maksym','Babenko.'], copy:['AI agents. Browser automation.','Antifraud engineering. Python.'], foot:'8+ years building software', font:72},
+    {slug:'maxbob', version:2, image:'developer-workshop-morning-v2.webp', kicker:'SENIOR AI & AUTOMATION ENGINEER', title:['Maksym','Babenko.'], copy:['AI agents. Browser automation.','Antifraud engineering. Python.'], foot:'8+ years building software', font:72},
     {slug:'octo-mcp', image:'projects/octo-mcp-v1.webp', kicker:'ENGINEERING CASE STUDY', title:['octo-mcp'], copy:['Give AI agents a browser','they can work with.'], foot:'Python · MCP · Playwright · CDP', font:70},
     {slug:'alpha-scout', image:'projects/alpha-scout-v1.webp', kicker:'ENGINEERING CASE STUDY', title:['alpha-scout'], copy:['From source collection','to LLM analysis and alerts.'], foot:'Python · LLM · FastAPI · Telegram', font:64},
     {slug:'browser-fingerprinting', image:'projects/nodriver-antidetect-v1.webp', kicker:'ENGINEERING CASE STUDY', title:['Browser','fingerprinting.'], copy:['Configure the environment.','Inspect the signals.'], foot:'Python · CDP · Browser diagnostics', font:53},
@@ -52,7 +52,7 @@ async function main() {
 <text x="58" y="570" font-family="Helvetica,Arial,sans-serif" font-size="19" font-weight="600" fill="#945f47">cv.maxbob.xyz</text>
 ${c.slug === 'maxbob' ? '' : '<text x="602" y="570" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="16" fill="#596b50">Maksym Babenko</text>'}
 </svg>`;
-    await sharp(Buffer.from(svg)).jpeg({quality:92, chromaSubsampling:'4:4:4'}).toFile(path.join(out, c.slug+'-v1.jpg'));
+    await sharp(Buffer.from(svg)).jpeg({quality:92, chromaSubsampling:'4:4:4'}).toFile(path.join(out, c.slug+'-v'+(c.version ?? 1)+'.jpg'));
   }
   console.log('Built favicon SVG/ICO/PNG family and four 1200×630 social cards.');
 }

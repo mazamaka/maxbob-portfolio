@@ -37,7 +37,7 @@ def graph(path, title, description, page_type='WebPage', extra=None):
     return {'@context': 'https://schema.org', '@graph': identity() + [page]}
 
 
-def metadata(path='/', title=TITLE, description=DESCRIPTION, image='maxbob-v1.jpg',
+def metadata(path='/', title=TITLE, description=DESCRIPTION, image='maxbob-v2.jpg',
              image_alt='MaxBob — Maksym Babenko, Senior AI & Automation Engineer. AI agents, automation and browser engineering.',
              data=None):
     url, image_url = SITE + path, SITE + '/assets/social/' + image
