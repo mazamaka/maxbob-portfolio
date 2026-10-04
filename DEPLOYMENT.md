@@ -6,7 +6,9 @@ Live portfolio: **https://cv.maxbob.xyz/**
 2. Publish only the contents of `dist/` to a static web host.
 3. Serve `index.html` for directory URLs, including `/cases/octo-mcp/`, `/cases/alpha-scout/` and `/cases/browser-fingerprinting/`.
 4. Enable HTTPS. Revalidate HTML on requests; retain query-string cache versions on assets.
-5. Check the home page, case studies, search, CV download and footer links after publishing.
+5. Check the home page, case studies, search, CV download, footer links and live GitHub star counts after publishing.
+
+The browser reads public counts from `https://api.github.com`. If adding a Content Security Policy, allow that origin in `connect-src`. No GitHub token or scheduled rebuild is required; device-local saved counts are used when the API is unavailable.
 
 Keep the previous build available for rollback. Hosting configuration and credentials are managed separately from this repository.
 
