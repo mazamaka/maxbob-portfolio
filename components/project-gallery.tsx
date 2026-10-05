@@ -51,15 +51,15 @@ export function ProjectGallery(){
   </div>
   <div className="catalog-status"><p role="status" aria-live="polite" aria-atomic="true">{active?<><strong>{hits.length}</strong> {hits.length===1?"project":"projects"} found{hits.length>0&&<span className="result-breakdown"> · {hits.filter(h=>h.project.visibility==="public").length} public / {hits.filter(h=>h.project.visibility==="private").length} private</span>}</>:<>Selected work <span>· Explore {allProjects.length} projects</span></>}</p><button onClick={()=>active?reset():setBrowseAll(true)} disabled={!ready}>{active?"Back to selected":"Browse all projects"}<ArrowUpRight size={14}/></button></div>
   <div id="catalog-results" ref={resultRegion} tabIndex={-1} aria-label="Project results">
-   {!active?<div className="p-grid">{projects.map(project=><InteractiveTravelCard key={project.title} {...project} stars={currentStars(project.repo,project.stars,githubStars.snapshot)} subtitle={project.category} actionHref={project.caseHref??project.live??project.href} actionText={project.caseHref?"Read case study":project.live?"Explore live project":"View on GitHub"}/>)}</div>
+   {!active?<div className="p-grid">{projects.map(project=><InteractiveTravelCard key={project.title} {...project} stars={currentStars(project.repo,project.stars,githubStars.snapshot)} subtitle={project.category} actionHref={project.caseHref??project.live??project.href} actionText={project.caseHref?(project.repo?"Read case study":"Project overview"):project.live?"Explore live project":"View on GitHub"}/>)}</div>
    :hits.length?<div className="catalog-list">{hits.map(({project,excerpt,matchedIn})=><article key={project.id} className="catalog-result">
     <div><div className="result-meta"><span>{project.category}</span><span>{project.visibility==="private"?<><LockKeyhole size={13} aria-hidden="true"/>Private project</>:"Public repository"}</span>{project.stars!==undefined&&<span aria-label={`${project.stars} GitHub stars`}><Star size={13} aria-hidden="true"/>{project.stars}</span>}</div>
      <h3><Highlight text={project.title} query={query}/></h3><p><Highlight text={project.description} query={query}/></p>
      {query.trim()&&excerpt!==project.description&&<div className="result-match"><BookOpen size={14}/><p><span>{matchedIn}</span><Highlight text={excerpt} query={query}/></p></div>}
      <ul className="p-tags" aria-label={`${project.title} technologies`}>{project.tags.map(tag=><li key={tag}><Highlight text={tag} query={query}/></li>)}</ul></div>
-    <div className="result-actions">{project.caseHref&&<a className="p-primary" href={project.caseHref} onClick={rememberPosition}>Read case study</a>}
+    <div className="result-actions">{project.caseHref&&<a className="p-primary" href={project.caseHref} onClick={rememberPosition}>{project.visibility==="private"?"Project overview":"Read case study"}</a>}
      {project.visibility==="public"&&project.href&&<a className={project.caseHref?"p-source":"p-primary"} href={project.href} target="_blank" rel="noreferrer">View on GitHub<ArrowUpRight size={14}/></a>}
-     <button className={project.visibility==="private"?"p-primary":"result-details"} onClick={()=>setSelected(project)}>{project.visibility==="private"?"Project overview":"Project details"}</button>
+     <button className={project.visibility==="private"&&!project.caseHref?"p-primary":"result-details"} onClick={()=>setSelected(project)}>{project.visibility==="private"&&!project.caseHref?"Project overview":"Project details"}</button>
      {project.live&&<a className="p-source" href={project.live} target="_blank" rel="noreferrer">Visit product</a>}
     </div>
    </article>)}</div>:<div className="catalog-empty"><SearchEmpty/><h3>No matching projects.</h3><p>{filterCount?"Try removing a filter or use a broader term.":"Try an integration, technology or task — Google, voice, OCR or browser automation."}</p><button className="p-primary" onClick={reset}>Reset search</button></div>}
@@ -72,7 +72,7 @@ export function ProjectGallery(){
     {!!selected.searchContent?.length&&<><h3>Inside the project</h3><ul className="overview-content">{selected.searchContent.map(text=><li key={text}><Highlight text={text} query={query}/></li>)}</ul></>}
     <h3>Engineering focus</h3><ul className="p-tags">{selected.tags.map(tag=><li key={tag}>{tag}</li>)}</ul>
     {selected.visibility==="private"?<><p className="overview-note">The implementation is private. I can discuss the architecture and my contribution without sharing source code or client data.</p><a className="p-primary" href={`mailto:mazamaka603@gmail.com?subject=${encodeURIComponent(`Let's discuss ${selected.title}`)}`}>Discuss this project</a></>:<a className="p-primary" href={selected.href} target="_blank" rel="noreferrer">Explore the source<ArrowUpRight size={15}/></a>}
-    {selected.caseHref&&<a className="overview-case" href={selected.caseHref} onClick={rememberPosition}>Read the case study →</a>}
+    {selected.caseHref&&<a className="overview-case" href={selected.caseHref} onClick={rememberPosition}>{selected.visibility==="private"?"Read the project overview →":"Read the case study →"}</a>}
    </>}
   </dialog>
  </div>;

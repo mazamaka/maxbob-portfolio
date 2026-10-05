@@ -46,6 +46,28 @@ for(const p of allProjects){
 console.log(`PASS: ${allProjects.length} unique catalog entries; Google/content regressions; bilingual search and highlights; ranking; combined filters; private repository guard`);
 
 const page=await readFile('dist/index.html','utf8');
+const {cases}=JSON.parse(await readFile('src/case-studies.json','utf8'));
+assert.equal(new Set(cases.map(c=>c.slug)).size,cases.length,'Case routes must be unique');
+assert.equal(new Set(cases.map(c=>c.projectId)).size,cases.length,'Each project must have one case');
+const directory=await readFile('dist/projects/index.html','utf8');
+const gallery=page.split('<!-- PROJECT-GALLERY:START -->')[1].split('<!-- PROJECT-GALLERY:END -->')[0];
+assert.equal((gallery.match(/class="p-primary"/g)??[]).length,cases.length,'Every featured card needs a case action');
+for(const c of cases){
+ const href=`cases/${c.slug}/`;
+ assert.equal(allProjects.find(p=>p.id===c.projectId)?.caseHref,href,`${c.projectId}: search must link to its own case`);
+ assert.ok(gallery.includes(`href="${href}"`),`${c.projectId}: featured card must link to its case`);
+ assert.ok(directory.includes(`href="/${href}"`),`${c.projectId}: directory must link to its case`);
+ const detail=await readFile(`dist/${href}index.html`,'utf8');
+ for(const section of ['problem','contribution','decisions','evidence','limits'])assert.ok(detail.includes(`id="${section}"`),`${c.projectId}: missing ${section}`);
+ assert.ok(detail.includes('href="../../#return-to-work"'),'Cases must provide a return to the project list');
+ assert.ok(cases.some(next=>next.slug===c.related),'Related case must exist');
+ if(c.private){
+  assert.ok(detail.includes('Visit project website'));
+  assert.ok(!detail.includes('Inspect the code'),'Private overview must not imply public source');
+  assert.ok(!JSON.stringify(c).includes('github.com'),'Private case data must not expose a repository');
+ }
+}
+console.log(`PASS: all ${cases.length} featured cards, search results and directory entries link to complete case pages`);
 for(const [,encoded] of page.matchAll(/href="\?q=([^"#]+)#work"/g)){
  const q=decodeURIComponent(encoded);assert.ok(searchProjects(q).length,`Expertise search link must return a project: ${q}`);
 }

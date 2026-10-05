@@ -1,10 +1,11 @@
 import { Bot, Radar, Fingerprint, Network, Activity, Workflow, ScanEye, Smartphone, Server, ChartNoAxesCombined, ShieldCheck, AudioLines } from "lucide-react";
 import snapshot from "./repositories.json";
+import caseStudies from "./case-studies.json";
 
 const items = [
-  {repo:"octo-mcp", title:"octo-mcp", category:"AI agents / MCP", icon:Bot, visual:"ai", id:"project-octo", description:"Give AI agents control of browser profiles and page actions through one MCP server.", tags:["Python","MCP","Playwright","CDP"], caseHref:"cases/octo-mcp/"},
-  {repo:"alpha-scout", title:"alpha-scout", category:"Research / Automation", icon:Radar, visual:"automation", id:"project-scout", description:"Collect sources, evaluate ideas with an LLM and deliver useful signals to Telegram.", tags:["asyncio","LLM","FastAPI","Telegram"], caseHref:"cases/alpha-scout/"},
-  {repo:"nodriver-antidetect", title:"nodriver-antidetect", category:"Browser / Fingerprinting", icon:Fingerprint, visual:"antifraud", id:"project-fingerprint", description:"Configure browser fingerprints through CDP and run isolated browser environments in Docker.", tags:["Python","nodriver","CDP","Docker"], caseHref:"cases/browser-fingerprinting/"},
+  {repo:"octo-mcp", title:"octo-mcp", category:"AI agents / MCP", icon:Bot, visual:"ai", id:"project-octo", description:"Give AI agents control of browser profiles and page actions through one MCP server.", tags:["Python","MCP","Playwright","CDP"]},
+  {repo:"alpha-scout", title:"alpha-scout", category:"Research / Automation", icon:Radar, visual:"automation", id:"project-scout", description:"Collect sources, evaluate ideas with an LLM and deliver useful signals to Telegram.", tags:["asyncio","LLM","FastAPI","Telegram"]},
+  {repo:"nodriver-antidetect", title:"nodriver-antidetect", category:"Browser / Fingerprinting", icon:Fingerprint, visual:"antifraud", id:"project-fingerprint", description:"Configure browser fingerprints through CDP and run isolated browser environments in Docker.", tags:["Python","nodriver","CDP","Docker"]},
   {repo:"claudegate", title:"Claudegate", category:"AI infrastructure", icon:Network, visual:"ai", description:"An OpenAI-compatible gateway to Claude Code, with streaming, tools and persistent conversations.", tags:["Python","FastAPI","Streaming"]},
   {repo:"llm-latency-tracker", title:"LLM Latency", category:"Observability / Open data", icon:Activity, visual:"ai", description:"Measure regional LLM API latency and uptime. Explore open datasets through JSON and MCP.", tags:["Python","Monitoring","MCP"], live:"https://llmlatency.dev"},
   {repo:"browser-automation-system", title:"Browser Automation", category:"AI / Browser workflows", icon:Workflow, visual:"automation", description:"Run AI-driven browser tasks with execution history, checkpoints and reusable patterns.", tags:["browser-use","FastAPI","React"]},
@@ -18,7 +19,9 @@ const items = [
 export const projects = items.map((project, index) => {
   const repo = snapshot.repositories.find(item => item.name === project.repo);
   if (project.repo && !repo) throw new Error(`Missing public repository: ${project.repo}`);
-  return {...project, rank:index + 1, href:repo?.html_url ?? project.live!, stars:repo?.stargazers_count,
+  const caseStudy = caseStudies.cases.find(item => item.projectId === (project.repo ?? "maxbob-ai"));
+  if (!caseStudy) throw new Error(`Missing project case study: ${project.title}`);
+  return {...project, caseHref:`cases/${caseStudy.slug}/`, rank:index + 1, href:repo?.html_url ?? project.live!, stars:repo?.stargazers_count,
     imageUrl:`assets/projects/${project.repo ?? "maxbob-ai"}-v1.webp`, imagePosition:"50% 50%"};
 });
 export const starsUpdatedAt = snapshot.updatedAt;

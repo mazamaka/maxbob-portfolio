@@ -1,0 +1,711 @@
+{
+  "cases": [
+    {
+      "slug": "octo-mcp",
+      "name": "octo-mcp",
+      "type": "AI AGENTS / MCP",
+      "title": "Give agents a browser they can work with.",
+      "description": "How I connected AI agents to Octo Browser with MCP, async API clients and Playwright over CDP.",
+      "lead": "One MCP server connects an agent to browser profiles, page actions and the results of those actions.",
+      "stack": "Python · MCP · Playwright · httpx",
+      "scope": "Public implementation",
+      "problem": "An agent needs more than page access. It needs to discover and start the correct browser profile, connect to that session, execute an action and receive a usable result. Those capabilities span Octo’s Local API, Cloud API and the browser’s CDP endpoint.",
+      "role": [
+        "Built the MCP tool layer for profile management and browser interaction.",
+        "Integrated asynchronous Local and Cloud API clients with Playwright over CDP.",
+        "Added bounded handling of API rate limits and configurable remote browser connections."
+      ],
+      "flow": [
+        "Agent request",
+        "MCP tool",
+        "Octo API / CDP",
+        "Browser action",
+        "Result"
+      ],
+      "decisions": [
+        [
+          "Separate profile control from page interaction",
+          "Local and Cloud APIs manage browser resources; Playwright handles the page through CDP. This keeps each integration’s responsibility explicit."
+        ],
+        [
+          "Handle limits without an endless retry loop",
+          "HTTP 429 retries are bounded. A failed provider request can surface as a failure instead of leaving the caller waiting indefinitely."
+        ],
+        [
+          "Support remote browser environments",
+          "Configurable hosts and CDP endpoint rewriting account for a browser running on another machine."
+        ]
+      ],
+      "result": "The repository exposes browser and profile tools over MCP stdio, with configuration documentation, examples and CI definitions for Ruff, mypy and pytest. The implementation is available to inspect and run with your own Octo Browser installation.",
+      "limits": "Requires a running Octo Browser installation. Cloud resources need an API token. Unit and integration checks do not establish universal compatibility with every website or browser environment.",
+      "links": [
+        [
+          "Source repository",
+          "https://github.com/mazamaka/octo-mcp"
+        ],
+        [
+          "Tool reference",
+          "https://github.com/mazamaka/octo-mcp/blob/main/docs/reference.md"
+        ],
+        [
+          "Tests",
+          "https://github.com/mazamaka/octo-mcp/tree/main/tests"
+        ]
+      ],
+      "related": "alpha-scout",
+      "related_name": "alpha-scout: from collection to an alert",
+      "projectId": "octo-mcp"
+    },
+    {
+      "slug": "alpha-scout",
+      "name": "alpha-scout",
+      "type": "AI / WORKFLOW AUTOMATION",
+      "title": "Turn a stream of sources into reviewable ideas.",
+      "description": "An engineering case study of alpha-scout: scheduled source collection, deduplication, LLM analysis and Telegram alerts.",
+      "lead": "A complete collection-to-alert pipeline, with an LLM used for screening and analysis rather than as the entire application.",
+      "stack": "Python · asyncio · Claude Code CLI · FastAPI",
+      "scope": "Public implementation",
+      "problem": "Useful research ideas are scattered across feeds and communities. Collecting them is only the first step: duplicates, noisy content and independent source failures need to be handled before a human can review the results.",
+      "role": [
+        "Implemented scheduled collectors and content-hash deduplication.",
+        "Connected a screening pass to deeper LLM evaluation, configurable scores and alert thresholds.",
+        "Built Telegram notifications and a dashboard for ideas and collector status."
+      ],
+      "flow": [
+        "Source schedules",
+        "Deduplication",
+        "Screening",
+        "Deeper analysis",
+        "Score & notify"
+      ],
+      "decisions": [
+        [
+          "Keep the pipeline in separate parts",
+          "Collectors, analysis and notification are separate components. Each source can run on its own schedule rather than forcing one interval on everything."
+        ],
+        [
+          "Use two stages of analysis",
+          "A screening pass filters incoming material before deeper evaluation. Scoring weights and notification thresholds remain configurable."
+        ],
+        [
+          "Keep access failures visible",
+          "Collector status and the X news fallback are labelled in the dashboard. A missing source should not silently look like an empty stream of ideas."
+        ]
+      ],
+      "result": "Collected ideas can be reviewed in a FastAPI dashboard and high-scoring results delivered to configured Telegram chats. Local and Docker deployment are documented, including persistent data and logs.",
+      "limits": "Collection is scheduled, not real-time. Sources can fail independently. The X collector uses session-based access rather than the official API. The project does not execute trades; an LLM score is not a measured investment return.",
+      "links": [
+        [
+          "Source repository",
+          "https://github.com/mazamaka/alpha-scout"
+        ],
+        [
+          "Collector behaviour & configuration",
+          "https://github.com/mazamaka/alpha-scout/blob/main/docs/CONFIGURATION.md"
+        ]
+      ],
+      "related": "browser-fingerprinting",
+      "related_name": "Browser fingerprinting: customization and diagnostics",
+      "projectId": "alpha-scout"
+    },
+    {
+      "slug": "browser-fingerprinting",
+      "name": "Browser fingerprinting",
+      "type": "ANTIFRAUD / BROWSER ENGINEERING",
+      "title": "Configure the browser. Inspect the signals.",
+      "description": "Browser fingerprint customization and diagnostic tooling with nodriver-antidetect and ipqs-checker.",
+      "lead": "Two complementary projects: one works on browser configuration, the other makes IP and device signals easier to inspect.",
+      "stack": "Python · nodriver · CDP · FastAPI · Extensions",
+      "scope": "Two public implementations",
+      "problem": "Browser behaviour is influenced by rendering, platform properties, runtime configuration and the network environment. Working with one signal in isolation makes it difficult to understand what actually changed.",
+      "role": [
+        "Implemented configurable browser fingerprint customization through CDP in nodriver-antidetect.",
+        "Built an IP and device diagnostic backend and browser extensions in ipqs-checker.",
+        "Organized runtime configuration and checks so observations can be reviewed alongside the environment."
+      ],
+      "flow": [
+        "Runtime configuration",
+        "Browser session",
+        "Diagnostic checks",
+        "Review signals"
+      ],
+      "decisions": [
+        [
+          "Treat configuration and diagnostics as different jobs",
+          "nodriver-antidetect controls aspects of the browser environment. ipqs-checker focuses on observing IP reputation and device signals. They are independent tools, not a claimed automatic closed-loop system."
+        ],
+        [
+          "Look below high-level browser wrappers",
+          "CDP-level controls expose browser behaviour that a click-and-type script does not address. Diagnostic surfaces include rendering and platform characteristics."
+        ],
+        [
+          "Keep network and device evidence in view",
+          "IP reputation and browser properties describe different parts of the environment. The checker provides a backend and extension workflow for reviewing them."
+        ]
+      ],
+      "result": "The public repositories provide browser customization code and a separate diagnostic application. They demonstrate work across browser internals, Python services and extensions.",
+      "limits": "A diagnostic result is an observation for a particular environment and moment. It is not a guarantee of being undetectable or of compatibility with every anti-bot system. The portfolio illustration does not collect the visitor’s fingerprint.",
+      "links": [
+        [
+          "nodriver-antidetect repository",
+          "https://github.com/mazamaka/nodriver-antidetect"
+        ],
+        [
+          "ipqs-checker repository",
+          "https://github.com/mazamaka/ipqs-checker"
+        ]
+      ],
+      "related": "octo-mcp",
+      "related_name": "octo-mcp: connect agents to browser tools",
+      "projectId": "nodriver-antidetect"
+    },
+    {
+      "projectId": "claudegate",
+      "slug": "claudegate",
+      "name": "Claudegate",
+      "type": "AI INFRASTRUCTURE / API INTEGRATION",
+      "title": "Connect agent clients to Claude Code.",
+      "description": "Claudegate connects OpenAI-compatible clients to Claude Code through a FastAPI gateway with streaming, tools and persistent sessions.",
+      "lead": "An API adapter that lets existing applications work with Claude Code while retaining streamed responses and multi-step conversations.",
+      "stack": "Python · FastAPI · Claude Agent SDK · SSE",
+      "scope": "Public implementation",
+      "problem": "Agent clients and the Claude Code CLI expose different interfaces. A useful bridge has to translate messages, stream responses, return tool calls and keep follow-up requests attached to the right conversation.",
+      "role": [
+        "Built the OpenAI-compatible request and response layer around Claude Code.",
+        "Implemented streamed output, tool-result continuation, image and file inputs, and session reuse.",
+        "Added authentication, structured logs, metrics and credential-free tests using a fake CLI."
+      ],
+      "flow": [
+        "Agent client",
+        "Chat API",
+        "Session lookup",
+        "Claude Code",
+        "Stream or tool call"
+      ],
+      "decisions": [
+        [
+          "Keep the client interface familiar",
+          "Applications can use a chat-completions interface. Configuration examples cover Hermes Agent and OpenClaw."
+        ],
+        [
+          "Preserve conversation continuity",
+          "Follow-up requests can reuse a live session; request history provides a recovery path when the original session is gone."
+        ],
+        [
+          "Test the integration boundary",
+          "A fake CLI exercises the gateway without credentials. Deployment smoke checks separately test real streaming, tools, images and session behavior."
+        ]
+      ],
+      "result": "The public package includes a server command, a configuration doctor, health and model endpoints, metrics, and integration documentation. Reviewers can inspect both the adapter and its test suite.",
+      "limits": "Requires an installed and authenticated Claude Code CLI. Compatibility is documented per feature; the gateway does not implement every OpenAI parameter. Coding-agent execution requires restricted access and an appropriate service account.",
+      "links": [
+        [
+          "Source repository",
+          "https://github.com/mazamaka/claudegate"
+        ],
+        [
+          "Agent client integration",
+          "https://github.com/mazamaka/claudegate/blob/main/docs/AGENT_CLIENTS.md"
+        ]
+      ],
+      "related": "claude-code-server-ops",
+      "related_name": "Claude Code Ops: verify the service behind the API",
+      "social": {
+        "title": [
+          "Claudegate"
+        ],
+        "copy": [
+          "One API for agent clients",
+          "and Claude Code sessions."
+        ],
+        "font": 65
+      }
+    },
+    {
+      "projectId": "llm-latency-tracker",
+      "slug": "llm-latency-tracker",
+      "name": "LLM Latency Tracker",
+      "type": "OBSERVABILITY / OPEN DATA",
+      "title": "Measure the API from where it is used.",
+      "description": "A distributed Python monitoring pipeline for regional AI API latency and availability, with open datasets, a JSON API and MCP access.",
+      "lead": "Regional probes turn API response measurements into dated, inspectable datasets for people and AI agents.",
+      "stack": "Python · SQLite · JSON API · MCP",
+      "scope": "Public implementation and datasets",
+      "problem": "A provider's response time varies by region, request type and measurement window. A single latency number hides those differences and can confuse network responsiveness with model generation speed.",
+      "role": [
+        "Built regional edge probes and optional inference probes for AI providers.",
+        "Implemented central aggregation, historical snapshots and regional percentile statistics.",
+        "Published the results through a website, JSON datasets, Markdown pages and MCP."
+      ],
+      "flow": [
+        "Regional probes",
+        "Measurements",
+        "Aggregation",
+        "Dated dataset",
+        "Website / API / MCP"
+      ],
+      "decisions": [
+        [
+          "Separate network and inference timing",
+          "Edge TTFB and inference TTFT are different measurements. Keeping them separate makes the resulting comparisons easier to interpret."
+        ],
+        [
+          "Keep the probe runtime small",
+          "The edge-probe core uses Python's standard library; optional inference probes use provider credentials."
+        ],
+        [
+          "Publish the evidence",
+          "Daily snapshots and historical data accompany the interface, so results can be reused and checked outside the website."
+        ]
+      ],
+      "result": "The repository contains probe and aggregation code, deployment instructions and dated datasets. The public site exposes rankings and a JSON API, with MCP access for agent workflows.",
+      "limits": "Measurements describe a particular region, probe type and time window. Edge TTFB is not a benchmark of model generation speed, and provider rankings change as new measurements arrive.",
+      "links": [
+        [
+          "Source repository",
+          "https://github.com/mazamaka/llm-latency-tracker"
+        ],
+        [
+          "Live rankings",
+          "https://llmlatency.dev"
+        ],
+        [
+          "Published JSON data",
+          "https://llmlatency.dev/api/rankings.json"
+        ]
+      ],
+      "related": "claudegate",
+      "related_name": "Claudegate: connect clients to an AI API",
+      "social": {
+        "title": [
+          "LLM Latency"
+        ],
+        "copy": [
+          "Regional measurements.",
+          "Open data for people and agents."
+        ],
+        "font": 61
+      }
+    },
+    {
+      "projectId": "browser-automation-system",
+      "slug": "browser-automation-system",
+      "name": "Browser Automation System",
+      "type": "AI / BROWSER WORKFLOWS",
+      "title": "Make browser-agent runs inspectable.",
+      "description": "An experimental FastAPI and React application for AI-driven browser tasks, execution history, context checkpoints and reusable patterns.",
+      "lead": "A task dashboard around a browser agent, with execution records that help explain what happened during a run.",
+      "stack": "Python · FastAPI · React · browser-use · WebSockets",
+      "scope": "Public experimental application",
+      "problem": "A natural-language instruction can start a browser task, but it does not explain the run's progress or failure. Experimentation needs visible execution history and a way to carry useful context into another attempt.",
+      "role": [
+        "Connected natural-language task creation to AI analysis and browser-use execution.",
+        "Built a React dashboard with WebSocket progress updates and execution history.",
+        "Added stored checkpoints, screenshots, reported token usage and pattern suggestions from prior runs."
+      ],
+      "flow": [
+        "Task description",
+        "AI analysis",
+        "Browser run",
+        "Progress & history",
+        "Review"
+      ],
+      "decisions": [
+        [
+          "Separate orchestration from the interface",
+          "FastAPI coordinates execution while React handles task creation and review. REST and WebSockets connect the two."
+        ],
+        [
+          "Retain context for another attempt",
+          "Checkpoints preserve execution context rather than claiming to save a live browser session."
+        ],
+        [
+          "Keep experiments observable",
+          "JSON records hold tasks, history and patterns so the execution flow can be inspected during development."
+        ]
+      ],
+      "result": "The public repository contains the application, setup instructions and implementation notes. It demonstrates task orchestration, browser-agent integration and a live progress interface.",
+      "limits": "This is an experimental application. Saved patterns do not guarantee better outcomes, and checkpoints do not resume an exact live browser state. The backend has no built-in authentication and should remain local unless access controls are added.",
+      "links": [
+        [
+          "Source repository",
+          "https://github.com/mazamaka/browser-automation-system"
+        ],
+        [
+          "Implementation notes",
+          "https://github.com/mazamaka/browser-automation-system/blob/main/docs/REFERENCE.md"
+        ]
+      ],
+      "related": "octo-mcp",
+      "related_name": "octo-mcp: expose browser actions as agent tools",
+      "social": {
+        "title": [
+          "Browser",
+          "Automation"
+        ],
+        "copy": [
+          "Agent runs, checkpoints",
+          "and execution history."
+        ],
+        "font": 61
+      }
+    },
+    {
+      "projectId": "ipqs-checker",
+      "slug": "ipqs-checker",
+      "name": "IPQS Checker",
+      "type": "ANTIFRAUD / DIAGNOSTICS",
+      "title": "Review network and device signals together.",
+      "description": "A FastAPI service and browser extensions for collecting and reviewing IP reputation and device-fingerprint diagnostics.",
+      "lead": "Browser extensions bring diagnostic observations into a service where results can be reviewed alongside the tested environment.",
+      "stack": "Python · FastAPI · PostgreSQL · Chrome / Firefox",
+      "scope": "Public implementation",
+      "problem": "IP reputation and browser properties describe different parts of a session. Reviewing one score in isolation makes it difficult to tell whether a result reflects the network, the device profile or the diagnostic provider.",
+      "role": [
+        "Built a FastAPI backend for fingerprint and IP-quality diagnostic results.",
+        "Implemented Chrome and Firefox extension workflows for gathering browser-side observations.",
+        "Organized provider results, device information and recent checks into reviewable interfaces."
+      ],
+      "flow": [
+        "Browser session",
+        "Diagnostic check",
+        "Extension",
+        "API & storage",
+        "Review results"
+      ],
+      "decisions": [
+        [
+          "Keep browser collection close to the session",
+          "Extensions operate in the browser being inspected, while the backend organizes the resulting observations."
+        ],
+        [
+          "Retain provider context",
+          "Different diagnostic services report different signals. Their outputs are reviewed with their source rather than treated as a single universal verdict."
+        ],
+        [
+          "Combine network and device evidence",
+          "IP reputation, platform properties and rendering characteristics provide complementary information about the environment."
+        ]
+      ],
+      "result": "The public repository contains the backend, extension code, setup documentation and interface screenshots. It shows work across Python services, browser extensions and diagnostic reporting.",
+      "limits": "Results depend on the diagnostic provider, browser configuration and time of the check. A score does not establish universal compatibility with anti-bot systems, and this portfolio page does not fingerprint its visitors.",
+      "links": [
+        [
+          "Source repository",
+          "https://github.com/mazamaka/ipqs-checker"
+        ]
+      ],
+      "related": "browser-fingerprinting",
+      "related_name": "Browser fingerprinting: configuration and diagnostics",
+      "social": {
+        "title": [
+          "IPQS Checker"
+        ],
+        "copy": [
+          "IP reputation and device signals",
+          "in one diagnostic workflow."
+        ],
+        "font": 61
+      }
+    },
+    {
+      "projectId": "bluestacks-antidetect",
+      "slug": "bluestacks-antidetect",
+      "name": "BlueStacks Antidetect",
+      "type": "ANDROID / AUTOMATION",
+      "title": "Coordinate Android instances from one control plane.",
+      "description": "A Python and FastAPI control plane for BlueStacks instances, ADB workflows, device-profile configuration and proxy routing.",
+      "lead": "An emulator-management application that connects instance lifecycle, Android configuration and network settings through an API and web interface.",
+      "stack": "Python · FastAPI · ADB · SOCKS5",
+      "scope": "Public implementation",
+      "problem": "Managing several Android environments involves more than launching an emulator. Instance state, resource settings, device properties and network routes need to be configured and inspected together.",
+      "role": [
+        "Built instance creation, cloning and lifecycle controls exposed through a FastAPI service and web UI.",
+        "Integrated ADB workflows for Android configuration and device-profile management.",
+        "Implemented proxy configuration and validation, with diagnostic checks for the resulting environment."
+      ],
+      "flow": [
+        "Instance request",
+        "Emulator lifecycle",
+        "ADB configuration",
+        "Network setup",
+        "Diagnostics"
+      ],
+      "decisions": [
+        [
+          "Separate the control layers",
+          "Instance management, device settings and network configuration remain distinct parts of the workflow, making each stage easier to inspect."
+        ],
+        [
+          "Use Android's automation interface",
+          "ADB provides the bridge between the Python application and actions inside the Android instance."
+        ],
+        [
+          "Verify the configured environment",
+          "Proxy validation and device diagnostics provide feedback about the setup rather than relying only on a successful configuration command."
+        ]
+      ],
+      "result": "The repository documents instance management, device profiles, network routing and diagnostic workflows. It demonstrates integration across a web API, emulator processes and Android tooling.",
+      "limits": "Operation depends on a compatible BlueStacks host and Android environment. Device-profile settings and diagnostic scores do not guarantee identical behavior across applications or undetectability.",
+      "links": [
+        [
+          "Source repository",
+          "https://github.com/mazamaka/bluestacks-antidetect"
+        ]
+      ],
+      "related": "ipqs-checker",
+      "related_name": "IPQS Checker: inspect the configured environment",
+      "social": {
+        "title": [
+          "BlueStacks",
+          "Antidetect"
+        ],
+        "copy": [
+          "Android instances, device profiles",
+          "and network configuration."
+        ],
+        "font": 62
+      }
+    },
+    {
+      "projectId": "claude-code-server-ops",
+      "slug": "claude-code-server-ops",
+      "name": "Claude Code Server Ops",
+      "type": "DEPLOYMENT / OPERATIONS",
+      "title": "Check that the service can finish the job.",
+      "description": "Linux deployment tooling for a Claude Code API server, with systemd configuration, completion-based probes and end-to-end smoke checks.",
+      "lead": "Operations tooling that tests a real model response as well as whether the API process is running.",
+      "stack": "Bash · Python · systemd · HTTP · SSE",
+      "scope": "Public operations tooling",
+      "problem": "An HTTP health endpoint can respond successfully while the service cannot produce a completion. Deployment also needs repeatable service configuration and checks for the capabilities clients actually use.",
+      "role": [
+        "Built scripts for configuring a systemd service and preparing its environment.",
+        "Implemented completion-based health probes and smoke checks for text, streaming, tools, images and session behavior.",
+        "Added scratch-instance support, configurable ports and exit codes suitable for deployment gates."
+      ],
+      "flow": [
+        "Service configuration",
+        "Start process",
+        "Completion probe",
+        "Capability checks",
+        "Release decision"
+      ],
+      "decisions": [
+        [
+          "Keep the upstream server separate",
+          "This repository contains operations tooling for an upstream Claude Code API server, rather than presenting that server implementation as its own."
+        ],
+        [
+          "Check meaningful behavior",
+          "The smoke suite exercises actual client flows, including streaming and tool continuations."
+        ],
+        [
+          "Make checks usable in deployment",
+          "Dry-run installation and failure exit codes help integrate verification into a controlled release process."
+        ]
+      ],
+      "result": "The repository provides service scripts, a Python standard-library smoke suite, configuration examples and troubleshooting notes. Reviewers can inspect the exact checks used to accept a deployment.",
+      "limits": "Service installation requires Linux with systemd and a separately installed upstream server. Deep probes make real model calls. Restart and session behavior depend on the upstream version and are checked explicitly.",
+      "links": [
+        [
+          "Source repository",
+          "https://github.com/mazamaka/claude-code-server-ops"
+        ],
+        [
+          "Usage and smoke checks",
+          "https://github.com/mazamaka/claude-code-server-ops/blob/main/docs/USAGE.md"
+        ]
+      ],
+      "related": "claudegate",
+      "related_name": "Claudegate: the API integration layer",
+      "social": {
+        "title": [
+          "Claude Code",
+          "Server Ops"
+        ],
+        "copy": [
+          "Deployment, completion probes",
+          "and end-to-end smoke checks."
+        ],
+        "font": 58
+      }
+    },
+    {
+      "projectId": "polymarket-bot",
+      "slug": "polymarket-bot",
+      "name": "Polymarket Bot",
+      "type": "APPLIED AI / MARKET RESEARCH",
+      "title": "Bring different signals into a reviewable pipeline.",
+      "description": "An asynchronous Python application connecting prediction-market data, Claude analysis, weather inputs and breaking-news signals.",
+      "lead": "A multi-source research and execution pipeline with separate collection, analysis and risk-checking components.",
+      "stack": "Python · asyncio · Claude · FastAPI · WebSockets",
+      "scope": "Public implementation",
+      "problem": "Prediction-market workflows draw on market state, forecasts and changing news. Those inputs arrive on different schedules and need to be matched, deduplicated and evaluated before an action is considered.",
+      "role": [
+        "Connected market scanning to staged LLM analysis and contextual data sources.",
+        "Integrated weather data and news-event ingestion into asynchronous workflows.",
+        "Organized risk checks, paper/live execution paths and a dashboard for observing the system."
+      ],
+      "flow": [
+        "Collect inputs",
+        "Match & screen",
+        "Analyze",
+        "Risk checks",
+        "Record or execute"
+      ],
+      "decisions": [
+        [
+          "Separate source-specific workflows",
+          "Weather, market data and news use different collection and analysis paths before feeding into the wider system."
+        ],
+        [
+          "Keep execution behind explicit checks",
+          "Analysis, risk management and execution are separate components, with a paper mode available for experimentation."
+        ],
+        [
+          "Expose the workflow for review",
+          "The dashboard and event flow make the integration inspectable beyond a single generated prediction."
+        ]
+      ],
+      "result": "The public repository documents the data pipeline, analysis components, execution paths and dashboard. The case demonstrates asynchronous integration and applied LLM orchestration.",
+      "limits": "This portfolio case makes no claim of verified profitability or future trading performance. Outputs depend on data freshness, model behavior and execution conditions; live execution is distinct from paper-mode testing.",
+      "links": [
+        [
+          "Source repository",
+          "https://github.com/mazamaka/polymarket-bot"
+        ]
+      ],
+      "related": "alpha-scout",
+      "related_name": "alpha-scout: collection and LLM evaluation",
+      "social": {
+        "title": [
+          "Polymarket",
+          "Bot"
+        ],
+        "copy": [
+          "Market research with AI,",
+          "weather data and news signals."
+        ],
+        "font": 61
+      }
+    },
+    {
+      "projectId": "antifraud-spy",
+      "slug": "antifraud-spy",
+      "name": "Antifraud Spy",
+      "type": "BROWSER INSTRUMENTATION / DIAGNOSTICS",
+      "title": "See which browser signals a page requests.",
+      "description": "A Chrome extension for observing fingerprinting API calls, network activity and browser-signal collection through an event timeline and exports.",
+      "lead": "Browser instrumentation that turns otherwise hard-to-see API activity into a readable diagnostic record.",
+      "stack": "JavaScript · Chrome MV3 · Browser APIs",
+      "scope": "Public extension",
+      "problem": "Pages can read rendering, platform and runtime properties without an obvious visible interaction. Understanding the collection requires observing API activity and relating it to the page's behavior.",
+      "role": [
+        "Implemented instrumentation for Canvas, WebGL and other browser-signal APIs.",
+        "Built a timeline and category-based interface for reviewing observed calls and network activity.",
+        "Added JSON and Markdown exports for analysis outside the extension."
+      ],
+      "flow": [
+        "Page activity",
+        "API instrumentation",
+        "Event collection",
+        "Timeline",
+        "Export & review"
+      ],
+      "decisions": [
+        [
+          "Observe specific events",
+          "Recorded API calls give a reviewer concrete evidence to inspect instead of relying only on an overall label."
+        ],
+        [
+          "Group related signals",
+          "Categories such as rendering, platform and network activity help navigate a large event stream."
+        ],
+        [
+          "Support both human and programmatic review",
+          "Markdown reports and JSON exports serve different review workflows while drawing on the same observations."
+        ]
+      ],
+      "result": "The public extension contains the instrumentation, event dashboard and export functionality. It demonstrates browser API knowledge, extension architecture and diagnostic interfaces.",
+      "limits": "An observed API call does not by itself prove malicious tracking. Coverage depends on the browser, page and instrumentation; this case makes no universal stealth or detection-coverage guarantee.",
+      "links": [
+        [
+          "Source repository",
+          "https://github.com/mazamaka/antifraud-spy"
+        ]
+      ],
+      "related": "ipqs-checker",
+      "related_name": "IPQS Checker: review device and network diagnostics",
+      "social": {
+        "title": [
+          "Antifraud Spy"
+        ],
+        "copy": [
+          "Browser API activity,",
+          "made visible and reviewable."
+        ],
+        "font": 60
+      }
+    },
+    {
+      "projectId": "maxbob-ai",
+      "slug": "maxbob-ai",
+      "name": "MaxBob AI",
+      "type": "VOICE / NATIVE APPLICATIONS",
+      "private": true,
+      "title": "Connect a native interface to realtime AI.",
+      "description": "A private native AI-assistant project connecting SwiftUI interfaces, realtime voice, WebRTC and a Python backend with Apple integrations.",
+      "lead": "A voice-assistant architecture spanning Apple clients and a Python backend, with the public overview focused on engineering scope.",
+      "stack": "SwiftUI · Swift · WebRTC · Python",
+      "scope": "Private implementation · public overview",
+      "problem": "A native voice assistant combines an interface, realtime audio transport, model integration and platform capabilities. Those parts must work together across the client and backend rather than ending at a chat screen.",
+      "role": [
+        "Developed native SwiftUI interfaces across Apple platforms.",
+        "Connected realtime voice over WebRTC to a Python backend.",
+        "Worked on Apple integrations including reminders, shortcuts, music and cross-device synchronization."
+      ],
+      "flow": [
+        "Native interface",
+        "Realtime audio",
+        "Python backend",
+        "AI response",
+        "Platform integration"
+      ],
+      "decisions": [
+        [
+          "Use a native client layer",
+          "SwiftUI provides the interface and the integration point for Apple-platform capabilities."
+        ],
+        [
+          "Separate audio transport from application logic",
+          "WebRTC carries realtime audio while the backend coordinates the AI-facing application flow."
+        ],
+        [
+          "Connect to platform workflows",
+          "Reminders, shortcuts, music and synchronization connect the assistant to capabilities of the Apple clients."
+        ]
+      ],
+      "result": "The project brings together native interfaces, voice transport, backend integration and platform workflows. The public project website and this overview are available; implementation details can be discussed directly.",
+      "limits": "The implementation is private. This page covers the architecture and my contribution; platform support and integration details can be discussed directly.",
+      "links": [
+        [
+          "Project website",
+          "https://maxbob.xyz"
+        ]
+      ],
+      "primary_label": "Visit project website",
+      "related": "claudegate",
+      "related_name": "Claudegate: integrate an AI backend with clients",
+      "social": {
+        "title": [
+          "MaxBob AI"
+        ],
+        "copy": [
+          "Native interfaces, realtime voice",
+          "and a Python backend."
+        ],
+        "font": 67
+      }
+    }
+  ]
+}

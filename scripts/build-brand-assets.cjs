@@ -31,6 +31,13 @@ async function main() {
     {slug:'alpha-scout', image:'projects/alpha-scout-v1.webp', kicker:'ENGINEERING CASE STUDY', title:['alpha-scout'], copy:['From source collection','to LLM analysis and alerts.'], foot:'Python · LLM · FastAPI · Telegram', font:64},
     {slug:'browser-fingerprinting', image:'projects/nodriver-antidetect-v1.webp', kicker:'ENGINEERING CASE STUDY', title:['Browser','fingerprinting.'], copy:['Configure the environment.','Inspect the signals.'], foot:'Python · CDP · Browser diagnostics', font:53},
   ];
+  const {cases} = JSON.parse(await fs.readFile(path.join(root, 'src/case-studies.json'), 'utf8'));
+  for (const c of cases) {
+    if (cards.some(card => card.slug === c.slug)) continue;
+    cards.push({slug:c.slug, image:`projects/${c.projectId}-v1.webp`,
+      kicker:c.private ? 'PRIVATE PROJECT OVERVIEW' : 'ENGINEERING CASE STUDY',
+      ...c.social, foot:c.stack});
+  }
   const out = path.join(dist, 'assets/social');
   await fs.mkdir(out, {recursive:true});
   for (const c of cards) {
@@ -54,6 +61,6 @@ ${c.slug === 'maxbob' ? '' : '<text x="602" y="570" text-anchor="end" font-famil
 </svg>`;
     await sharp(Buffer.from(svg)).jpeg({quality:92, chromaSubsampling:'4:4:4'}).toFile(path.join(out, c.slug+'-v'+(c.version ?? 1)+'.jpg'));
   }
-  console.log('Built favicon SVG/ICO/PNG family and four 1200×630 social cards.');
+  console.log(`Built favicon SVG/ICO/PNG family and ${cards.length} 1200×630 social cards.`);
 }
 main().catch(error => {console.error(error); process.exitCode = 1;});
