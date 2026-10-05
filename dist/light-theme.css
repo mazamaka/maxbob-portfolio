@@ -154,3 +154,25 @@
 
 /* Explain the downloadable CV without expanding the header. */
 .cv-download{display:flex;flex-direction:column;align-items:flex-start;gap:5px}.cv-download-hint{font-size:11px;line-height:1.4;color:#58675f;max-width:140px}:root[data-theme] .hero-actions{align-items:center}@media(max-width:700px){.cv-download-hint{max-width:126px;font-size:10px}}
+/* Expertise: concrete skills and evidence, in the same illustrated-paper palette. */
+.expertise-expanded .section-heading>p{max-width:420px}
+.expertise-expanded .expertise-benches{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.expertise-expanded .expertise-bench{display:flex;flex-direction:column;min-width:0;padding:25px 25px 0;background-image:radial-gradient(ellipse at 100% 0%,#c9d7b43d,transparent 65%),var(--paper-grain)}
+.expertise-expanded .expertise-bench:nth-child(3n+2){background-color:#f7efdf;border-color:#dfd8c5}
+.expertise-expanded .expertise-bench:nth-child(3n){background-color:#edf1e9;border-color:#d2ddcf}
+.expertise-expanded .bench-top{gap:15px;margin-bottom:22px;letter-spacing:.045em;min-height:43px;font-size:10px}
+.bench-icon{display:grid;place-items:center;flex-shrink:0;width:43px;height:43px;border:1px solid #b9c7a580;border-radius:12px;background:#eef2e5;color:#718958;box-shadow:inset 0 1px 0 #ffffff80}
+.expertise-expanded .expertise-bench:nth-child(3n+2) .bench-icon{background:#f1e6d3;border-color:#c8b79580;color:#9a744b}
+.expertise-expanded .expertise-bench:nth-child(3n) .bench-icon{background:#e2ece4;border-color:#a6c0af80;color:#557e6c}
+.expertise-expanded .expertise-bench h3{margin:0 0 12px;font-size:27px}
+.expertise-expanded .expertise-bench>p{max-width:none;font-size:14px;line-height:1.65}
+.expertise-expanded .bench-tools{gap:7px;margin:21px 0 25px}
+.expertise-expanded .bench-tools a{font-size:11px;padding:7px 9px;color:#495b3a;max-width:100%;line-height:1.4}
+.bench-evidence{margin:auto -25px 0;padding:16px 25px 18px;border-top:1px solid #d9dfcb;background:#fffdf35c}
+.bench-evidence-label{display:block;margin-bottom:9px;color:#667356;font-size:10px;letter-spacing:.055em;text-transform:uppercase}
+.bench-evidence>div{display:flex;flex-wrap:wrap;gap:8px 17px}
+.bench-evidence a{display:inline-flex;align-items:center;gap:7px;color:#405e42;font-size:12px;line-height:1.5;border-bottom:1px solid transparent}
+.bench-evidence a:hover{border-bottom-color:currentColor}
+.bench-evidence a>span:last-child{color:#85956f;font-size:15px}
+@media(min-width:701px) and (max-width:1100px){.expertise-expanded .expertise-benches{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.expertise-expanded .expertise-benches{grid-template-columns:1fr;gap:16px}.expertise-expanded .expertise-bench{padding:22px 22px 0}.expertise-expanded .bench-top{margin-bottom:17px}.expertise-expanded .expertise-bench h3{font-size:27px}.expertise-expanded .bench-tools{margin:19px 0 23px}.bench-evidence{margin-inline:-22px;padding-inline:22px}}
