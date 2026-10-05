@@ -9,7 +9,7 @@ import {allProjects,searchHits,directions,stacks,highlightParts,type CatalogProj
 import {currentStars} from "@/src/github-stars";
 import {useGitHubStars} from "@/src/use-github-stars";
 function Highlight({text,query}:{text:string;query:string}){return <>{highlightParts(text,query).map((part,i)=>part.match?<mark key={i}>{part.text}</mark>:<React.Fragment key={i}>{part.text}</React.Fragment>)}</>;}
-const interests=[{query:"Google",icon:Globe,detail:"Ads, Gmail, Sheets & AI integrations"},{query:"AI agents",icon:Bot,detail:"Tools, models & autonomous workflows"},{query:"browser automation",icon:Workflow,detail:"Playwright, CDP & browser profiles"},{query:"voice",icon:AudioLines,detail:"Realtime audio & assistants"},{query:"OCR",icon:ScanText,detail:"Document processing & extraction"}];
+const interests=[{query:"Google",icon:Globe,detail:"Ads, Gmail, Sheets & AI integrations"},{query:"AI agents",icon:Bot,detail:"Tools, models & autonomous workflows"},{query:"browser automation",icon:Workflow,detail:"Playwright, CDP & browser profiles"},{query:"voice",icon:AudioLines,detail:"Realtime audio & assistants"},{query:"OCR",icon:ScanText,detail:"Document processing & extraction"}].map(item=>({...item,count:searchHits(item.query).length}));
 export function ProjectGallery(){
  const t=useT(),locale=useLocale();
  const githubStars=useGitHubStars();
@@ -32,7 +32,7 @@ export function ProjectGallery(){
   if(!ready)return;const p=new URLSearchParams();
   if(query.trim())p.set("q",query.trim());if(direction!=="all")p.set("direction",direction);
   if(visibility!=="all")p.set("access",visibility);if(stack!=="all")p.set("stack",stack);if(browseAll)p.set("all","1");
-  history.replaceState(null,"",`${location.pathname}${p.size?`?${p}`:""}${location.hash}`);
+  history.replaceState(history.state,"",`${location.pathname}${p.size?`?${p}`:""}${location.hash}`);
  },[query,direction,visibility,stack,browseAll,ready]);
  React.useEffect(()=>{if(selected){previousFocus.current=document.activeElement as HTMLElement;dialog.current?.showModal();}},[selected]);
  React.useEffect(()=>{if(ready){
@@ -54,7 +54,7 @@ export function ProjectGallery(){
  }
  function showResults(){setBrowseAll(true);requestAnimationFrame(()=>{resultRegion.current?.focus({preventScroll:true});resultRegion.current?.scrollIntoView({behavior:"instant",block:"start"});});}
  function rememberPosition(){try{sessionStorage.setItem("maxbob-return-y",String(scrollY));sessionStorage.setItem("maxbob-return-search",location.search);}catch{}}
- const actions=React.useMemo<Action[]>(()=>query.trim()?hits.slice(0,5).map(hit=>({id:hit.project.id,label:hit.project.title,icon:hit.project.visibility==="private"?<LockKeyhole size={18}/>:<CodeXml size={18}/>,description:<Highlight text={t(hit.excerpt)} query={query}/>,end:t(hit.project.visibility==="private"?"Overview":"Project"),onSelect:()=>setSelected(hit.project)})):interests.map(item=>({id:item.query,label:t(item.query),icon:<item.icon size={18}/>,description:t(item.detail),end:String(searchHits(item.query).length),onSelect:()=>{setQuery(item.query);setDirection("all");setStack("all");setVisibility("all");}})),[query,hits]);
+ const actions=React.useMemo<Action[]>(()=>query.trim()?hits.slice(0,5).map(hit=>({id:hit.project.id,label:hit.project.title,icon:hit.project.visibility==="private"?<LockKeyhole size={18}/>:<CodeXml size={18}/>,description:<Highlight text={t(hit.excerpt)} query={query}/>,end:t(hit.project.visibility==="private"?"Overview":"Project"),onSelect:()=>setSelected(hit.project)})):interests.map(item=>({id:item.query,label:t(item.query),icon:<item.icon size={18}/>,description:t(item.detail),end:String(item.count),onSelect:()=>{setQuery(item.query);setDirection("all");setStack("all");setVisibility("all");}})),[query,hits,locale]);
  return <div className="project-board">
   <div className="catalog-controls">
    <div className="search-toolbar"><ActionSearchBar query={query} onQueryChange={setQuery} actions={actions} disabled={!ready} resultCount={hits.length} onShowResults={showResults}/>
