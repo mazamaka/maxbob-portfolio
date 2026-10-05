@@ -56,7 +56,7 @@
 :root[data-theme=light] .flow-inline span{font-size:12px;color:#235a70}
 :root[data-theme=light] .work{padding-top:46px}
 :root[data-theme=light] .section{max-width:1200px}
-:root[data-theme=light] .experience{max-width:none;background:#f9faf7;border-block:1px solid var(--line)}
+:root[data-theme=light] .experience{max-width:none;background:#f9faf7;border-block:0}
 :root[data-theme=light] .experience>.wrap,:root[data-theme=light] .footer>.wrap{max-width:1200px}
 :root[data-theme=light] .section-label{font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;letter-spacing:.06em}
 :root[data-theme=light] .section-heading h2,:root[data-theme=light] .experience h2{font-size:clamp(38px,4vw,54px);line-height:1.1}
@@ -132,8 +132,11 @@
 @media(max-width:700px){:root[data-theme=light] .hero{min-height:890px;padding:135px 17px 300px;height:auto}:root[data-theme=light] .hero-grid{display:block;height:auto}:root[data-theme=light] .hero-copy{width:100%;max-width:none;padding:25px 23px;border-radius:14px;background:rgba(250,246,232,.95)}:root[data-theme=light] .hero h1{font-size:clamp(29px,8.5vw,42px);margin:21px 0 20px}:root[data-theme=light] .hero .eyebrow{font-size:12px}:root[data-theme=light] .hero .role{font-size:15px}:root[data-theme=light] .hero .experience-proof p{font-size:13px}:root[data-theme=light] .experience-proof>strong{font-size:40px}:root[data-theme=light] .hero-actions{margin-top:24px;gap:15px}:root[data-theme=light] .hero-actions .button-primary,:root[data-theme=light] .hero-actions .text-link{font-size:14px}:root[data-theme=light] .origin-note{font-size:12px;margin-top:21px}:root[data-theme=light] .painted-scene img{object-position:65% center}:root[data-theme=light] .scene-context{right:19px;top:83px}:root[data-theme=light] .focus-strip{margin-top:20px}:root[data-theme=light] .focus-strip .spotlight{display:block;padding:22px}:root[data-theme=light] .focus-strip .scene-tabs{flex-direction:row;gap:4px;justify-content:space-between;margin-bottom:20px}:root[data-theme=light] .focus-strip .scene-tabs button{font-size:13px;padding:8px 5px;border-left:0;border-bottom:2px solid transparent}:root[data-theme=light] .focus-strip .scene-tabs button[aria-pressed=true]{border-bottom-color:#a44f3c}:root[data-theme=light] .focus-strip .scene-caption-text{margin-top:16px}:root[data-theme=light] .focus-strip .spotlight h2{font-size:29px}}
 @media(max-width:370px){:root[data-theme=light] .hero{padding-inline:12px}:root[data-theme=light] .hero-copy{padding:24px 18px}:root[data-theme=light] .hero h1{font-size:30px}:root[data-theme=light] .hero-actions{gap:12px}:root[data-theme=light] .hero-actions .button-primary,:root[data-theme=light] .hero-actions .text-link{font-size:13px}:root[data-theme=light] .focus-strip .spotlight{padding:18px}}
 /* The same workshop language continues through experience, expertise and contact. */
-:root[data-theme=light] .experience{background:transparent;padding-top:45px;padding-bottom:35px}
+:root[data-theme=light] .work{padding-bottom:40px}
+:root[data-theme=light] .experience{background:transparent;padding-block:24px}
+:root[data-theme=light] .expertise{padding-top:40px}
 :root[data-theme=light] .experience .section-label{border-top:1px solid #d9ddce;padding-top:23px}
+@media(max-width:700px){:root[data-theme=light] .work{padding-bottom:28px}:root[data-theme=light] .experience{padding-block:20px}:root[data-theme=light] .expertise{padding-top:28px}}
 .workshop-eyebrow{font:10px/1.6 ui-monospace,monospace;letter-spacing:.12em;color:#5c7049;margin:0 0 20px}
 .experience-sheet{position:relative;background:#f2f2e5;background-image:var(--paper-grain);border:1px solid #d8dfca;border-radius:25px;padding:46px;box-shadow:0 8px 30px #39483207;overflow:hidden}
 .experience-sheet:before{content:'';position:absolute;width:220px;height:300px;left:-90px;top:120px;border-radius:50%;background:#c9d8b738;filter:blur(35px);pointer-events:none}
