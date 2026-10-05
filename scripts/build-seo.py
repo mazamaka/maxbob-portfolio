@@ -8,6 +8,7 @@ from site_metadata import SITE, TITLE, DESCRIPTION, graph, metadata, replace_met
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / 'dist'
 projects = json.loads((ROOT / 'src/catalog.json').read_text())['projects']
+cases = json.loads((ROOT / 'src/case-studies.json').read_text())['cases']
 source = (DIST / 'index.html').read_text()
 source = replace_metadata(source, metadata(data=graph('/', TITLE, DESCRIPTION, 'ProfilePage')))
 (DIST / 'index.html').write_text(source)
@@ -27,8 +28,7 @@ groups = defaultdict(list)
 for p in projects:
     groups[p['category']].append(p)
 sections, contents = [], []
-case_links = {'octo-mcp': 'octo-mcp', 'alpha-scout': 'alpha-scout',
-              'nodriver-antidetect': 'browser-fingerprinting', 'ipqs-checker': 'browser-fingerprinting'}
+case_links = {case['projectId']: case['slug'] for case in cases}
 for index, (category, entries) in enumerate(groups.items(), 1):
     group_id = f'category-{index}'
     contents.append(f'<a href="#{group_id}">{escape(category)} <span>{len(entries)}</span></a>')
@@ -41,7 +41,8 @@ for index, (category, entries) in enumerate(groups.items(), 1):
         if public and p.get('href'):
             links += f'<a href="{escape(p["href"], quote=True)}" target="_blank" rel="noopener noreferrer">View public repository ↗</a>'
         if p['id'] in case_links:
-            links += f'<a href="/cases/{case_links[p["id"]]}/">Read case study →</a>'
+            label = 'Read case study' if public else 'Project overview'
+            links += f'<a href="/cases/{case_links[p["id"]]}/">{label} →</a>'
         note = 'Public source' if public else 'Private project · overview only'
         cards.append(f'''<article class="directory-entry" id="{escape(p['id'], quote=True)}">
 <div class="directory-entry-top"><h3>{escape(p['title'])}</h3><span>{note}</span></div>
@@ -60,7 +61,7 @@ html = f'''<!doctype html><html lang="en" data-theme="light">{h}<body class="cas
 (DIST / 'projects').mkdir(exist_ok=True)
 (DIST / 'projects/index.html').write_text(html)
 
-paths = ['/', '/projects/', '/cases/octo-mcp/', '/cases/alpha-scout/', '/cases/browser-fingerprinting/']
+paths = ['/', '/projects/'] + ['/cases/' + case['slug'] + '/' for case in cases]
 (DIST / 'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     '\n'.join(f'<url><loc>{SITE}{path}</loc></url>' for path in paths) + '\n</urlset>\n')
 # Existing allow-all policy retained: public search/social crawlers can read the same pages as visitors.
@@ -70,9 +71,7 @@ llms = ['# MaxBob — Maksym Babenko', '', '> Senior AI & Automation Engineer wi
         f'- [Profile and experience]({SITE}/): Background, selected projects, expertise and contact links.',
         f'- [Complete project directory]({SITE}/projects/): Readable HTML with project capabilities, technologies and public source links.',
         f'- [CV PDF]({SITE}/assets/Maksym-Babenko-CV.pdf): Professional experience, project selection and clickable links.', '', '## Engineering cases', '',
-        f'- [octo-mcp]({SITE}/cases/octo-mcp/): MCP tools, browser profiles, Playwright and CDP.',
-        f'- [alpha-scout]({SITE}/cases/alpha-scout/): Scheduled collection, deduplication, LLM analysis and Telegram alerts.',
-        f'- [Browser fingerprinting]({SITE}/cases/browser-fingerprinting/): Browser configuration and IP/device diagnostics.', '', '## Public profiles', '',
+        *[f'- [{case["name"]}]({SITE}/cases/{case["slug"]}/): {case["description"]}' for case in cases], '', '## Public profiles', '',
         '- [GitHub](https://github.com/mazamaka)', '- [LinkedIn](https://www.linkedin.com/in/max-bob-python/)', '']
 (DIST / 'llms.txt').write_text('\n'.join(llms))
 print(f'Built shared SEO, directory with {len(projects)} reviewed projects, sitemap and llms.txt')

@@ -12,9 +12,18 @@ This index describes the public portfolio. Private work is represented only by r
 
 ## Engineering cases
 
-- [octo-mcp](https://cv.maxbob.xyz/cases/octo-mcp/): MCP tools, browser profiles, Playwright and CDP.
-- [alpha-scout](https://cv.maxbob.xyz/cases/alpha-scout/): Scheduled collection, deduplication, LLM analysis and Telegram alerts.
-- [Browser fingerprinting](https://cv.maxbob.xyz/cases/browser-fingerprinting/): Browser configuration and IP/device diagnostics.
+- [octo-mcp](https://cv.maxbob.xyz/cases/octo-mcp/): How I connected AI agents to Octo Browser with MCP, async API clients and Playwright over CDP.
+- [alpha-scout](https://cv.maxbob.xyz/cases/alpha-scout/): An engineering case study of alpha-scout: scheduled source collection, deduplication, LLM analysis and Telegram alerts.
+- [Browser fingerprinting](https://cv.maxbob.xyz/cases/browser-fingerprinting/): Browser fingerprint customization and diagnostic tooling with nodriver-antidetect and ipqs-checker.
+- [Claudegate](https://cv.maxbob.xyz/cases/claudegate/): Claudegate connects OpenAI-compatible clients to Claude Code through a FastAPI gateway with streaming, tools and persistent sessions.
+- [LLM Latency Tracker](https://cv.maxbob.xyz/cases/llm-latency-tracker/): A distributed Python monitoring pipeline for regional AI API latency and availability, with open datasets, a JSON API and MCP access.
+- [Browser Automation System](https://cv.maxbob.xyz/cases/browser-automation-system/): An experimental FastAPI and React application for AI-driven browser tasks, execution history, context checkpoints and reusable patterns.
+- [IPQS Checker](https://cv.maxbob.xyz/cases/ipqs-checker/): A FastAPI service and browser extensions for collecting and reviewing IP reputation and device-fingerprint diagnostics.
+- [BlueStacks Antidetect](https://cv.maxbob.xyz/cases/bluestacks-antidetect/): A Python and FastAPI control plane for BlueStacks instances, ADB workflows, device-profile configuration and proxy routing.
+- [Claude Code Server Ops](https://cv.maxbob.xyz/cases/claude-code-server-ops/): Linux deployment tooling for a Claude Code API server, with systemd configuration, completion-based probes and end-to-end smoke checks.
+- [Polymarket Bot](https://cv.maxbob.xyz/cases/polymarket-bot/): An asynchronous Python application connecting prediction-market data, Claude analysis, weather inputs and breaking-news signals.
+- [Antifraud Spy](https://cv.maxbob.xyz/cases/antifraud-spy/): A Chrome extension for observing fingerprinting API calls, network activity and browser-signal collection through an event timeline and exports.
+- [MaxBob AI](https://cv.maxbob.xyz/cases/maxbob-ai/): A private native AI-assistant project connecting SwiftUI interfaces, realtime voice, WebRTC and a Python backend with Apple integrations.
 
 ## Public profiles
 
