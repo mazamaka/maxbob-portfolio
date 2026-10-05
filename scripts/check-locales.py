@@ -31,7 +31,7 @@ for file in DIST.rglob('*.html'):
         assert doc.alternates[lang]==SITE+expected
     assert doc.alternates['x-default']==SITE+base
     for asset in doc.assets:assert (DIST/asset.lstrip('/')).is_file(),asset
-    assert '/settings.js?v=22' in file.read_text() and '/dark-theme.css?v=21' in file.read_text()
+    assert '/settings.js?v=24' in file.read_text() and '/dark-theme.css?v=24' in file.read_text()
     text=file.read_text()
     bundles=re.findall(r'<script id="page-translations" type="application/json">(.*?)</script>',text,re.S)
     assert len(bundles)==1,(file,'one inline translation bundle required')

@@ -1610,5 +1610,129 @@
   "Analyze": [
     "Анализ",
     "Аналіз"
+  ],
+  "Engineering across the whole system.": [
+    "Разработка на всех уровнях системы.",
+    "Розробка на всіх рівнях системи."
+  ],
+  "Skills connected to real projects.": [
+    "Навыки на примере реальных проектов.",
+    "Навички на прикладі реальних проєктів."
+  ],
+  "AI SYSTEMS": [
+    "AI-СИСТЕМЫ",
+    "AI-СИСТЕМИ"
+  ],
+  "AI agents & LLMs": [
+    "AI-агенты и LLM",
+    "AI-агенти та LLM"
+  ],
+  "Agents, provider gateways and semantic search — with tools, context and streaming.": [
+    "Агенты, шлюзы к LLM и семантический поиск: инструменты, контекст и потоковые ответы.",
+    "Агенти, шлюзи до LLM і семантичний пошук: інструменти, контекст і потокові відповіді."
+  ],
+  "WORKFLOW AUTOMATION": [
+    "АВТОМАТИЗАЦИЯ ПРОЦЕССОВ",
+    "АВТОМАТИЗАЦІЯ ПРОЦЕСІВ"
+  ],
+  "Workflows & integrations": [
+    "Процессы и интеграции",
+    "Процеси та інтеграції"
+  ],
+  "Scheduled collectors, durable workflows and bots that connect services and move data.": [
+    "Сбор данных по расписанию, устойчивые процессы и боты для интеграции сервисов.",
+    "Збір даних за розкладом, стійкі процеси й боти для інтеграції сервісів."
+  ],
+  "BROWSER ENGINEERING": [
+    "БРАУЗЕРНЫЕ ТЕХНОЛОГИИ",
+    "БРАУЗЕРНІ ТЕХНОЛОГІЇ"
+  ],
+  "Browser & antifraud": [
+    "Браузеры и антифрод",
+    "Браузери й антифрод"
+  ],
+  "Isolated profiles, fingerprint diagnostics, proxy routing and Android automation.": [
+    "Изолированные профили, диагностика отпечатков, прокси и автоматизация Android.",
+    "Ізольовані профілі, діагностика відбитків, проксі й автоматизація Android."
+  ],
+  "BACKEND & DATA": [
+    "BACKEND И ДАННЫЕ",
+    "BACKEND І ДАНІ"
+  ],
+  "Backend & data": [
+    "Backend и данные",
+    "Backend і дані"
+  ],
+  "Async APIs, background jobs and data storage for browser and AI systems.": [
+    "Асинхронные API, фоновые задачи и хранение данных для браузерных и AI-систем.",
+    "Асинхронні API, фонові завдання й зберігання даних для браузерних та AI-систем."
+  ],
+  "OPERATIONS": [
+    "ЭКСПЛУАТАЦИЯ",
+    "ЕКСПЛУАТАЦІЯ"
+  ],
+  "Delivery & observability": [
+    "Деплой и мониторинг",
+    "Деплой і моніторинг"
+  ],
+  "Containerized services, health probes, regional API monitoring and operational dashboards.": [
+    "Контейнеры, проверки работоспособности, региональный мониторинг API и дашборды.",
+    "Контейнери, перевірки працездатності, регіональний моніторинг API та дашборди."
+  ],
+  "VOICE & INTERFACES": [
+    "ГОЛОС И ИНТЕРФЕЙСЫ",
+    "ГОЛОС ТА ІНТЕРФЕЙСИ"
+  ],
+  "Voice & interfaces": [
+    "Голос и интерфейсы",
+    "Голос та інтерфейси"
+  ],
+  "Realtime voice, native Apple apps, browser extensions and interfaces for automation.": [
+    "Голос в реальном времени, приложения для Apple, браузерные расширения и интерфейсы автоматизации.",
+    "Голос у реальному часі, застосунки для Apple, браузерні розширення й інтерфейси автоматизації."
+  ],
+  "In practice": [
+    "В проектах",
+    "У проєктах"
+  ],
+  "Choose a skill to find the projects behind it.": [
+    "Нажмите на навык, чтобы найти проекты, где он применяется.",
+    "Натисніть на навичку, щоб знайти проєкти, де вона застосовується."
+  ],
+  "Embeddings": [
+    "Эмбеддинги",
+    "Ембеддинги"
+  ],
+  "Proxies": [
+    "Прокси",
+    "Проксі"
+  ],
+  "Health probes": [
+    "Проверки доступности",
+    "Перевірки доступності"
+  ],
+  "Smoke checks": [
+    "Смоук-проверки",
+    "Смоук-перевірки"
+  ],
+  "LLM monitoring": [
+    "Мониторинг LLM",
+    "Моніторинг LLM"
+  ],
+  "Speech recognition": [
+    "Распознавание речи",
+    "Розпізнавання мовлення"
+  ],
+  "Browser extensions": [
+    "Расширения браузера",
+    "Розширення браузера"
+  ],
+  "Temporal workflows": [
+    "Процессы Temporal",
+    "Процеси Temporal"
+  ],
+  "Data services": [
+    "Сервисы данных",
+    "Сервіси даних"
   ]
 }

@@ -9,6 +9,7 @@ An illustrated portfolio of **AI agents, browser automation, fingerprinting tool
 ## ✨ What’s inside
 
 - **Project catalog** — selected work, GitHub links, stack tags and case studies.
+- **Applied skills** — six disciplines, searchable tools and links to the projects behind them.
 - **Instant search** — English and Russian queries across curated project content, with suggestions, match highlights and filters.
 - **Private project overviews** — reviewed capability summaries alongside public work.
 - **Illustrated interface** — project artwork, responsive layouts, keyboard navigation and reduced-motion support.
