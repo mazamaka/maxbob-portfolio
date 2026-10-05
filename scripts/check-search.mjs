@@ -43,7 +43,11 @@ for(const p of allProjects){
  assert.ok(p.searchContent?.length,`${p.id} needs reviewed content`);
  assert.doesNotMatch(JSON.stringify(p),/AIza[\w-]{20,}|ghp_[\w]{20,}|\/Users\/|BEGIN PRIVATE KEY|password\s*[:=]/i,'No secrets or local paths in the public index');
 }
-console.log(`PASS: ${allProjects.length} unique catalog entries; Google/content regressions; bilingual search and highlights; ranking; combined filters; private repository guard`);
+assert.ok(searchProjects('голосовий').some(p=>p.id==='maxbob-ai'));
+assert.ok(searchProjects('відбитки').some(p=>p.id==='nodriver-antidetect'));
+assert.ok(searchProjects('нагадування').some(p=>p.id==='maxbob-ai'));
+assert.ok(searchProjects('распознаёт').some(p=>p.id==='VoiceHelper'));
+console.log(`PASS: ${allProjects.length} unique catalog entries; Google/content regressions; trilingual search and highlights; ranking; combined filters; private repository guard`);
 
 const page=await readFile('dist/index.html','utf8');
 const {cases}=JSON.parse(await readFile('src/case-studies.json','utf8'));
@@ -59,7 +63,7 @@ for(const c of cases){
  assert.ok(directory.includes(`href="/${href}"`),`${c.projectId}: directory must link to its case`);
  const detail=await readFile(`dist/${href}index.html`,'utf8');
  for(const section of ['problem','contribution','decisions','evidence','limits'])assert.ok(detail.includes(`id="${section}"`),`${c.projectId}: missing ${section}`);
- assert.ok(detail.includes('href="../../#return-to-work"'),'Cases must provide a return to the project list');
+ assert.ok(detail.includes('href="/#return-to-work"'),'Cases must provide a return to the project list');
  assert.ok(cases.some(next=>next.slug===c.related),'Related case must exist');
  if(c.private){
   assert.ok(detail.includes('Visit project website'));
@@ -68,7 +72,7 @@ for(const c of cases){
  }
 }
 console.log(`PASS: all ${cases.length} featured cards, search results and directory entries link to complete case pages`);
-for(const [,encoded] of page.matchAll(/href="\?q=([^"#]+)#work"/g)){
+for(const [,encoded] of page.matchAll(/href="\/?\?q=([^"#]+)#work"/g)){
  const q=decodeURIComponent(encoded);assert.ok(searchProjects(q).length,`Expertise search link must return a project: ${q}`);
 }
 console.log('PASS: every expertise tool link resolves to matching projects');

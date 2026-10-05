@@ -29,3 +29,9 @@ This index describes the public portfolio. Private work is represented only by r
 
 - [GitHub](https://github.com/mazamaka)
 - [LinkedIn](https://www.linkedin.com/in/max-bob-python/)
+
+## Languages
+
+- [English](https://cv.maxbob.xyz/): Default language.
+- [Русский](https://cv.maxbob.xyz/ru/): Русская версия портфолио и проектов.
+- [Українська](https://cv.maxbob.xyz/uk/): Українська версія портфоліо та проєктів.

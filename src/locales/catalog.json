@@ -1,0 +1,742 @@
+{
+  "Regional AI API latency & uptime, open datasets, JSON API and MCP.": [
+    "Региональные задержки и доступность AI API, открытые данные, JSON API и MCP.",
+    "Регіональні затримки й доступність AI API, відкриті дані, JSON API та MCP."
+  ],
+  "Distributed probes measure API availability, network time to first byte (TTFB) and optional inference time to first token (TTFT).": [
+    "Распределённые проверки измеряют доступность API, время до первого байта (TTFB) и, опционально, до первого токена ответа (TTFT).",
+    "Розподілені перевірки вимірюють доступність API, час до першого байта (TTFB) та, за потреби, до першого токена відповіді (TTFT)."
+  ],
+  "Regional p50 and p95 statistics, historical snapshots and open datasets are available through a JSON API and MCP.": [
+    "Региональная статистика p50/p95, исторические снимки и открытые данные доступны через JSON API и MCP.",
+    "Регіональна статистика p50/p95, історичні знімки та відкриті дані доступні через JSON API й MCP."
+  ],
+  "OpenAI-compatible Claude Code API: streaming, tools, images & persistent sessions.": [
+    "OpenAI-совместимый API для Claude Code: стриминг, инструменты, изображения и постоянные сессии.",
+    "OpenAI-сумісний API для Claude Code: стримінг, інструменти, зображення та постійні сесії."
+  ],
+  "An OpenAI-compatible API connects applications to Claude Code with streamed responses, tool calls, image input and persistent sessions.": [
+    "OpenAI-совместимый API подключает приложения к Claude Code: потоковые ответы, вызов инструментов, изображения на входе и постоянные сессии.",
+    "OpenAI-сумісний API підключає застосунки до Claude Code: потокові відповіді, виклик інструментів, зображення на вході та постійні сесії."
+  ],
+  "Gateway adapters translate request and response formats for AI applications.": [
+    "Адаптеры шлюза преобразуют форматы запросов и ответов для AI-приложений.",
+    "Адаптери шлюзу перетворюють формати запитів і відповідей для AI-застосунків."
+  ],
+  "systemd deployment, real-completion health probes & end-to-end smoke checks.": [
+    "Развёртывание через systemd, проверки реальной генерации ответа и сквозные smoke-тесты.",
+    "Розгортання через systemd, перевірки реальної генерації відповіді та наскрізні smoke-тести."
+  ],
+  "Linux systemd service deployment for Claude Code API services.": [
+    "Развёртывание API-сервисов Claude Code как systemd-служб в Linux.",
+    "Розгортання API-сервісів Claude Code як systemd-служб у Linux."
+  ],
+  "Completion-based health probes and end-to-end smoke checks verify that the service can produce a response.": [
+    "Проверки реальной генерации и сквозные smoke-тесты подтверждают, что сервис способен выдать ответ.",
+    "Перевірки реальної генерації та наскрізні smoke-тести підтверджують, що сервіс здатен видати відповідь."
+  ],
+  "Experimental browser runner: FastAPI, React, execution history & checkpoints.": [
+    "Экспериментальный исполнитель браузерных задач: FastAPI, React, история и контрольные точки.",
+    "Експериментальний виконавець браузерних завдань: FastAPI, React, історія та контрольні точки."
+  ],
+  "AI-driven browser tasks retain execution history, checkpoints and reusable patterns.": [
+    "Браузерные AI-задачи сохраняют историю выполнения, контрольные точки и повторно используемые сценарии.",
+    "Браузерні AI-завдання зберігають історію виконання, контрольні точки та повторно використовувані сценарії."
+  ],
+  "The browser-use runner is exposed through a FastAPI backend and React interface.": [
+    "Исполнитель browser-use доступен через FastAPI-бэкенд и React-интерфейс.",
+    "Виконавець browser-use доступний через FastAPI-бекенд і React-інтерфейс."
+  ],
+  "Multi-source collection → deduplication → LLM analysis → Telegram alerts & dashboard.": [
+    "Сбор из разных источников → дедупликация → LLM-анализ → Telegram-алерты и дашборд.",
+    "Збір із різних джерел → дедуплікація → LLM-аналіз → Telegram-сповіщення та дашборд."
+  ],
+  "Scheduled collectors gather ideas from Reddit, GitHub, Hacker News, Polymarket, RSS and X, with a labelled news fallback.": [
+    "Сборщики по расписанию получают идеи из Reddit, GitHub, Hacker News, Polymarket, RSS и X; резервный новостной источник явно помечен.",
+    "Збирачі за розкладом отримують ідеї з Reddit, GitHub, Hacker News, Polymarket, RSS і X; резервне джерело новин явно позначене."
+  ],
+  "Content-hash deduplication, two-stage Claude screening and deeper analysis lead to configurable scores, Telegram alerts and a FastAPI dashboard. Collection is scheduled rather than real-time.": [
+    "Дедупликация по хешу контента, двухэтапный отбор Claude и глубокий анализ дают настраиваемые оценки, Telegram-алерты и FastAPI-дашборд. Сбор идёт по расписанию, не в реальном времени.",
+    "Дедуплікація за хешем контенту, двоетапний відбір Claude та глибокий аналіз дають налаштовувані оцінки, Telegram-сповіщення й FastAPI-дашборд. Збір працює за розкладом, а не в реальному часі."
+  ],
+  "Async Octo Browser profile management & Playwright/CDP automation via MCP.": [
+    "Асинхронное управление профилями Octo Browser и автоматизация Playwright/CDP через MCP.",
+    "Асинхронне керування профілями Octo Browser та автоматизація Playwright/CDP через MCP."
+  ],
+  "MCP tools connect AI agents to Octo Browser Local and Cloud APIs, with asynchronous profile management and Playwright page actions over CDP.": [
+    "MCP-инструменты подключают AI-агентов к Local и Cloud API Octo Browser: асинхронное управление профилями и действия Playwright через CDP.",
+    "MCP-інструменти підключають AI-агентів до Local і Cloud API Octo Browser: асинхронне керування профілями та дії Playwright через CDP."
+  ],
+  "Remote browser hosts, CDP endpoint rewriting and bounded retries for API rate limits are configurable.": [
+    "Настраиваются удалённые браузерные хосты, преобразование CDP-адресов и ограниченные повторы при лимитах API.",
+    "Налаштовуються віддалені браузерні хости, перетворення CDP-адрес та обмежені повтори при лімітах API."
+  ],
+  "Claude Code skills for SEO: keyword clustering, briefs, content refresh, internal linking": [
+    "SEO-навыки Claude Code: кластеризация запросов, брифы, обновление контента и перелинковка.",
+    "SEO-навички Claude Code: кластеризація запитів, брифи, оновлення контенту та перелінкування."
+  ],
+  "Reusable Claude Code skills cover keyword clustering, content briefs, content refresh and internal linking.": [
+    "Повторно используемые навыки Claude Code покрывают кластеризацию запросов, контент-брифы, обновление контента и внутреннюю перелинковку.",
+    "Повторно використовувані навички Claude Code охоплюють кластеризацію запитів, контент-брифи, оновлення контенту та внутрішнє перелінкування."
+  ],
+  "CDP browser fingerprint customization, Docker runtime & detection checks.": [
+    "Настройка браузерных отпечатков через CDP, Docker-окружение и диагностические проверки.",
+    "Налаштування браузерних відбитків через CDP, Docker-середовище та діагностичні перевірки."
+  ],
+  "CDP-level browser configuration controls fingerprints in isolated Docker environments.": [
+    "Настройки на уровне CDP управляют отпечатками браузера в изолированных Docker-окружениях.",
+    "Налаштування на рівні CDP керують відбитками браузера в ізольованих Docker-середовищах."
+  ],
+  "Rendering and platform characteristics are inspected with diagnostic checks; observations do not guarantee universal undetectability.": [
+    "Диагностика исследует характеристики рендеринга и платформы; результаты не гарантируют универсальную незаметность.",
+    "Діагностика досліджує характеристики рендерингу й платформи; результати не гарантують універсальну непомітність."
+  ],
+  "Device-fingerprint & IP-quality diagnostics via FastAPI and browser extensions.": [
+    "Диагностика отпечатков устройств и качества IP через FastAPI и расширения браузера.",
+    "Діагностика відбитків пристроїв та якості IP через FastAPI й розширення браузера."
+  ],
+  "IP reputation and device fingerprint diagnostics combine a FastAPI service with Chrome and Firefox extensions.": [
+    "Диагностика IP-репутации и отпечатков устройств объединяет FastAPI-сервис с расширениями Chrome и Firefox.",
+    "Діагностика IP-репутації та відбитків пристроїв поєднує FastAPI-сервіс із розширеннями Chrome і Firefox."
+  ],
+  "Browser and network signals are inspected together, including rendering characteristics.": [
+    "Браузерные и сетевые сигналы исследуются вместе, включая характеристики рендеринга.",
+    "Браузерні та мережеві сигнали досліджуються разом, зокрема характеристики рендерингу."
+  ],
+  "Watch-history ingestion, metadata enrichment & movie recommendations via Telegram.": [
+    "История просмотров, обогащение метаданных и рекомендации фильмов через Telegram.",
+    "Історія переглядів, збагачення метаданих і рекомендації фільмів через Telegram."
+  ],
+  "Lampa watch-history ingestion and metadata enrichment feed content-based movie recommendations.": [
+    "История просмотров Lampa и обогащённые метаданные используются для рекомендаций по содержанию фильмов.",
+    "Історія переглядів Lampa та збагачені метадані використовуються для рекомендацій за змістом фільмів."
+  ],
+  "Genre, actor and director features, Bayesian ranking and reaction feedback influence recommendation scores.": [
+    "На оценки рекомендаций влияют жанры, актёры, режиссёры, байесовское ранжирование и реакции пользователя.",
+    "На оцінки рекомендацій впливають жанри, актори, режисери, баєсівське ранжування та реакції користувача."
+  ],
+  "Telegram publishes recommendations and scheduled jobs refresh the collection.": [
+    "Рекомендации публикуются в Telegram, а коллекция обновляется заданиями по расписанию.",
+    "Рекомендації публікуються в Telegram, а колекція оновлюється завданнями за розкладом."
+  ],
+  "Prediction-market research with LLM analysis, weather data and news signals.": [
+    "Исследование рынков прогнозов с LLM-анализом, погодными данными и новостными сигналами.",
+    "Дослідження ринків прогнозів із LLM-аналізом, погодними даними та новинними сигналами."
+  ],
+  "Prediction-market research combines Claude LLM analysis with weather data and breaking-news signals.": [
+    "Исследование рынков прогнозов объединяет анализ Claude с данными о погоде и срочными новостями.",
+    "Дослідження ринків прогнозів поєднує аналіз Claude з даними про погоду та терміновими новинами."
+  ],
+  "Asynchronous Python workflows collect inputs for market research.": [
+    "Асинхронные Python-процессы собирают данные для исследования рынков.",
+    "Асинхронні Python-процеси збирають дані для дослідження ринків."
+  ],
+  "Android instance management, device fingerprints, proxy routing, FastAPI & ADB.": [
+    "Управление Android-инстансами, отпечатками устройств и прокси через FastAPI и ADB.",
+    "Керування Android-інстансами, відбитками пристроїв і проксі через FastAPI та ADB."
+  ],
+  "FastAPI and Android Debug Bridge (ADB) manage BlueStacks emulator instances and device profiles.": [
+    "FastAPI и Android Debug Bridge (ADB) управляют инстансами BlueStacks и профилями устройств.",
+    "FastAPI та Android Debug Bridge (ADB) керують інстансами BlueStacks і профілями пристроїв."
+  ],
+  "Device fingerprints and proxy routing are configured separately from instance management.": [
+    "Отпечатки устройств и прокси-маршрутизация настраиваются отдельно от управления инстансами.",
+    "Відбитки пристроїв і проксі-маршрутизація налаштовуються окремо від керування інстансами."
+  ],
+  "API for mobile traffic routing, geo-targeting & configurable cloaking rules.": [
+    "API маршрутизации мобильного трафика, геотаргетинга и настраиваемых правил клоакинга.",
+    "API маршрутизації мобільного трафіку, геотаргетингу та налаштовуваних правил клоакінгу."
+  ],
+  "An API applies configurable mobile traffic routing and geographic targeting rules.": [
+    "API применяет настраиваемые правила маршрутизации мобильного трафика и географического таргетинга.",
+    "API застосовує налаштовувані правила маршрутизації мобільного трафіку та географічного таргетингу."
+  ],
+  "Bitcoin price sniper — multi-source price tracking, volatility analysis, alert system": [
+    "Отслеживание цены Bitcoin из разных источников, анализ волатильности и уведомления.",
+    "Відстеження ціни Bitcoin із різних джерел, аналіз волатильності та сповіщення."
+  ],
+  "Multi-source Bitcoin price tracking, volatility analysis and alert delivery.": [
+    "Сбор цен Bitcoin из нескольких источников, анализ волатильности и доставка уведомлений.",
+    "Збір цін Bitcoin із кількох джерел, аналіз волатильності та доставка сповіщень."
+  ],
+  "Solana trading with transaction simulation, trade storage & TP/SL strategies.": [
+    "Торговля на Solana с симуляцией транзакций, хранением сделок и стратегиями TP/SL.",
+    "Торгівля на Solana із симуляцією транзакцій, зберіганням угод і стратегіями TP/SL."
+  ],
+  "Solana transaction simulation and trade storage support configurable take-profit and stop-loss strategies.": [
+    "Симуляция транзакций Solana и хранение сделок поддерживают настраиваемые стратегии take-profit и stop-loss.",
+    "Симуляція транзакцій Solana та зберігання угод підтримують налаштовувані стратегії take-profit і stop-loss."
+  ],
+  "Specialized Claude Code agents for planning, coding, review, testing & deployment.": [
+    "Специализированные агенты Claude Code для планирования, разработки, ревью, тестов и развёртывания.",
+    "Спеціалізовані агенти Claude Code для планування, розробки, рев’ю, тестів і розгортання."
+  ],
+  "Specialized Claude Code agents cover planning, implementation, review, testing and deployment.": [
+    "Специализированные агенты Claude Code охватывают планирование, реализацию, ревью, тестирование и развёртывание.",
+    "Спеціалізовані агенти Claude Code охоплюють планування, реалізацію, рев’ю, тестування та розгортання."
+  ],
+  "Python client for detect.expert DNS checks with browser-style TLS fingerprints.": [
+    "Python-клиент DNS-проверок detect.expert с браузерными TLS-отпечатками.",
+    "Python-клієнт DNS-перевірок detect.expert із браузерними TLS-відбитками."
+  ],
+  "A Python client queries detect.expert DNS checks using browser-style TLS fingerprints.": [
+    "Python-клиент запрашивает DNS-проверки detect.expert, используя TLS-отпечатки браузера.",
+    "Python-клієнт запитує DNS-перевірки detect.expert, використовуючи TLS-відбитки браузера."
+  ],
+  "Pagination, retries for pending results and JSON/CSV exports expose DNS resolver data through a CLI.": [
+    "Пагинация, повторы для ожидающих результатов и экспорт JSON/CSV предоставляют данные DNS-резолверов через CLI.",
+    "Пагінація, повтори для результатів в очікуванні та експорт JSON/CSV надають дані DNS-резолверів через CLI."
+  ],
+  "AI landing-page generation with text and images from multiple model providers.": [
+    "AI-генерация лендингов с текстом и изображениями от нескольких провайдеров моделей.",
+    "AI-генерація лендингів із текстом і зображеннями від кількох провайдерів моделей."
+  ],
+  "AI-generated landing pages combine model-written HTML, CSS and JavaScript with Flux image generation.": [
+    "AI-лендинги объединяют созданные моделью HTML, CSS и JavaScript с изображениями Flux.",
+    "AI-лендинги поєднують створені моделлю HTML, CSS і JavaScript із зображеннями Flux."
+  ],
+  "Parallel background steps, a SQLAdmin panel, WebSocket progress and checks for markup, SEO and accessibility support generation.": [
+    "Генерацию сопровождают параллельные фоновые этапы, SQLAdmin, прогресс по WebSocket и проверки разметки, SEO и доступности.",
+    "Генерацію супроводжують паралельні фонові етапи, SQLAdmin, прогрес через WebSocket і перевірки розмітки, SEO та доступності."
+  ],
+  "Crypto trading backend with a FastAPI dashboard and Solana/Raydium integrations.": [
+    "Бэкенд криптоторговли с FastAPI-дашбордом и интеграциями Solana/Raydium.",
+    "Бекенд криптоторгівлі з FastAPI-дашбордом та інтеграціями Solana/Raydium."
+  ],
+  "A Solana copy-trading backend monitors wallet transactions through WebSocket subscriptions.": [
+    "Бэкенд копитрейдинга Solana отслеживает транзакции кошельков через WebSocket-подписки.",
+    "Бекенд копітрейдингу Solana відстежує транзакції гаманців через WebSocket-підписки."
+  ],
+  "Multi-DEX parsers, a Starlette admin dashboard and PostgreSQL storage connect transaction ingestion to configurable trading workflows.": [
+    "Парсеры нескольких DEX, админка Starlette и PostgreSQL связывают сбор транзакций с настраиваемыми торговыми процессами.",
+    "Парсери кількох DEX, адмінка Starlette та PostgreSQL пов’язують збір транзакцій із налаштовуваними торговими процесами."
+  ],
+  "Centralized log ingestion via FastAPI, PostgreSQL metadata & MinIO storage.": [
+    "Централизованный сбор логов через FastAPI, метаданные в PostgreSQL и хранение в MinIO.",
+    "Централізований збір логів через FastAPI, метадані в PostgreSQL і зберігання в MinIO."
+  ],
+  "FastAPI batch log ingestion tracks automation runs, execution status and metadata.": [
+    "Пакетный приём логов через FastAPI отслеживает запуски автоматизации, статусы выполнения и метаданные.",
+    "Пакетне приймання логів через FastAPI відстежує запуски автоматизації, статуси виконання та метадані."
+  ],
+  "Filtering by task, profile, action, severity and time helps inspect workflow failures. PostgreSQL stores metadata and MinIO retains artifacts.": [
+    "Фильтры по задаче, профилю, действию, уровню и времени помогают разбирать сбои. PostgreSQL хранит метаданные, MinIO — артефакты.",
+    "Фільтри за завданням, профілем, дією, рівнем і часом допомагають розбирати збої. PostgreSQL зберігає метадані, MinIO — артефакти."
+  ],
+  "Scheduled checks with PostgreSQL storage, Prometheus metrics & Grafana dashboards.": [
+    "Проверки по расписанию с PostgreSQL, метриками Prometheus и дашбордами Grafana.",
+    "Перевірки за розкладом із PostgreSQL, метриками Prometheus і дашбордами Grafana."
+  ],
+  "Async URL availability checks use asyncio and aiohttp with PostgreSQL storage.": [
+    "Асинхронные проверки доступности URL используют asyncio, aiohttp и хранение в PostgreSQL.",
+    "Асинхронні перевірки доступності URL використовують asyncio, aiohttp і зберігання в PostgreSQL."
+  ],
+  "PDF Content-Type validation, consecutive-failure tracking and dynamic Prometheus targets feed Grafana dashboards and Blackbox Exporter probes.": [
+    "Проверка Content-Type PDF, учёт последовательных сбоев и динамические цели Prometheus питают дашборды Grafana и проверки Blackbox Exporter.",
+    "Перевірка Content-Type PDF, облік послідовних збоїв і динамічні цілі Prometheus забезпечують даними дашборди Grafana та перевірки Blackbox Exporter."
+  ],
+  "FastAPI service to list and transmit Flipper Zero SubGHz files over USB.": [
+    "FastAPI-сервис для просмотра и передачи SubGHz-файлов Flipper Zero по USB.",
+    "FastAPI-сервіс для перегляду та передавання SubGHz-файлів Flipper Zero через USB."
+  ],
+  "A FastAPI service lists and transmits Flipper Zero SubGHz files through a USB connection.": [
+    "FastAPI-сервис отображает и передаёт SubGHz-файлы Flipper Zero через USB-подключение.",
+    "FastAPI-сервіс відображає та передає SubGHz-файли Flipper Zero через USB-підключення."
+  ],
+  "File-scan workflows combining browser automation and API integration.": [
+    "Проверка файлов с браузерной автоматизацией и API-интеграцией.",
+    "Перевірка файлів із браузерною автоматизацією та API-інтеграцією."
+  ],
+  "File, URL, domain and IP reputation checks combine browser workflows with the official VirusTotal API v3.": [
+    "Проверки репутации файлов, URL, доменов и IP объединяют браузерные сценарии с официальным VirusTotal API v3.",
+    "Перевірки репутації файлів, URL, доменів та IP поєднують браузерні сценарії з офіційним VirusTotal API v3."
+  ],
+  "nodriver handles browser pages and Shadow DOM; rate limiting, retries, batch uploads and JSON persistence support scan processing.": [
+    "nodriver работает со страницами и Shadow DOM; лимиты запросов, повторы, пакетные загрузки и JSON-хранение поддерживают обработку сканирований.",
+    "nodriver працює зі сторінками та Shadow DOM; ліміти запитів, повтори, пакетні завантаження й JSON-зберігання підтримують обробку сканувань."
+  ],
+  "LLM-driven Playwright workflows with page processing, provider adapters & AgentQL.": [
+    "LLM-сценарии Playwright с обработкой страниц, адаптерами провайдеров и AgentQL.",
+    "LLM-сценарії Playwright з обробкою сторінок, адаптерами провайдерів та AgentQL."
+  ],
+  "Natural-language browser tasks use Playwright and AgentQL, with HTML cleaning and structured element queries.": [
+    "Браузерные задачи на естественном языке используют Playwright и AgentQL, очистку HTML и структурированные запросы элементов.",
+    "Браузерні завдання природною мовою використовують Playwright та AgentQL, очищення HTML і структуровані запити елементів."
+  ],
+  "Provider adapters support OpenAI, Anthropic Claude, Google Gemini, Groq and OpenRouter.": [
+    "Адаптеры провайдеров поддерживают OpenAI, Anthropic Claude, Google Gemini, Groq и OpenRouter.",
+    "Адаптери провайдерів підтримують OpenAI, Anthropic Claude, Google Gemini, Groq та OpenRouter."
+  ],
+  "Faker supplies locale-aware test data and element highlighting provides feedback during automation.": [
+    "Faker создаёт тестовые данные с учётом локали, а подсветка элементов даёт обратную связь при автоматизации.",
+    "Faker створює тестові дані з урахуванням локалі, а підсвічування елементів дає зворотний зв’язок під час автоматизації."
+  ],
+  "Account/session management, workflow automation, proxies & an admin panel.": [
+    "Управление аккаунтами и сессиями, автоматизация процессов, прокси и админ-панель.",
+    "Керування акаунтами й сесіями, автоматизація процесів, проксі та адмінпанель."
+  ],
+  "A Starlette admin panel manages account sessions, proxies and scheduled Reddit workflows.": [
+    "Админка Starlette управляет сессиями аккаунтов, прокси и сценариями Reddit по расписанию.",
+    "Адмінка Starlette керує сесіями акаунтів, проксі та сценаріями Reddit за розкладом."
+  ],
+  "Celery and Redis run background tasks with Flower monitoring; MySQL and async SQLAlchemy store state.": [
+    "Celery и Redis выполняют фоновые задачи с мониторингом Flower; MySQL и асинхронный SQLAlchemy хранят состояние.",
+    "Celery та Redis виконують фонові завдання з моніторингом Flower; MySQL і асинхронний SQLAlchemy зберігають стан."
+  ],
+  "OpenAI is integrated for content generation.": [
+    "OpenAI интегрирован для генерации контента.",
+    "OpenAI інтегровано для генерації контенту."
+  ],
+  "Flask web app and Telegram bot for SIM-card management.": [
+    "Flask-приложение и Telegram-бот для управления SIM-картами.",
+    "Flask-застосунок і Telegram-бот для керування SIM-картками."
+  ],
+  "A Flask web application and Telegram bot manage SIM-card workflows.": [
+    "Веб-приложение Flask и Telegram-бот управляют процессами работы с SIM-картами.",
+    "Вебзастосунок Flask і Telegram-бот керують процесами роботи із SIM-картками."
+  ],
+  "Multi-step web tasks through browser-use, OpenAI and Chrome CDP.": [
+    "Многошаговые веб-задачи через browser-use, OpenAI и Chrome CDP.",
+    "Багатокрокові вебзавдання через browser-use, OpenAI та Chrome CDP."
+  ],
+  "Multi-step web tasks connect browser-use, OpenAI models and Chrome CDP sessions.": [
+    "Многошаговые веб-задачи объединяют browser-use, модели OpenAI и Chrome CDP-сессии.",
+    "Багатокрокові вебзавдання поєднують browser-use, моделі OpenAI та Chrome CDP-сесії."
+  ],
+  "NLP company classifier using zero-shot transformers": [
+    "NLP-классификатор компаний на zero-shot трансформерах.",
+    "NLP-класифікатор компаній на zero-shot трансформерах."
+  ],
+  "Zero-shot NLP classification assigns company categories using transformer models.": [
+    "Zero-shot NLP-классификация определяет категории компаний с помощью моделей-трансформеров.",
+    "Zero-shot NLP-класифікація визначає категорії компаній за допомогою моделей-трансформерів."
+  ],
+  "AI-generated content, browser sessions & scheduled X/Twitter interactions.": [
+    "AI-контент, браузерные сессии и взаимодействия с X/Twitter по расписанию.",
+    "AI-контент, браузерні сесії та взаємодії з X/Twitter за розкладом."
+  ],
+  "An X / Twitter workflow combines AI content generation, content rewriting and scheduled browser interactions.": [
+    "Сценарий X/Twitter объединяет генерацию и переработку AI-контента с браузерными взаимодействиями по расписанию.",
+    "Сценарій X/Twitter поєднує генерацію та переробку AI-контенту з браузерними взаємодіями за розкладом."
+  ],
+  "A React dashboard exposes WebSocket logs and configuration; Flask, PostgreSQL and Docker support the backend.": [
+    "React-дашборд показывает WebSocket-логи и настройки; бэкенд использует Flask, PostgreSQL и Docker.",
+    "React-дашборд показує WebSocket-логи й налаштування; бекенд використовує Flask, PostgreSQL і Docker."
+  ],
+  "Git commit analysis → AI weekly reports & ClickUp task creation.": [
+    "Анализ Git-коммитов → AI-отчёты за неделю и создание задач ClickUp.",
+    "Аналіз Git-комітів → AI-звіти за тиждень і створення завдань ClickUp."
+  ],
+  "Git commit analysis across multiple repositories generates AI-assisted weekly reports.": [
+    "Анализ Git-коммитов нескольких репозиториев формирует еженедельные отчёты с помощью AI.",
+    "Аналіз Git-комітів кількох репозиторіїв формує щотижневі звіти за допомогою AI."
+  ],
+  "Claude groups changes into tasks; ClickUp API integration creates tasks with descriptions and time tracking.": [
+    "Claude группирует изменения в задачи; интеграция ClickUp API создаёт задачи с описаниями и учётом времени.",
+    "Claude групує зміни в завдання; інтеграція ClickUp API створює завдання з описами й обліком часу."
+  ],
+  "Async vehicle-auction data collection with aiohttp and SOCKS proxy support.": [
+    "Асинхронный сбор данных автоаукционов через aiohttp с поддержкой SOCKS-прокси.",
+    "Асинхронний збір даних автоаукціонів через aiohttp з підтримкою SOCKS-проксі."
+  ],
+  "Asynchronous vehicle-auction data extraction uses aiohttp and SOCKS proxy support.": [
+    "Асинхронное извлечение данных автоаукционов использует aiohttp и SOCKS-прокси.",
+    "Асинхронне вилучення даних автоаукціонів використовує aiohttp та SOCKS-проксі."
+  ],
+  "Telegram voice/video transcription, reminder extraction & scheduled notifications.": [
+    "Транскрибация голоса и видео в Telegram, извлечение напоминаний и уведомления по расписанию.",
+    "Транскрибування голосу й відео в Telegram, виділення нагадувань і сповіщення за розкладом."
+  ],
+  "Google Speech Recognition transcribes Telegram voice messages and video notes.": [
+    "Google Speech Recognition распознаёт голосовые сообщения и видеозаметки Telegram.",
+    "Google Speech Recognition розпізнає голосові повідомлення та відеонотатки Telegram."
+  ],
+  "OpenAI analyzes transcripts for reminders; scheduled in-chat notifications and transcription caching complete the workflow.": [
+    "OpenAI извлекает напоминания из расшифровок; сценарий дополняют уведомления в чате по расписанию и кеш транскрипций.",
+    "OpenAI виділяє нагадування з розшифрувань; сценарій доповнюють сповіщення в чаті за розкладом і кеш транскрипцій."
+  ],
+  "FFmpeg processes audio; the bot supports Docker deployment.": [
+    "FFmpeg обрабатывает аудио; бот поддерживает развёртывание в Docker.",
+    "FFmpeg обробляє аудіо; бот підтримує розгортання в Docker."
+  ],
+  "Solana copy-trading: transaction analysis & automated trade execution.": [
+    "Копитрейдинг на Solana: анализ транзакций и автоматическое исполнение сделок.",
+    "Копітрейдинг на Solana: аналіз транзакцій та автоматичне виконання угод."
+  ],
+  "Solana transaction analysis drives copy-trading workflows and automated execution.": [
+    "Анализ транзакций Solana управляет копитрейдингом и автоматическим исполнением.",
+    "Аналіз транзакцій Solana керує копітрейдингом та автоматичним виконанням."
+  ],
+  "Docker URL validation with redirect tracking, PDF detection & CSV reports.": [
+    "Проверка URL в Docker с отслеживанием редиректов, обнаружением PDF и CSV-отчётами.",
+    "Перевірка URL у Docker із відстеженням редиректів, виявленням PDF і CSV-звітами."
+  ],
+  "URL validation tracks redirects, detects PDF responses and exports CSV reports from a Docker runtime.": [
+    "Проверка URL отслеживает редиректы, определяет PDF-ответы и экспортирует CSV-отчёты из Docker-окружения.",
+    "Перевірка URL відстежує редиректи, визначає PDF-відповіді та експортує CSV-звіти з Docker-середовища."
+  ],
+  "Monobank-to-Binance purchase automation with transaction alerts in Telegram.": [
+    "Автоматизация покупок Monobank → Binance с уведомлениями о транзакциях в Telegram.",
+    "Автоматизація купівель Monobank → Binance зі сповіщеннями про транзакції в Telegram."
+  ],
+  "Payment workflow automation connects Monobank and Binance with Telegram transaction notifications.": [
+    "Автоматизация платёжных процессов связывает Monobank и Binance с уведомлениями о транзакциях в Telegram.",
+    "Автоматизація платіжних процесів пов’язує Monobank і Binance зі сповіщеннями про транзакції в Telegram."
+  ],
+  "Chrome extension for tracing Canvas, WebGL and other fingerprinting API calls.": [
+    "Расширение Chrome для отслеживания вызовов Canvas, WebGL и других API фингерпринтинга.",
+    "Розширення Chrome для відстеження викликів Canvas, WebGL та інших API фінгерпринтингу."
+  ],
+  "Chrome extension instrumentation observes Canvas, WebGL and other browser fingerprinting API calls.": [
+    "Инструменты расширения Chrome наблюдают вызовы Canvas, WebGL и других API браузерных отпечатков.",
+    "Інструменти розширення Chrome спостерігають за викликами Canvas, WebGL та інших API браузерних відбитків."
+  ],
+  "Inspect the browser signals requested by pages and antifraud checks.": [
+    "Исследование браузерных сигналов, которые запрашивают страницы и антифрод-проверки.",
+    "Дослідження браузерних сигналів, які запитують сторінки та антифрод-перевірки."
+  ],
+  "Vehicle-listing collection, filtering & matching notifications through Telegram.": [
+    "Сбор и фильтрация автомобильных объявлений с уведомлениями о совпадениях в Telegram.",
+    "Збір і фільтрація автомобільних оголошень зі сповіщеннями про збіги в Telegram."
+  ],
+  "Vehicle listings are collected, filtered and matched to criteria before Telegram notifications are sent.": [
+    "Автомобильные объявления собираются, фильтруются и проверяются по критериям перед отправкой уведомлений в Telegram.",
+    "Автомобільні оголошення збираються, фільтруються та перевіряються за критеріями перед надсиланням сповіщень у Telegram."
+  ],
+  "Claude Computer Use in Docker, with a virtual desktop and browser-based monitoring.": [
+    "Claude Computer Use в Docker с виртуальным рабочим столом и мониторингом в браузере.",
+    "Claude Computer Use у Docker із віртуальним робочим столом і моніторингом у браузері."
+  ],
+  "Claude Computer Use operates inside a Docker-hosted virtual desktop with browser-based monitoring.": [
+    "Claude Computer Use работает на виртуальном рабочем столе в Docker с наблюдением через браузер.",
+    "Claude Computer Use працює на віртуальному робочому столі в Docker зі спостереженням через браузер."
+  ],
+  "Containerized directory-record collection through browser automation.": [
+    "Контейнеризированный сбор записей справочника через браузерную автоматизацию.",
+    "Контейнеризований збір записів довідника через браузерну автоматизацію."
+  ],
+  "Containerized browser automation collects structured directory records.": [
+    "Браузерная автоматизация в контейнере собирает структурированные записи справочника.",
+    "Браузерна автоматизація в контейнері збирає структуровані записи довідника."
+  ],
+  "AI-powered platform for generating and managing site networks: MCP tools, background jobs, previews, automated deployment and monitoring.": [
+    "AI-платформа генерации и управления сетями сайтов: MCP-инструменты, фоновые задачи, превью, автодеплой и мониторинг.",
+    "AI-платформа генерації та керування мережами сайтів: MCP-інструменти, фонові завдання, прев’ю, авторозгортання й моніторинг."
+  ],
+  "MCP tools and background jobs connect AI content generation, site previews, deployment and monitoring.": [
+    "MCP-инструменты и фоновые задачи связывают AI-генерацию контента, превью сайтов, развёртывание и мониторинг.",
+    "MCP-інструменти та фонові завдання пов’язують AI-генерацію контенту, прев’ю сайтів, розгортання й моніторинг."
+  ],
+  "The platform manages networks of websites through an administration interface and automated publishing workflows.": [
+    "Платформа управляет сетями сайтов через административный интерфейс и автоматизированные процессы публикации.",
+    "Платформа керує мережами сайтів через адміністративний інтерфейс та автоматизовані процеси публікації."
+  ],
+  "AI-powered platform for generating and managing site networks: MCP tools, background jobs, previews, automated deployment and monitoring. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.": [
+    "AI-платформа генерации и управления сетями сайтов: MCP-инструменты, фоновые задачи, превью, автодеплой и мониторинг. Исходный код закрыт. Обзор описывает инженерный объём работы без раскрытия реализации и данных клиентов.",
+    "AI-платформа генерації та керування мережами сайтів: MCP-інструменти, фонові завдання, прев’ю, авторозгортання й моніторинг. Вихідний код закритий. Огляд описує інженерний обсяг роботи без розкриття реалізації та даних клієнтів."
+  ],
+  "Event platform with guest registration, invitations, QR check-in and seating; role-based admin access, notifications and audit trails.": [
+    "Платформа мероприятий: регистрация гостей, приглашения, QR-регистрация и рассадка; роли доступа, уведомления и аудит.",
+    "Платформа заходів: реєстрація гостей, запрошення, QR-реєстрація та розсадка; ролі доступу, сповіщення й аудит."
+  ],
+  "Guest registration, invitations and QR check-in connect to seating management.": [
+    "Регистрация гостей, приглашения и QR-регистрация связаны с управлением рассадкой.",
+    "Реєстрація гостей, запрошення та QR-реєстрація пов’язані з керуванням розсадкою."
+  ],
+  "Role-based administration, notifications and audit trails support event operations.": [
+    "Ролевое администрирование, уведомления и журнал аудита поддерживают проведение мероприятий.",
+    "Рольове адміністрування, сповіщення й журнал аудиту підтримують проведення заходів."
+  ],
+  "Event platform with guest registration, invitations, QR check-in and seating; role-based admin access, notifications and audit trails. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.": [
+    "Платформа мероприятий: регистрация гостей, приглашения, QR-регистрация и рассадка; роли доступа, уведомления и аудит. Исходный код закрыт. Обзор описывает инженерный объём работы без раскрытия реализации и данных клиентов.",
+    "Платформа заходів: реєстрація гостей, запрошення, QR-реєстрація та розсадка; ролі доступу, сповіщення й аудит. Вихідний код закритий. Огляд описує інженерний обсяг роботи без розкриття реалізації та даних клієнтів."
+  ],
+  "News, economic calendars and weather ingestion with scheduled collectors, embeddings and semantic search over PostgreSQL/pgvector; FastAPI dashboard.": [
+    "Сбор новостей, экономических календарей и погоды по расписанию, эмбеддинги и семантический поиск PostgreSQL/pgvector; FastAPI-дашборд.",
+    "Збір новин, економічних календарів і погоди за розкладом, ембеддинги та семантичний пошук PostgreSQL/pgvector; FastAPI-дашборд."
+  ],
+  "Scheduled collectors ingest news, economic calendars and weather.": [
+    "Сборщики по расписанию загружают новости, экономические календари и погоду.",
+    "Збирачі за розкладом завантажують новини, економічні календарі й погоду."
+  ],
+  "Embeddings and PostgreSQL pgvector power semantic search through a FastAPI dashboard.": [
+    "Эмбеддинги и PostgreSQL pgvector обеспечивают семантический поиск через FastAPI-дашборд.",
+    "Ембеддинги та PostgreSQL pgvector забезпечують семантичний пошук через FastAPI-дашборд."
+  ],
+  "News, economic calendars and weather ingestion with scheduled collectors, embeddings and semantic search over PostgreSQL/pgvector; FastAPI dashboard. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.": [
+    "Сбор новостей, экономических календарей и погоды по расписанию, эмбеддинги и семантический поиск PostgreSQL/pgvector; FastAPI-дашборд. Исходный код закрыт. Обзор описывает инженерный объём работы без раскрытия реализации и данных клиентов.",
+    "Збір новин, економічних календарів і погоди за розкладом, ембеддинги та семантичний пошук PostgreSQL/pgvector; FastAPI-дашборд. Вихідний код закритий. Огляд описує інженерний обсяг роботи без розкриття реалізації та даних клієнтів."
+  ],
+  "Queued PDF processing: OCR, language detection, previews and duplicate checks, followed by LLM descriptions and metadata; RabbitMQ, PostgreSQL and S3.": [
+    "Очередь обработки PDF: OCR, определение языка, превью и дедупликация, затем LLM-описания и метаданные; RabbitMQ, PostgreSQL, S3.",
+    "Черга обробки PDF: OCR, визначення мови, прев’ю та дедуплікація, потім LLM-описи й метадані; RabbitMQ, PostgreSQL, S3."
+  ],
+  "RabbitMQ queues PDF processing with OCR, language detection, document previews and duplicate checks.": [
+    "RabbitMQ ставит PDF в очередь на OCR, определение языка, превью и проверку дубликатов.",
+    "RabbitMQ ставить PDF у чергу на OCR, визначення мови, прев’ю та перевірку дублікатів."
+  ],
+  "LLM-generated descriptions and metadata follow extraction; PostgreSQL and S3 store records and files.": [
+    "После извлечения LLM создаёт описания и метаданные; PostgreSQL и S3 хранят записи и файлы.",
+    "Після вилучення LLM створює описи й метадані; PostgreSQL та S3 зберігають записи й файли."
+  ],
+  "Queued PDF processing: OCR, language detection, previews and duplicate checks, followed by LLM descriptions and metadata; RabbitMQ, PostgreSQL and S3. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.": [
+    "Очередь обработки PDF: OCR, определение языка, превью и дедупликация, затем LLM-описания и метаданные; RabbitMQ, PostgreSQL, S3. Исходный код закрыт. Обзор описывает инженерный объём работы без раскрытия реализации и данных клиентов.",
+    "Черга обробки PDF: OCR, визначення мови, прев’ю та дедуплікація, потім LLM-описи й метадані; RabbitMQ, PostgreSQL, S3. Вихідний код закритий. Огляд описує інженерний обсяг роботи без розкриття реалізації та даних клієнтів."
+  ],
+  "Control plane for modem and proxy fleets: 3proxy configuration, network switching, recovery, traffic statistics and SMS/USSD integrations.": [
+    "Управление парком модемов и прокси: настройки 3proxy, переключение сетей, восстановление, статистика и SMS/USSD.",
+    "Керування парком модемів і проксі: налаштування 3proxy, перемикання мереж, відновлення, статистика та SMS/USSD."
+  ],
+  "A modem and proxy control plane manages 3proxy configuration, network switching and recovery.": [
+    "Панель управления модемами и прокси отвечает за настройки 3proxy, переключение сетей и восстановление.",
+    "Панель керування модемами й проксі відповідає за налаштування 3proxy, перемикання мереж і відновлення."
+  ],
+  "Traffic statistics, SMS and USSD integrations support fleet operations.": [
+    "Статистика трафика, SMS- и USSD-интеграции поддерживают работу парка устройств.",
+    "Статистика трафіку, SMS- та USSD-інтеграції підтримують роботу парку пристроїв."
+  ],
+  "Control plane for modem and proxy fleets: 3proxy configuration, network switching, recovery, traffic statistics and SMS/USSD integrations. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.": [
+    "Управление парком модемов и прокси: настройки 3proxy, переключение сетей, восстановление, статистика и SMS/USSD. Исходный код закрыт. Обзор описывает инженерный объём работы без раскрытия реализации и данных клиентов.",
+    "Керування парком модемів і проксі: налаштування 3proxy, перемикання мереж, відновлення, статистика та SMS/USSD. Вихідний код закритий. Огляд описує інженерний обсяг роботи без розкриття реалізації та даних клієнтів."
+  ],
+  "Native iOS/macOS/watchOS AI assistant with SwiftUI, realtime voice and Apple integrations.": [
+    "Нативный AI-ассистент для iOS/macOS/watchOS: SwiftUI, голос в реальном времени и интеграции Apple.",
+    "Нативний AI-асистент для iOS/macOS/watchOS: SwiftUI, голос у реальному часі та інтеграції Apple."
+  ],
+  "SwiftUI native interfaces span iOS, macOS and watchOS with realtime voice and a Python backend.": [
+    "Нативные интерфейсы SwiftUI охватывают iOS, macOS и watchOS, голос в реальном времени и Python-бэкенд.",
+    "Нативні інтерфейси SwiftUI охоплюють iOS, macOS і watchOS, голос у реальному часі та Python-бекенд."
+  ],
+  "WebRTC carries audio; Apple integrations include reminders, shortcuts, music and cross-device synchronization.": [
+    "WebRTC передаёт аудио; интеграции Apple включают напоминания, команды, музыку и синхронизацию устройств.",
+    "WebRTC передає аудіо; інтеграції Apple охоплюють нагадування, команди, музику та синхронізацію пристроїв."
+  ],
+  "Native iOS/macOS/watchOS AI assistant with SwiftUI, realtime voice and Apple integrations. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.": [
+    "Нативный AI-ассистент для iOS/macOS/watchOS: SwiftUI, голос в реальном времени и интеграции Apple. Исходный код закрыт. Обзор описывает инженерный объём работы без раскрытия реализации и данных клиентов.",
+    "Нативний AI-асистент для iOS/macOS/watchOS: SwiftUI, голос у реальному часі та інтеграції Apple. Вихідний код закритий. Огляд описує інженерний обсяг роботи без розкриття реалізації та даних клієнтів."
+  ],
+  "FastAPI backend for realtime voice over WebRTC, with calendar integration.": [
+    "FastAPI-бэкенд для голоса в реальном времени через WebRTC с интеграцией календаря.",
+    "FastAPI-бекенд для голосу в реальному часі через WebRTC з інтеграцією календаря."
+  ],
+  "FastAPI provides a realtime voice backend over WebRTC with calendar integration.": [
+    "FastAPI обеспечивает голосовой бэкенд реального времени через WebRTC с интеграцией календаря.",
+    "FastAPI забезпечує голосовий бекенд реального часу через WebRTC з інтеграцією календаря."
+  ],
+  "FastAPI backend for realtime voice over WebRTC, with calendar integration. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.": [
+    "FastAPI-бэкенд для голоса в реальном времени через WebRTC с интеграцией календаря. Исходный код закрыт. Обзор описывает инженерный объём работы без раскрытия реализации и данных клиентов.",
+    "FastAPI-бекенд для голосу в реальному часі через WebRTC з інтеграцією календаря. Вихідний код закритий. Огляд описує інженерний обсяг роботи без розкриття реалізації та даних клієнтів."
+  ],
+  "Google workflow orchestration with Gmail/OAuth, Google Ads integrations, task management and browser profiles.": [
+    "Оркестрация Google-сценариев с Gmail/OAuth, Google Ads, управлением задачами и профилями браузера.",
+    "Оркестрація Google-сценаріїв із Gmail/OAuth, Google Ads, керуванням завданнями та профілями браузера."
+  ],
+  "Google workflow orchestration includes Gmail access, Google OAuth and Google Ads conversion integrations.": [
+    "Оркестрация Google-сценариев включает доступ к Gmail, Google OAuth и интеграции конверсий Google Ads.",
+    "Оркестрація Google-сценаріїв охоплює доступ до Gmail, Google OAuth та інтеграції конверсій Google Ads."
+  ],
+  "An administration service manages task generation, browser profiles, audit logs, live updates and exports. MCP tools expose task statistics and recent failures.": [
+    "Административный сервис управляет созданием задач, профилями браузера, аудитом, обновлениями в реальном времени и экспортом. MCP-инструменты предоставляют статистику задач и последние ошибки.",
+    "Адміністративний сервіс керує створенням завдань, профілями браузера, аудитом, оновленнями в реальному часі та експортом. MCP-інструменти надають статистику завдань і останні помилки."
+  ],
+  "AI provider adapters include Google Gemini; RabbitMQ coordinates background tasks.": [
+    "Адаптеры AI-провайдеров включают Google Gemini; RabbitMQ координирует фоновые задачи.",
+    "Адаптери AI-провайдерів включають Google Gemini; RabbitMQ координує фонові завдання."
+  ],
+  "Task orchestration, audit logs, payment integrations, live updates & exports. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.": [
+    "Оркестрация задач, аудит, платёжные интеграции, оперативные обновления и экспорт. Исходный код закрыт. Обзор описывает инженерный объём работы без раскрытия реализации и данных клиентов.",
+    "Оркестрація завдань, аудит, платіжні інтеграції, оперативні оновлення та експорт. Вихідний код закритий. Огляд описує інженерний обсяг роботи без розкриття реалізації та даних клієнтів."
+  ],
+  "AI-assisted Google and browser workflows with Octo Browser, Playwright, Temporal workers and execution tracking.": [
+    "AI-сценарии Google и браузера с Octo Browser, Playwright, воркерами Temporal и отслеживанием выполнения.",
+    "AI-сценарії Google та браузера з Octo Browser, Playwright, воркерами Temporal і відстеженням виконання."
+  ],
+  "Google browser workflows use Octo Browser profiles, Playwright and Google Ads orchestration.": [
+    "Google-сценарии используют профили Octo Browser, Playwright и оркестрацию Google Ads.",
+    "Google-сценарії використовують профілі Octo Browser, Playwright та оркестрацію Google Ads."
+  ],
+  "Temporal workers coordinate tasks and report execution status. Provider integrations and LLM usage tracking support AI-assisted browser actions.": [
+    "Воркеры Temporal координируют задачи и сообщают статус выполнения. Интеграции провайдеров и учёт LLM-использования поддерживают браузерные AI-действия.",
+    "Воркери Temporal координують завдання та повідомляють статус виконання. Інтеграції провайдерів і облік LLM-використання підтримують браузерні AI-дії."
+  ],
+  "AI browser task runner with Octo Browser, provider integrations & LLM usage tracking. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.": [
+    "Исполнитель браузерных AI-задач с Octo Browser, интеграциями провайдеров и учётом LLM-использования. Исходный код закрыт. Обзор описывает инженерный объём работы без раскрытия реализации и данных клиентов.",
+    "Виконавець браузерних AI-завдань з Octo Browser, інтеграціями провайдерів та обліком LLM-використання. Вихідний код закритий. Огляд описує інженерний обсяг роботи без розкриття реалізації та даних клієнтів."
+  ],
+  "Browser interaction emulation and behavioral metrics collection for automation workers.": [
+    "Эмуляция браузерных взаимодействий и сбор поведенческих метрик для воркеров автоматизации.",
+    "Емуляція браузерних взаємодій і збір поведінкових метрик для воркерів автоматизації."
+  ],
+  "Automation workers emulate browser interactions and collect behavioral metrics.": [
+    "Воркеры автоматизации эмулируют взаимодействия с браузером и собирают поведенческие метрики.",
+    "Воркери автоматизації емулюють взаємодії з браузером і збирають поведінкові метрики."
+  ],
+  "Browser interaction emulation and behavioral metrics collection for automation workers. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.": [
+    "Эмуляция браузерных взаимодействий и сбор поведенческих метрик для воркеров автоматизации. Исходный код закрыт. Обзор описывает инженерный объём работы без раскрытия реализации и данных клиентов.",
+    "Емуляція браузерних взаємодій і збір поведінкових метрик для воркерів автоматизації. Вихідний код закритий. Огляд описує інженерний обсяг роботи без розкриття реалізації та даних клієнтів."
+  ],
+  "Health monitoring and automatic recovery for browser-automation workers.": [
+    "Мониторинг состояния и автоматическое восстановление воркеров браузерной автоматизации.",
+    "Моніторинг стану й автоматичне відновлення воркерів браузерної автоматизації."
+  ],
+  "Health monitoring detects failures in browser-automation workers and triggers recovery.": [
+    "Мониторинг обнаруживает сбои воркеров браузерной автоматизации и запускает восстановление.",
+    "Моніторинг виявляє збої воркерів браузерної автоматизації та запускає відновлення."
+  ],
+  "Health monitoring and automatic recovery for browser-automation workers. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.": [
+    "Мониторинг состояния и автоматическое восстановление воркеров браузерной автоматизации. Исходный код закрыт. Обзор описывает инженерный объём работы без раскрытия реализации и данных клиентов.",
+    "Моніторинг стану й автоматичне відновлення воркерів браузерної автоматизації. Вихідний код закритий. Огляд описує інженерний обсяг роботи без розкриття реалізації та даних клієнтів."
+  ],
+  "Apple Developer registration workflows with SMS providers and fingerprint analysis.": [
+    "Регистрационные процессы Apple Developer с SMS-провайдерами и анализом отпечатков.",
+    "Реєстраційні процеси Apple Developer із SMS-провайдерами та аналізом відбитків."
+  ],
+  "Apple Developer registration workflows integrate SMS providers and browser fingerprint analysis.": [
+    "Регистрационные процессы Apple Developer интегрируют SMS-провайдеров и анализ браузерных отпечатков.",
+    "Реєстраційні процеси Apple Developer інтегрують SMS-провайдерів та аналіз браузерних відбитків."
+  ],
+  "Apple Developer registration workflows with SMS providers and fingerprint analysis. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.": [
+    "Регистрационные процессы Apple Developer с SMS-провайдерами и анализом отпечатков. Исходный код закрыт. Обзор описывает инженерный объём работы без раскрытия реализации и данных клиентов.",
+    "Реєстраційні процеси Apple Developer із SMS-провайдерами та аналізом відбитків. Вихідний код закритий. Огляд описує інженерний обсяг роботи без розкриття реалізації та даних клієнтів."
+  ],
+  "Apple account verification and browser fingerprint-quality diagnostics.": [
+    "Проверка аккаунтов Apple и диагностика качества браузерных отпечатков.",
+    "Перевірка акаунтів Apple та діагностика якості браузерних відбитків."
+  ],
+  "Apple account verification is paired with browser fingerprint-quality diagnostics.": [
+    "Проверка аккаунтов Apple совмещается с диагностикой качества браузерных отпечатков.",
+    "Перевірка акаунтів Apple поєднується з діагностикою якості браузерних відбитків."
+  ],
+  "Apple account verification and browser fingerprint-quality diagnostics. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.": [
+    "Проверка аккаунтов Apple и диагностика качества браузерных отпечатков. Исходный код закрыт. Обзор описывает инженерный объём работы без раскрытия реализации и данных клиентов.",
+    "Перевірка акаунтів Apple та діагностика якості браузерних відбитків. Вихідний код закритий. Огляд описує інженерний обсяг роботи без розкриття реалізації та даних клієнтів."
+  ],
+  "Recruiting questionnaires, resume storage in MinIO & Google Sheets export.": [
+    "Рекрутинговые анкеты, хранение резюме в MinIO и экспорт в Google Sheets.",
+    "Рекрутингові анкети, зберігання резюме в MinIO та експорт у Google Sheets."
+  ],
+  "Telegram recruiting questionnaires collect applications and resumes.": [
+    "Рекрутинговые анкеты в Telegram собирают заявки и резюме.",
+    "Рекрутингові анкети в Telegram збирають заявки й резюме."
+  ],
+  "Google Sheets export, MinIO file storage and a web administration interface connect recruiting data to review workflows.": [
+    "Экспорт Google Sheets, файловое хранилище MinIO и веб-админка связывают данные кандидатов с процессом рассмотрения.",
+    "Експорт Google Sheets, файлове сховище MinIO та вебадмінка пов’язують дані кандидатів із процесом розгляду."
+  ],
+  "Recruiting questionnaires, resume storage in MinIO & Google Sheets export. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.": [
+    "Рекрутинговые анкеты, хранение резюме в MinIO и экспорт в Google Sheets. Исходный код закрыт. Обзор описывает инженерный объём работы без раскрытия реализации и данных клиентов.",
+    "Рекрутингові анкети, зберігання резюме в MinIO та експорт у Google Sheets. Вихідний код закритий. Огляд описує інженерний обсяг роботи без розкриття реалізації та даних клієнтів."
+  ],
+  "Account allocation with Google Sheets synchronization and MySQL storage.": [
+    "Выдача аккаунтов с синхронизацией Google Sheets и хранением в MySQL.",
+    "Видача акаунтів із синхронізацією Google Sheets і зберіганням у MySQL."
+  ],
+  "A Telegram bot handles account allocation and updates availability in MySQL.": [
+    "Telegram-бот распределяет аккаунты и обновляет их доступность в MySQL.",
+    "Telegram-бот розподіляє акаунти та оновлює їхню доступність у MySQL."
+  ],
+  "Google Sheets synchronization keeps the operational spreadsheet aligned with stored records.": [
+    "Синхронизация Google Sheets поддерживает соответствие рабочей таблицы записям в базе.",
+    "Синхронізація Google Sheets підтримує відповідність робочої таблиці записам у базі."
+  ],
+  "Account allocation with Google Sheets synchronization and MySQL storage. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.": [
+    "Выдача аккаунтов с синхронизацией Google Sheets и хранением в MySQL. Исходный код закрыт. Обзор описывает инженерный объём работы без раскрытия реализации и данных клиентов.",
+    "Видача акаунтів із синхронізацією Google Sheets і зберіганням у MySQL. Вихідний код закритий. Огляд описує інженерний обсяг роботи без розкриття реалізації та даних клієнтів."
+  ],
+  "Payment and vacancy approval workflows with Telegram handlers & an admin panel.": [
+    "Согласование платежей и вакансий через Telegram-обработчики и админ-панель.",
+    "Погодження платежів і вакансій через Telegram-обробники та адмінпанель."
+  ],
+  "Telegram handlers connect payment and vacancy approval workflows to an administration panel.": [
+    "Telegram-обработчики связывают согласование платежей и вакансий с административной панелью.",
+    "Telegram-обробники пов’язують погодження платежів і вакансій з адміністративною панеллю."
+  ],
+  "Payment and vacancy approval workflows with Telegram handlers & an admin panel. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.": [
+    "Согласование платежей и вакансий через Telegram-обработчики и админ-панель. Исходный код закрыт. Обзор описывает инженерный объём работы без раскрытия реализации и данных клиентов.",
+    "Погодження платежів і вакансій через Telegram-обробники та адмінпанель. Вихідний код закритий. Огляд описує інженерний обсяг роботи без розкриття реалізації та даних клієнтів."
+  ],
+  "Telegram onboarding and structured data collection for content creators.": [
+    "Онбординг в Telegram и структурированный сбор данных авторов контента.",
+    "Онбординг у Telegram і структурований збір даних авторів контенту."
+  ],
+  "Telegram onboarding collects structured information from content creators.": [
+    "Онбординг в Telegram собирает структурированную информацию об авторах контента.",
+    "Онбординг у Telegram збирає структуровану інформацію про авторів контенту."
+  ],
+  "Telegram onboarding and structured data collection for content creators. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.": [
+    "Онбординг в Telegram и структурированный сбор данных авторов контента. Исходный код закрыт. Обзор описывает инженерный объём работы без раскрытия реализации и данных клиентов.",
+    "Онбординг у Telegram і структурований збір даних авторів контенту. Вихідний код закритий. Огляд описує інженерний обсяг роботи без розкриття реалізації та даних клієнтів."
+  ],
+  "Collecting and aggregating daily reports through Telegram.": [
+    "Сбор и агрегация ежедневных отчётов через Telegram.",
+    "Збір та агрегація щоденних звітів через Telegram."
+  ],
+  "Telegram conversations collect daily reports for aggregation and review.": [
+    "Диалоги в Telegram собирают ежедневные отчёты для агрегации и просмотра.",
+    "Діалоги в Telegram збирають щоденні звіти для агрегації та перегляду."
+  ],
+  "Collecting and aggregating daily reports through Telegram. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.": [
+    "Сбор и агрегация ежедневных отчётов через Telegram. Исходный код закрыт. Обзор описывает инженерный объём работы без раскрытия реализации и данных клиентов.",
+    "Збір та агрегація щоденних звітів через Telegram. Вихідний код закритий. Огляд описує інженерний обсяг роботи без розкриття реалізації та даних клієнтів."
+  ],
+  "Domain and DNS management through Cloudflare API and Telegram commands.": [
+    "Управление доменами и DNS через Cloudflare API и команды Telegram.",
+    "Керування доменами й DNS через Cloudflare API та команди Telegram."
+  ],
+  "Telegram commands integrate with the Cloudflare API for domain and DNS management.": [
+    "Команды Telegram интегрируются с Cloudflare API для управления доменами и DNS.",
+    "Команди Telegram інтегруються з Cloudflare API для керування доменами й DNS."
+  ],
+  "Domain and DNS management through Cloudflare API and Telegram commands. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.": [
+    "Управление доменами и DNS через Cloudflare API и команды Telegram. Исходный код закрыт. Обзор описывает инженерный объём работы без раскрытия реализации и данных клиентов.",
+    "Керування доменами й DNS через Cloudflare API та команди Telegram. Вихідний код закритий. Огляд описує інженерний обсяг роботи без розкриття реалізації та даних клієнтів."
+  ],
+  "SIM-card management workflows through a Telegram bot and web admin panel.": [
+    "Управление SIM-картами через Telegram-бота и веб-админку.",
+    "Керування SIM-картками через Telegram-бота та вебадмінку."
+  ],
+  "SIM-card operations connect a Telegram bot to a web administration panel.": [
+    "Операции с SIM-картами связывают Telegram-бота с веб-панелью администрирования.",
+    "Операції із SIM-картками пов’язують Telegram-бота з вебпанеллю адміністрування."
+  ],
+  "SIM-card management workflows through a Telegram bot and web admin panel. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.": [
+    "Управление SIM-картами через Telegram-бота и веб-админку. Исходный код закрыт. Обзор описывает инженерный объём работы без раскрытия реализации и данных клиентов.",
+    "Керування SIM-картками через Telegram-бота та вебадмінку. Вихідний код закритий. Огляд описує інженерний обсяг роботи без розкриття реалізації та даних клієнтів."
+  ],
+  "Content platform with FastAPI, React, data collection, background scripts & monitoring.": [
+    "Контент-платформа на FastAPI и React со сбором данных, фоновыми скриптами и мониторингом.",
+    "Контент-платформа на FastAPI та React зі збором даних, фоновими скриптами й моніторингом."
+  ],
+  "FastAPI and React connect content management with data collection, background scripts and monitoring.": [
+    "FastAPI и React связывают управление контентом со сбором данных, фоновыми скриптами и мониторингом.",
+    "FastAPI та React пов’язують керування контентом зі збором даних, фоновими скриптами й моніторингом."
+  ],
+  "Content platform with FastAPI, React, data collection, background scripts & monitoring. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.": [
+    "Контент-платформа на FastAPI и React со сбором данных, фоновыми скриптами и мониторингом. Исходный код закрыт. Обзор описывает инженерный объём работы без раскрытия реализации и данных клиентов.",
+    "Контент-платформа на FastAPI та React зі збором даних, фоновими скриптами й моніторингом. Вихідний код закритий. Огляд описує інженерний обсяг роботи без розкриття реалізації та даних клієнтів."
+  ],
+  "Distributed automation workflows with Temporal workers & task orchestration.": [
+    "Распределённые процессы автоматизации с воркерами Temporal и оркестрацией задач.",
+    "Розподілені процеси автоматизації з воркерами Temporal та оркестрацією завдань."
+  ],
+  "Temporal workers execute distributed workflows and coordinate automation tasks.": [
+    "Воркеры Temporal выполняют распределённые процессы и координируют задачи автоматизации.",
+    "Воркери Temporal виконують розподілені процеси та координують завдання автоматизації."
+  ],
+  "Distributed automation workflows with Temporal workers & task orchestration. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.": [
+    "Распределённые процессы автоматизации с воркерами Temporal и оркестрацией задач. Исходный код закрыт. Обзор описывает инженерный объём работы без раскрытия реализации и данных клиентов.",
+    "Розподілені процеси автоматизації з воркерами Temporal та оркестрацією завдань. Вихідний код закритий. Огляд описує інженерний обсяг роботи без розкриття реалізації та даних клієнтів."
+  ],
+  "Solana token monitoring with realtime ingestion, trading workflows & an admin panel.": [
+    "Мониторинг токенов Solana со сбором в реальном времени, торговыми процессами и админкой.",
+    "Моніторинг токенів Solana зі збором у реальному часі, торговими процесами та адмінкою."
+  ],
+  "Realtime Solana token ingestion supports monitoring, trading workflows and an administration panel.": [
+    "Сбор токенов Solana в реальном времени поддерживает мониторинг, торговые процессы и административную панель.",
+    "Збір токенів Solana в реальному часі підтримує моніторинг, торгові процеси й адміністративну панель."
+  ],
+  "Solana token monitoring with realtime ingestion, trading workflows & an admin panel. Source code is private. This overview describes the engineering scope without exposing implementation details or client data.": [
+    "Мониторинг токенов Solana со сбором в реальном времени, торговыми процессами и админкой. Исходный код закрыт. Обзор описывает инженерный объём работы без раскрытия реализации и данных клиентов.",
+    "Моніторинг токенів Solana зі збором у реальному часі, торговими процесами та адмінкою. Вихідний код закритий. Огляд описує інженерний обсяг роботи без розкриття реалізації та даних клієнтів."
+  ]
+}

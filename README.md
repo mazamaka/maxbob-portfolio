@@ -68,3 +68,11 @@ Search uses curated summaries of project capabilities. Private project entries c
 Third-party font and library notices are retained in `dist/assets/fonts/` and `dist/vendor/`.
 
 GitHub API references: [public repositories](https://docs.github.com/en/rest/repos/repos#list-repositories-for-a-user), [rate limits](https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api).
+
+## 🌐 Languages & appearance
+
+English is the default at `/`; Russian and Ukrainian are available at `/ru/` and `/uk/`. The header language picker preserves the current project page, search query and anchor. Every language has prerendered home, directory and case pages with its own canonical URL and reciprocal `hreflang` links. The downloadable CV remains in English.
+
+Reviewed translations live in `src/locales/`: `ui.json` for shared labels and featured cards, `catalog.json` for searchable project content, and `cases.json` for case studies. Each English key maps to `[Russian, Ukrainian]`. `scripts/build-locales.py` builds the language routes after the English source pages; never edit the generated `dist/ru/` or `dist/uk/` pages directly. Search indexes all three languages locally.
+
+Light mode is the initial theme. The sun/moon control persists an explicit choice in local storage and works without storage as well. `dist/dark-theme.css` contains the evening palette; `src/settings.ts` and `components/theme-image.tsx` switch static and React illustrations. The hero and 12 project scenes have separate generated `*-night-v1.webp` assets, with the original day artwork preserved. No image-generation service is called by the website.

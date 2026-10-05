@@ -6,9 +6,9 @@
   "scripts": {
     "branding": "node scripts/build-brand-assets.cjs",
     "vendor": "node scripts/vendor.mjs",
-    "build": "node scripts/build-cards.mjs && python3 scripts/build-seo.py && python3 scripts/build-cases.py",
+    "build": "node scripts/build-cards.mjs && python3 scripts/build-seo.py && python3 scripts/build-cases.py && python3 scripts/build-locales.py",
     "typecheck": "tsc --noEmit",
-    "check": "python3 scripts/check-site.py && python3 scripts/check-seo.py && node scripts/check-search.mjs && node scripts/check-stars.mjs"
+    "check": "python3 scripts/check-site.py && python3 scripts/check-seo.py && python3 scripts/check-locales.py && node scripts/check-search.mjs && node scripts/check-stars.mjs"
   },
   "dependencies": {
     "clsx": "2.1.1",
