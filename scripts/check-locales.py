@@ -31,7 +31,7 @@ for file in DIST.rglob('*.html'):
         assert doc.alternates[lang]==SITE+expected
     assert doc.alternates['x-default']==SITE+base
     for asset in doc.assets:assert (DIST/asset.lstrip('/')).is_file(),asset
-    assert '/settings.js?v=20' in file.read_text() and '/dark-theme.css?v=20' in file.read_text()
+    assert '/settings.js?v=21' in file.read_text() and '/dark-theme.css?v=21' in file.read_text()
     count+=1
 assert count==42
 assert len(list(DIST.glob('assets/**/*night-v1.webp')))==13

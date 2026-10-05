@@ -71,7 +71,7 @@ GitHub API references: [public repositories](https://docs.github.com/en/rest/rep
 
 ## 🌐 Languages & appearance
 
-English is the default at `/`; Russian and Ukrainian are available at `/ru/` and `/uk/`. The header language picker preserves the current project page, search query and anchor. Every language has prerendered home, directory and case pages with its own canonical URL and reciprocal `hreflang` links. The downloadable CV remains in English.
+English is the default at `/`; Russian and Ukrainian are available at `/ru/` and `/uk/`. The header language picker preserves the current project page, search query and reading position, even when an older section anchor remains in the URL. Selecting the active language simply closes the menu. Every language has prerendered home, directory and case pages with its own canonical URL and reciprocal `hreflang` links. The downloadable CV remains in English.
 
 Reviewed translations live in `src/locales/`: `ui.json` for shared labels and featured cards, `catalog.json` for searchable project content, and `cases.json` for case studies. Each English key maps to `[Russian, Ukrainian]`. `scripts/build-locales.py` builds the language routes after the English source pages; never edit the generated `dist/ru/` or `dist/uk/` pages directly. Search indexes all three languages locally.
 

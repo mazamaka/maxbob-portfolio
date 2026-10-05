@@ -56,7 +56,7 @@ export const InteractiveTravelCard = React.forwardRef<HTMLDivElement, Interactiv
     };
     const repository = href.startsWith("https://github.com/");
     const linkProps = {target: "_blank", rel: "noopener noreferrer"};
-    return <article className="p-card-wrap" id={id} data-visual={visual} data-phase="work">
+    return <article data-reading-anchor={`card:${title}`} className="p-card-wrap" id={id} data-visual={visual} data-phase="work">
       <motion.div ref={ref} onPointerMove={handleMove} onPointerLeave={reset} onPointerCancel={reset}
         style={{rotateX, rotateY, transformStyle: "preserve-3d"}}
         className={cn("p-card pb:relative pb:w-full pb:rounded-2xl", className)}>
