@@ -79,7 +79,7 @@ class LocalizedPage(HTMLParser):
         if tag=='style':self.raw='style'
         # Stable element bindings update only text and translated attributes;
         # existing nodes, event listeners, images and animation state survive.
-        dynamic={'menu-toggle','motion-toggle','copy-status','scene-title','scene-signals','scene-description','spotlight-name','spotlight-summary','spotlight-link'}
+        dynamic={'menu-toggle','motion-toggle','copy-status','scene-signals','scene-description','spotlight-name','spotlight-summary','spotlight-link'}
         blocked=(self.stack and self.stack[-1][2]) or tag in ('noscript','style') or (tag=='script' and self.raw!='schema') or a.get('id') in dynamic
         key=None
         if not blocked and tag not in ('html','head','body'):
