@@ -19,5 +19,6 @@ function selectMode(mode){
  const link=document.querySelector('#spotlight-link');link.href=data.href;link.textContent=t(data.link);
 }
 selectMode(selected);document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>selectMode(b.dataset.mode)));
+window.addEventListener('portfolio-language',()=>selectMode(selected));
 
 })();

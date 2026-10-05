@@ -36,6 +36,12 @@ configureAnimations();
 window.addEventListener('portfolio-motion', configureAnimations);
 media.addEventListener('change',e=>setPaused(e.matches));
 window.addEventListener('load',()=>window.ScrollTrigger?.refresh());
+window.addEventListener('portfolio-language',()=>{
+ if(menuToggle)menuToggle.textContent=t(menuToggle.getAttribute('aria-expanded')==='true'?'Close':'Menu');
+ if(motionToggle)motionToggle.textContent=t(paused?'Enable motion':'Pause motion');
+ const status=document.querySelector('#copy-status');if(status)status.textContent='';
+ window.ScrollTrigger?.refresh();
+});
 const visualSections = [...document.querySelectorAll('[data-visual]')];
 if(visualSections.length) {
  new IntersectionObserver(entries => {
