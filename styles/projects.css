@@ -26,7 +26,10 @@
 :root[data-theme=light] .p-content h3{font-family:Fraunces,Georgia,serif;letter-spacing:-.035em;font-size:27px}
 .p-content>p{font-size:16px;line-height:1.55;color:var(--p-copy);margin:0}
 .p-tags{list-style:none;display:flex;flex-wrap:wrap;gap:6px;padding:0;margin:19px 0 22px}
-.p-tags li{font:12px/1.5 ui-monospace,monospace;padding:4px 7px;border:1px solid var(--p-border);border-radius:5px;color:var(--p-copy)}
+.p-tags li{font:12px/1.5 ui-monospace,monospace;color:var(--p-copy)}
+.p-tags a{display:block;padding:4px 7px;border:1px solid var(--p-border);border-radius:5px;color:inherit}
+.p-tags a:hover{background:#eef0e2;border-color:#8b9f83;color:var(--p-text)}
+.p-tags a:focus-visible{outline:2px solid var(--p-button);outline-offset:3px}
 .p-actions{margin-top:auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:14px}
 .p-primary{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 13px;border-radius:8px;background:var(--p-button);color:var(--p-button-text);font:500 14px/1.5 'Helvetica Neue',Arial,sans-serif;border:1px solid transparent}
 .p-primary:hover{filter:brightness(1.14)}

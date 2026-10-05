@@ -4,6 +4,7 @@ import * as React from "react";
 import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, CodeXml, Star, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ProjectTags } from "@/components/project-tags";
 
 export interface InteractiveTravelCardProps {
   title: string;
@@ -15,6 +16,7 @@ export interface InteractiveTravelCardProps {
   actionHref?: string;
   description?: string;
   tags?: string[];
+  onTagSelect?: (tag:string)=>void;
   stars?: number;
   icon?: LucideIcon;
   className?: string;
@@ -26,7 +28,7 @@ export interface InteractiveTravelCardProps {
 
 // Adapted from the supplied travel-card template for a readable project portfolio.
 export const InteractiveTravelCard = React.forwardRef<HTMLDivElement, InteractiveTravelCardProps>(
-  ({title, subtitle, imageUrl, actionText, href, onActionClick, actionHref, description, tags = [], stars, icon: Icon, className, id, imagePosition = "50% 50%", visual = "ai", rank}, ref) => {
+  ({title, subtitle, imageUrl, actionText, href, onActionClick, actionHref, description, tags = [], onTagSelect, stars, icon: Icon, className, id, imagePosition = "50% 50%", visual = "ai", rank}, ref) => {
     const mouseX = useMotionValue(0), mouseY = useMotionValue(0);
     const springX = useSpring(mouseX, {damping: 24, stiffness: 150});
     const springY = useSpring(mouseY, {damping: 24, stiffness: 150});
@@ -70,7 +72,7 @@ export const InteractiveTravelCard = React.forwardRef<HTMLDivElement, Interactiv
         </div>
         <div className="p-content">
           <h3>{title}</h3><p>{description}</p>
-          <ul className="p-tags" aria-label={`${title} technologies`}>{tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
+          <ProjectTags tags={tags} label={`${title} technologies`} onSelect={onTagSelect}/>
           <div className="p-actions">
             {actionHref ? <a className="p-primary" href={actionHref} {...(actionHref.startsWith("https:") ? linkProps : {})}>{actionText}</a>
               : <button type="button" className="p-primary" onClick={onActionClick}>{actionText}</button>}
