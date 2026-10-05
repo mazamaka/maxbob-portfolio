@@ -1,3 +1,4 @@
+import {initializeLanguageNavigation} from './language-navigation';
 import translations from './locales/ui.json';
 const dictionary=translations as Record<string,string[]>;
 const root=document.documentElement;
@@ -21,12 +22,4 @@ function setTheme(theme:string,persist=false){
 setTheme(root.dataset.theme??'light');
 toggle?.addEventListener('click',()=>setTheme(root.dataset.theme==='dark'?'light':'dark',true));
 window.addEventListener('storage',event=>{if(event.key==='maxbob-theme')setTheme(event.newValue??'light');});
-const picker=document.querySelector<HTMLDetailsElement>('.language-picker');
-const summary=picker?.querySelector('summary');
-function refreshLanguageLinks(){document.querySelectorAll<HTMLAnchorElement>('[data-locale-link]').forEach(link=>{
- const target=new URL(link.href);target.search=location.search;target.hash=location.hash;link.href=target.pathname+target.search+target.hash;
-});}
-summary?.addEventListener('click',refreshLanguageLinks);
-picker?.addEventListener('toggle',()=>{summary?.setAttribute('aria-expanded',String(picker.open));if(picker.open)refreshLanguageLinks();});
-document.addEventListener('pointerdown',event=>{if(picker&&!picker.contains(event.target as Node))picker.open=false;});
-document.addEventListener('keydown',event=>{if(event.key==='Escape'&&picker?.open){picker.open=false;summary?.focus();}});
+initializeLanguageNavigation();

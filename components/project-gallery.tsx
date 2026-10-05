@@ -35,6 +35,10 @@ export function ProjectGallery(){
   history.replaceState(null,"",`${location.pathname}${p.size?`?${p}`:""}${location.hash}`);
  },[query,direction,visibility,stack,browseAll,ready]);
  React.useEffect(()=>{if(selected){previousFocus.current=document.activeElement as HTMLElement;dialog.current?.showModal();}},[selected]);
+ React.useEffect(()=>{if(ready){
+  const gallery=document.getElementById("project-gallery");if(gallery)gallery.dataset.ready="true";
+  window.dispatchEvent(new Event("portfolio-catalog-ready"));
+ }},[ready]);
  function reset(){setQuery("");setDirection("all");setVisibility("all");setStack("all");setBrowseAll(false);}
  function explore(term:string){setQuery(term);setDirection("all");setVisibility("all");setStack("all");}
  function exploreTag(tag:string){
@@ -66,7 +70,7 @@ export function ProjectGallery(){
   <div className="catalog-status"><p role="status" aria-live="polite" aria-atomic="true">{active?<>{t(hits.length===1?"{count} project found":"{count} projects found",{count:hits.length})}{hits.length>0&&<span className="result-breakdown"> · {hits.filter(h=>h.project.visibility==="public").length} {t("public")} / {hits.filter(h=>h.project.visibility==="private").length} {t("private")}</span>}</>:<>{t("Selected work")} <span>· {t("Explore {count} projects",{count:allProjects.length})}</span></>}</p><button onClick={()=>active?reset():setBrowseAll(true)} disabled={!ready}>{t(active?"Back to selected":"Browse all projects")}<ArrowUpRight size={14}/></button></div>
   <div id="catalog-results" ref={resultRegion} tabIndex={-1} aria-label={t("Project results")}>
    {!active?<div className="p-grid">{projects.map(project=><InteractiveTravelCard key={project.title} {...project} stars={currentStars(project.repo,project.stars,githubStars.snapshot)} subtitle={t(project.category)} onTagSelect={ready?exploreTag:undefined} actionHref={project.caseHref??project.live??project.href} actionText={project.caseHref?(project.repo?"Read case study":"Project overview"):project.live?"Explore live project":"View on GitHub"}/>)}</div>
-   :hits.length?<div className="catalog-list">{hits.map(({project,excerpt,matchedIn})=><article key={project.id} className="catalog-result">
+   :hits.length?<div className="catalog-list">{hits.map(({project,excerpt,matchedIn})=><article key={project.id} data-reading-anchor={`result:${project.id}`} className="catalog-result">
     <div><div className="result-meta"><span>{t(project.category)}</span><span>{project.visibility==="private"?<><LockKeyhole size={13} aria-hidden="true"/>{t("Private project")}</>:t("Public repository")}</span>{project.stars!==undefined&&<span aria-label={t("{count} total GitHub stars",{count:project.stars??0})}><Star size={13} aria-hidden="true"/>{project.stars}</span>}</div>
      <h3><Highlight text={project.title} query={query}/></h3><p><Highlight text={t(project.description)} query={query}/></p>
      {query.trim()&&excerpt!==project.description&&<div className="result-match"><BookOpen size={14}/><p><span>{t(matchedIn)}</span><Highlight text={t(excerpt)} query={query}/></p></div>}
