@@ -1,10 +1,10 @@
 const root = document.documentElement;
-root.dataset.theme = "light";
+const t = window.portfolioI18n?.t || (value=>value);
 if(location.hash==='#return-to-work')try{const q=sessionStorage.getItem('maxbob-return-search')||'';history.replaceState(null,'',`${location.pathname}${q}#return-to-work`);}catch{}
 const menuToggle = document.querySelector('#menu-toggle');
 const menu = document.querySelector('#mobile-menu');
-function closeMenu() { if (!menuToggle || !menu) return; menu.hidden = true; menuToggle.setAttribute('aria-expanded','false'); menuToggle.textContent = 'Menu'; }
-menuToggle?.addEventListener('click', () => { const expanded = menuToggle.getAttribute('aria-expanded') !== 'true'; menu.hidden = !expanded; menuToggle.setAttribute('aria-expanded', String(expanded)); menuToggle.textContent = expanded ? 'Close' : 'Menu'; });
+function closeMenu() { if (!menuToggle || !menu) return; menu.hidden = true; menuToggle.setAttribute('aria-expanded','false'); menuToggle.textContent = t('Menu'); }
+menuToggle?.addEventListener('click', () => { const expanded = menuToggle.getAttribute('aria-expanded') !== 'true'; menu.hidden = !expanded; menuToggle.setAttribute('aria-expanded', String(expanded)); menuToggle.textContent = t(expanded ? 'Close' : 'Menu'); });
 menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 document.addEventListener('keydown', e => { if(e.key === 'Escape' && menu && !menu.hidden){closeMenu();menuToggle.focus();} });
 matchMedia('(min-width:951px)').addEventListener('change', e => { if(e.matches) closeMenu(); });
@@ -14,7 +14,7 @@ let paused = media.matches;
 try { paused = media.matches || localStorage.getItem('maxbob-motion') === 'paused'; } catch {}
 function setPaused(value, persist=false) {
  paused = value; root.classList.toggle('motion-paused', paused);
- if (motionToggle) {motionToggle.textContent = paused ? 'Enable motion' : 'Pause motion';motionToggle.setAttribute('aria-pressed', String(paused));}
+ if (motionToggle) {motionToggle.textContent = t(paused ? 'Enable motion' : 'Pause motion');motionToggle.setAttribute('aria-pressed', String(paused));}
  if(persist) try {localStorage.setItem('maxbob-motion', paused ? 'paused' : 'active');} catch {}
  window.dispatchEvent(new CustomEvent('portfolio-motion',{detail:{paused}}));
 }
@@ -54,8 +54,8 @@ if(visualSections.length) {
 }
 document.querySelector('#copy-email')?.addEventListener('click', async () => {
  const status=document.querySelector('#copy-status');
- try {await navigator.clipboard.writeText('mazamaka603@gmail.com');status.textContent='Copied';}
- catch {status.textContent='Select the address to copy it.';}
+ try {await navigator.clipboard.writeText('mazamaka603@gmail.com');status.textContent=t('Copied');}
+ catch {status.textContent=t('Select the address to copy it.');}
 });
 // Preserve the exact project position when returning from an internal case study.
 document.addEventListener('click',event=>{if(event.target.closest?.('a[href*="cases/"]')&&!document.body.classList.contains('case-page'))try{sessionStorage.setItem('maxbob-return-y',String(window.scrollY));sessionStorage.setItem('maxbob-return-search',location.search);}catch{}});

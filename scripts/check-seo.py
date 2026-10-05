@@ -85,7 +85,8 @@ for file in pages:
     assert any(n.get('@id') == SITE + '/#person' for n in graph)
     page = next(n for n in graph if n.get('@id') == expected + '#webpage')
     assert page['url'] == expected and page['isPartOf']['@id'] == SITE + '/#website'
-    if relative:
+    base_relative=re.sub(r"^(ru|uk)/", "", relative)
+    if base_relative:
         assert not any(n['@type'] == 'ProfilePage' for n in graph)
     for rel in ['icon', 'apple-touch-icon', 'manifest']:
         assert any(x.get('rel') == rel and x['href'].startswith('/') for x in doc.links)

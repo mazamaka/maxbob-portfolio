@@ -1,3 +1,5 @@
+(()=>{
+const t=window.portfolioI18n?.t || (value=>value);
 const hero=document.querySelector('.hero');
 const modes={
  ai:{title:'AGENT TO ACTION',name:'octo-mcp',summary:'Give an AI agent browser tools through MCP, Playwright and CDP.',signals:['Agent','MCP tools','Browser'],description:'An illustrative model of the agent-to-browser workflow.',href:'cases/octo-mcp/',link:'Read the octo-mcp case'},
@@ -9,11 +11,13 @@ function selectMode(mode){
  heroMode=mode;selected=mode;hero.dataset.scene=mode;
  document.querySelectorAll('[data-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.mode===mode)));
  const data=modes[mode];
- document.querySelector('#scene-title').textContent=data.title;
- document.querySelector('#scene-signals').replaceChildren(...data.signals.map(t=>{const span=document.createElement('span');span.textContent=t;return span;}));
- document.querySelector('#scene-description').textContent=data.description;
- document.querySelector('#spotlight-name').textContent=data.name;
- document.querySelector('#spotlight-summary').textContent=data.summary;
- const link=document.querySelector('#spotlight-link');link.href=data.href;link.textContent=data.link;
+ document.querySelector('#scene-title').textContent=t(data.title);
+ document.querySelector('#scene-signals').replaceChildren(...data.signals.map(t=>{const span=document.createElement('span');span.textContent=window.portfolioI18n?.t(t)??t;return span;}));
+ document.querySelector('#scene-description').textContent=t(data.description);
+ document.querySelector('#spotlight-name').textContent=t(data.name);
+ document.querySelector('#spotlight-summary').textContent=t(data.summary);
+ const link=document.querySelector('#spotlight-link');link.href=data.href;link.textContent=t(data.link);
 }
 selectMode(selected);document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>selectMode(b.dataset.mode)));
+
+})();

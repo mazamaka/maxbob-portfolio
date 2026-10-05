@@ -22,6 +22,6 @@ export const projects = items.map((project, index) => {
   const caseStudy = caseStudies.cases.find(item => item.projectId === (project.repo ?? "maxbob-ai"));
   if (!caseStudy) throw new Error(`Missing project case study: ${project.title}`);
   return {...project, caseHref:`cases/${caseStudy.slug}/`, rank:index + 1, href:repo?.html_url ?? project.live!, stars:repo?.stargazers_count,
-    imageUrl:`assets/projects/${project.repo ?? "maxbob-ai"}-v1.webp`, imagePosition:"50% 50%"};
+    imageUrl:`/assets/projects/${project.repo ?? "maxbob-ai"}-v1.webp`, imagePosition:"50% 50%", nightImageUrl:`/assets/projects/${project.repo ?? "maxbob-ai"}-night-v1.webp`};
 });
 export const starsUpdatedAt = snapshot.updatedAt;

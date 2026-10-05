@@ -1,4 +1,5 @@
 import catalog from "./catalog.json";
+import {translate} from "./i18n";
 import { projects } from "./projects";
 export interface CatalogProject {
   id:string; title:string; description:string; category:string; tags:string[];
@@ -29,21 +30,21 @@ export function projectDirections(project:CatalogProject){
 const groups=[
   ["google","гугл","гуглe"],["gemini","джемини"],["gmail","джимейл"],["sheets","таблицы","таблиц"],["ads","реклама","рекламы"],
   ["python","питон","пайтон"],["postgresql","postgres","постгрес"],["telegram","телеграм","телеграмм"],
-  ["bot","bots","бот","боты","ботов"],["ai","llm","нейросеть","нейросети","нейронки","ии","claude","openai","gemini"],
-  ["agents","agent","агент","агенты","агентов"],["call","calls","calling"],["automation","automated","автоматизация","автоматизации","rpa"],
-  ["antifraud","антифрод","антифрода","antidetect","антидетект"],["fingerprint","fingerprinting","фингерпринт","отпечаток","отпечатки"],
-  ["browser","browsers","браузер","браузеры","браузера","браузеров"],["monitoring","monitor","мониторинг","мониторинга","observability"],
-  ["voice","голос","голосовой","голосовые"],["ocr","распознавание","documents","документы","документов"],
-  ["queue","queued","queues","очереди","очередь","rabbitmq","celery"],
-  ["collect","collection","scraper","scraping","parser","парсинг","парсер","сбор"],
-  ["semantic","семантический","семантического","embeddings","pgvector"],
+  ["bot","bots","бот","боты","ботов"],["ai","llm","нейросеть","нейросети","нейронки","нейромережі","ші","ии","claude","openai","gemini"],
+  ["agents","agent","агент","агенты","агентов","агентів"],["call","calls","calling"],["automation","automated","автоматизация","автоматизации","автоматизація","автоматизації","rpa"],
+  ["antifraud","антифрод","антифрода","antidetect","антидетект"],["fingerprint","fingerprinting","фингерпринт","отпечаток","отпечатки","фінгерпринтинг","відбиток","відбитки","відбитків"],
+  ["browser","browsers","браузер","браузеры","браузера","браузеров"],["monitoring","monitor","мониторинг","мониторинга","моніторинг","observability"],
+  ["voice","голос","голосовой","голосовые","голосовий","голосові"],["ocr","распознавание","documents","документы","документов","розпізнавання","документи","документів"],
+  ["queue","queued","queues","очереди","очередь","черга","черги","rabbitmq","celery"],
+  ["collect","collection","scraper","scraping","parser","парсинг","парсер","сбор","збір","збору"],
+  ["semantic","семантический","семантического","семантичний","embeddings","pgvector"],
   ["deployment","deploy","devops","деплой"],["frontend","фронтенд","react","swiftui"],
-  ["backend","бэкенд","бекенд","бекэнд"],["data","данные","данных"],["docker","докер"],
+  ["backend","бэкенд","бекенд","бекэнд"],["data","данные","данных","дані","даних"],["docker","докер"],
   ["trading","торговля","трейдинг","web3","blockchain","блокчейн"]
 ];
 export const normalize=(value:string)=>value.normalize("NFKD").replace(/\p{M}/gu,"").toLowerCase().replace(/[^\p{L}\p{N}+#.]+/gu," ").trim();
 const exactTechnologies=new Set(["react","swiftui","rabbitmq","celery","pgvector","embeddings","web3","blockchain","llm","ocr","rpa","claude","openai","gemini"]);
-const stopWords=new Set(["the","a","an","with","for","and","in","on","по","для","с","и","на","опыт","проекты","проект","experience","projects"]);
+const stopWords=new Set(["the","a","an","with","for","and","in","on","по","для","с","и","на","опыт","проекты","проект","проєкти","проєкт","досвід","і","та","з","experience","projects"]);
 export const queryTerms=(query:string)=>normalize(query).split(/\s+/).filter(token=>token&&!stopWords.has(token));
 const alternatives=(term:string)=>exactTechnologies.has(term)?[term]:(groups.find(group=>group.includes(term))??[term]);
 function matchesWord(part:string,term:string){return term.length<=2?part===term:part.startsWith(term);}
@@ -66,7 +67,7 @@ const index=allProjects.map(project=>({project,fields:[
  ...(project.overview?[{label:"Project overview",text:project.overview,weight:3}]:[]),
  {label:"Engineering focus",text:projectDirections(project).join(" "),weight:2},
  {label:"Related terms",text:project.keywords??"",weight:1},
-].map(field=>({...field,normalized:normalize(field.text)}))}));
+].map(field=>({...field,normalized:normalize([field.text,translate(field.text,"ru"),translate(field.text,"uk")].join(" "))}))}));
 export function searchHits(query:string,direction="all",visibility="all",stack="all"):SearchHit[]{
  const terms=queryTerms(query), phrase=normalize(query);
  return index.flatMap(({project,fields})=>{

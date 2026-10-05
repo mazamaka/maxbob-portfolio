@@ -1,0 +1,866 @@
+{
+  "Give agents a browser they can work with.": [
+    "Браузер, с которым агент может работать.",
+    "Браузер, з яким агент може працювати."
+  ],
+  "How I connected AI agents to Octo Browser with MCP, async API clients and Playwright over CDP.": [
+    "Как я связал AI-агентов с Octo Browser через MCP, асинхронные API-клиенты и Playwright по CDP.",
+    "Як я поєднав AI-агентів з Octo Browser через MCP, асинхронні API-клієнти та Playwright через CDP."
+  ],
+  "One MCP server connects an agent to browser profiles, page actions and the results of those actions.": [
+    "Один MCP-сервер даёт агенту доступ к профилям браузера, действиям на странице и их результатам.",
+    "Один MCP-сервер дає агенту доступ до профілів браузера, дій на сторінці та їхніх результатів."
+  ],
+  "An agent needs more than page access. It needs to discover and start the correct browser profile, connect to that session, execute an action and receive a usable result. Those capabilities span Octo’s Local API, Cloud API and the browser’s CDP endpoint.": [
+    "Агенту недостаточно открыть страницу. Нужно найти и запустить нужный профиль, подключиться к сессии, выполнить действие и получить пригодный результат. Для этого требуются Local API, Cloud API Octo и CDP браузера.",
+    "Агенту недостатньо відкрити сторінку. Потрібно знайти й запустити потрібний профіль, підключитися до сесії, виконати дію та отримати придатний результат. Для цього потрібні Local API, Cloud API Octo та CDP браузера."
+  ],
+  "Built the MCP tool layer for profile management and browser interaction.": [
+    "Создал слой MCP-инструментов для управления профилями и взаимодействия с браузером.",
+    "Створив шар MCP-інструментів для керування профілями та взаємодії з браузером."
+  ],
+  "Integrated asynchronous Local and Cloud API clients with Playwright over CDP.": [
+    "Интегрировал асинхронные клиенты Local и Cloud API с Playwright через CDP.",
+    "Інтегрував асинхронні клієнти Local і Cloud API з Playwright через CDP."
+  ],
+  "Added bounded handling of API rate limits and configurable remote browser connections.": [
+    "Добавил ограниченную обработку лимитов API и настраиваемое подключение к удалённым браузерам.",
+    "Додав обмежену обробку лімітів API та налаштовуване підключення до віддалених браузерів."
+  ],
+  "Separate profile control from page interaction": [
+    "Разделить управление профилями и действия на странице",
+    "Розділити керування профілями й дії на сторінці"
+  ],
+  "Local and Cloud APIs manage browser resources; Playwright handles the page through CDP. This keeps each integration’s responsibility explicit.": [
+    "Local и Cloud API управляют ресурсами браузера; Playwright работает со страницей через CDP. Ответственность каждой интеграции определена явно.",
+    "Local і Cloud API керують ресурсами браузера; Playwright працює зі сторінкою через CDP. Відповідальність кожної інтеграції визначено явно."
+  ],
+  "Handle limits without an endless retry loop": [
+    "Обрабатывать лимиты без бесконечных повторов",
+    "Обробляти ліміти без нескінченних повторів"
+  ],
+  "HTTP 429 retries are bounded. A failed provider request can surface as a failure instead of leaving the caller waiting indefinitely.": [
+    "Повторы HTTP 429 ограничены. Ошибка провайдера возвращается вызывающей стороне, а не оставляет её в бесконечном ожидании.",
+    "Повтори HTTP 429 обмежені. Помилка провайдера повертається стороні виклику, а не залишає її в нескінченному очікуванні."
+  ],
+  "Support remote browser environments": [
+    "Поддержать удалённые браузеры",
+    "Підтримати віддалені браузери"
+  ],
+  "Configurable hosts and CDP endpoint rewriting account for a browser running on another machine.": [
+    "Настраиваемые хосты и преобразование CDP-адресов учитывают запуск браузера на другой машине.",
+    "Налаштовувані хости та перетворення CDP-адрес ураховують запуск браузера на іншій машині."
+  ],
+  "The repository exposes browser and profile tools over MCP stdio, with configuration documentation, examples and CI definitions for Ruff, mypy and pytest. The implementation is available to inspect and run with your own Octo Browser installation.": [
+    "Репозиторий предоставляет инструменты браузера и профилей через MCP stdio, документацию настроек, примеры и CI для Ruff, mypy и pytest. Код можно изучить и запустить со своей установкой Octo Browser.",
+    "Репозиторій надає інструменти браузера й профілів через MCP stdio, документацію налаштувань, приклади та CI для Ruff, mypy і pytest. Код можна вивчити й запустити зі своєю інсталяцією Octo Browser."
+  ],
+  "Requires a running Octo Browser installation. Cloud resources need an API token. Unit and integration checks do not establish universal compatibility with every website or browser environment.": [
+    "Нужен запущенный Octo Browser. Для облачных ресурсов требуется API-токен. Модульные и интеграционные проверки не подтверждают совместимость со всеми сайтами и браузерными окружениями.",
+    "Потрібен запущений Octo Browser. Для хмарних ресурсів потрібен API-токен. Модульні та інтеграційні перевірки не підтверджують сумісність з усіма сайтами й браузерними середовищами."
+  ],
+  "Turn a stream of sources into reviewable ideas.": [
+    "От потока источников — к идеям для разбора.",
+    "Від потоку джерел — до ідей для розгляду."
+  ],
+  "An engineering case study of alpha-scout: scheduled source collection, deduplication, LLM analysis and Telegram alerts.": [
+    "Инженерный разбор alpha-scout: сбор источников по расписанию, дедупликация, LLM-анализ и Telegram-алерты.",
+    "Інженерний розбір alpha-scout: збір джерел за розкладом, дедуплікація, LLM-аналіз і Telegram-сповіщення."
+  ],
+  "A complete collection-to-alert pipeline, with an LLM used for screening and analysis rather than as the entire application.": [
+    "Полный конвейер от сбора до уведомления: LLM отвечает за отбор и анализ, оставаясь частью приложения.",
+    "Повний конвеєр від збору до сповіщення: LLM відповідає за відбір та аналіз, залишаючись частиною застосунку."
+  ],
+  "Useful research ideas are scattered across feeds and communities. Collecting them is only the first step: duplicates, noisy content and independent source failures need to be handled before a human can review the results.": [
+    "Полезные идеи разбросаны по лентам и сообществам. Сбор — лишь первый шаг: перед просмотром человеком нужно обработать дубликаты, шум и независимые сбои источников.",
+    "Корисні ідеї розкидані стрічками та спільнотами. Збір — лише перший крок: перед переглядом людиною потрібно обробити дублікати, шум і незалежні збої джерел."
+  ],
+  "Implemented scheduled collectors and content-hash deduplication.": [
+    "Реализовал сборщики по расписанию и дедупликацию по хешу контента.",
+    "Реалізував збирачі за розкладом і дедуплікацію за хешем контенту."
+  ],
+  "Connected a screening pass to deeper LLM evaluation, configurable scores and alert thresholds.": [
+    "Связал первичный отбор с глубоким LLM-анализом, настраиваемыми оценками и порогами уведомлений.",
+    "Пов’язав первинний відбір із глибоким LLM-аналізом, налаштовуваними оцінками та порогами сповіщень."
+  ],
+  "Built Telegram notifications and a dashboard for ideas and collector status.": [
+    "Создал Telegram-уведомления и дашборд идей и состояния сборщиков.",
+    "Створив Telegram-сповіщення й дашборд ідей та стану збирачів."
+  ],
+  "Keep the pipeline in separate parts": [
+    "Разделить этапы конвейера",
+    "Розділити етапи конвеєра"
+  ],
+  "Collectors, analysis and notification are separate components. Each source can run on its own schedule rather than forcing one interval on everything.": [
+    "Сборщики, анализ и уведомления — отдельные компоненты. Каждый источник работает по своему расписанию, без единого интервала для всех.",
+    "Збирачі, аналіз і сповіщення — окремі компоненти. Кожне джерело працює за власним розкладом, без єдиного інтервалу для всіх."
+  ],
+  "Use two stages of analysis": [
+    "Использовать два этапа анализа",
+    "Використовувати два етапи аналізу"
+  ],
+  "A screening pass filters incoming material before deeper evaluation. Scoring weights and notification thresholds remain configurable.": [
+    "Первичный отбор фильтрует материал перед углублённой оценкой. Веса критериев и пороги уведомлений настраиваются.",
+    "Первинний відбір фільтрує матеріал перед поглибленою оцінкою. Ваги критеріїв і пороги сповіщень налаштовуються."
+  ],
+  "Keep access failures visible": [
+    "Показывать ошибки доступа",
+    "Показувати помилки доступу"
+  ],
+  "Collector status and the X news fallback are labelled in the dashboard. A missing source should not silently look like an empty stream of ideas.": [
+    "Дашборд показывает состояние сборщиков и помечает резервные новости для X. Недоступность источника не должна выглядеть как отсутствие идей.",
+    "Дашборд показує стан збирачів і позначає резервні новини для X. Недоступність джерела не має виглядати як відсутність ідей."
+  ],
+  "Collected ideas can be reviewed in a FastAPI dashboard and high-scoring results delivered to configured Telegram chats. Local and Docker deployment are documented, including persistent data and logs.": [
+    "Идеи доступны в FastAPI-дашборде, а результаты с высокой оценкой отправляются в настроенные Telegram-чаты. Описаны локальное и Docker-развёртывание, постоянное хранение данных и логи.",
+    "Ідеї доступні у FastAPI-дашборді, а результати з високою оцінкою надсилаються в налаштовані Telegram-чати. Описано локальне й Docker-розгортання, постійне зберігання даних і логи."
+  ],
+  "Collection is scheduled, not real-time. Sources can fail independently. The X collector uses session-based access rather than the official API. The project does not execute trades; an LLM score is not a measured investment return.": [
+    "Сбор идёт по расписанию, не в реальном времени. Источники могут отказывать независимо. Сборщик X использует сессии, а не официальный API. Проект не исполняет сделки; оценка LLM не является измеренной доходностью.",
+    "Збір працює за розкладом, а не в реальному часі. Джерела можуть відмовляти незалежно. Збирач X використовує сесії, а не офіційний API. Проєкт не виконує угоди; оцінка LLM не є виміряною дохідністю."
+  ],
+  "Configure the browser. Inspect the signals.": [
+    "Настроить браузер. Исследовать сигналы.",
+    "Налаштувати браузер. Дослідити сигнали."
+  ],
+  "Browser fingerprint customization and diagnostic tooling with nodriver-antidetect and ipqs-checker.": [
+    "Настройка браузерных отпечатков и диагностика с nodriver-antidetect и ipqs-checker.",
+    "Налаштування браузерних відбитків і діагностика з nodriver-antidetect та ipqs-checker."
+  ],
+  "Two complementary projects: one works on browser configuration, the other makes IP and device signals easier to inspect.": [
+    "Два дополняющих проекта: один настраивает браузер, другой помогает исследовать сигналы IP и устройства.",
+    "Два взаємодоповнювальні проєкти: один налаштовує браузер, інший допомагає досліджувати сигнали IP та пристрою."
+  ],
+  "Browser behaviour is influenced by rendering, platform properties, runtime configuration and the network environment. Working with one signal in isolation makes it difficult to understand what actually changed.": [
+    "На поведение браузера влияют рендеринг, свойства платформы, настройки среды и сеть. Работа с одним сигналом в отрыве от остальных мешает понять, что изменилось.",
+    "На поведінку браузера впливають рендеринг, властивості платформи, налаштування середовища й мережа. Робота з одним сигналом окремо від інших заважає зрозуміти, що змінилося."
+  ],
+  "Implemented configurable browser fingerprint customization through CDP in nodriver-antidetect.": [
+    "Реализовал настройку браузерных отпечатков через CDP в nodriver-antidetect.",
+    "Реалізував налаштування браузерних відбитків через CDP у nodriver-antidetect."
+  ],
+  "Built an IP and device diagnostic backend and browser extensions in ipqs-checker.": [
+    "Создал бэкенд диагностики IP и устройств и расширения браузера в ipqs-checker.",
+    "Створив бекенд діагностики IP та пристроїв і розширення браузера в ipqs-checker."
+  ],
+  "Organized runtime configuration and checks so observations can be reviewed alongside the environment.": [
+    "Организовал настройки среды и проверки, чтобы рассматривать наблюдения вместе с окружением.",
+    "Організував налаштування середовища й перевірки, щоб розглядати спостереження разом з оточенням."
+  ],
+  "Treat configuration and diagnostics as different jobs": [
+    "Разделить настройку и диагностику",
+    "Розділити налаштування й діагностику"
+  ],
+  "nodriver-antidetect controls aspects of the browser environment. ipqs-checker focuses on observing IP reputation and device signals. They are independent tools, not a claimed automatic closed-loop system.": [
+    "nodriver-antidetect управляет параметрами браузера. ipqs-checker наблюдает репутацию IP и сигналы устройств. Это независимые инструменты, а не заявленная автоматическая замкнутая система.",
+    "nodriver-antidetect керує параметрами браузера. ipqs-checker спостерігає репутацію IP та сигнали пристроїв. Це незалежні інструменти, а не заявлена автоматична замкнена система."
+  ],
+  "Look below high-level browser wrappers": [
+    "Работать глубже высокоуровневых обёрток",
+    "Працювати глибше високорівневих обгорток"
+  ],
+  "CDP-level controls expose browser behaviour that a click-and-type script does not address. Diagnostic surfaces include rendering and platform characteristics.": [
+    "Управление через CDP открывает поведение браузера за пределами сценариев кликов и ввода. Диагностика охватывает рендеринг и свойства платформы.",
+    "Керування через CDP відкриває поведінку браузера поза сценаріями кліків і введення. Діагностика охоплює рендеринг і властивості платформи."
+  ],
+  "Keep network and device evidence in view": [
+    "Учитывать сеть и устройство вместе",
+    "Враховувати мережу та пристрій разом"
+  ],
+  "IP reputation and browser properties describe different parts of the environment. The checker provides a backend and extension workflow for reviewing them.": [
+    "Репутация IP и свойства браузера описывают разные части окружения. Бэкенд и расширение позволяют рассматривать их вместе.",
+    "Репутація IP та властивості браузера описують різні частини середовища. Бекенд і розширення дозволяють розглядати їх разом."
+  ],
+  "The public repositories provide browser customization code and a separate diagnostic application. They demonstrate work across browser internals, Python services and extensions.": [
+    "Открытые репозитории содержат код настройки браузера и отдельное диагностическое приложение. Они показывают работу с внутренними механизмами браузера, Python-сервисами и расширениями.",
+    "Відкриті репозиторії містять код налаштування браузера й окремий діагностичний застосунок. Вони показують роботу з внутрішніми механізмами браузера, Python-сервісами та розширеннями."
+  ],
+  "A diagnostic result is an observation for a particular environment and moment. It is not a guarantee of being undetectable or of compatibility with every anti-bot system. The portfolio illustration does not collect the visitor’s fingerprint.": [
+    "Диагностика отражает конкретное окружение в конкретный момент. Это не гарантия незаметности или совместимости со всеми антибот-системами. Иллюстрация портфолио не собирает отпечаток посетителя.",
+    "Діагностика відображає конкретне середовище в конкретний момент. Це не гарантія непомітності або сумісності з усіма антибот-системами. Ілюстрація портфоліо не збирає відбиток відвідувача."
+  ],
+  "Connect agent clients to Claude Code.": [
+    "Подключить агентские клиенты к Claude Code.",
+    "Підключити агентські клієнти до Claude Code."
+  ],
+  "Claudegate connects OpenAI-compatible clients to Claude Code through a FastAPI gateway with streaming, tools and persistent sessions.": [
+    "Claudegate связывает OpenAI-совместимые клиенты с Claude Code через FastAPI-шлюз со стримингом, инструментами и постоянными сессиями.",
+    "Claudegate пов’язує OpenAI-сумісні клієнти з Claude Code через FastAPI-шлюз зі стримінгом, інструментами та постійними сесіями."
+  ],
+  "An API adapter that lets existing applications work with Claude Code while retaining streamed responses and multi-step conversations.": [
+    "API-адаптер позволяет существующим приложениям работать с Claude Code, сохраняя потоковые ответы и многошаговые диалоги.",
+    "API-адаптер дозволяє наявним застосункам працювати з Claude Code, зберігаючи потокові відповіді та багатокрокові діалоги."
+  ],
+  "Agent clients and the Claude Code CLI expose different interfaces. A useful bridge has to translate messages, stream responses, return tool calls and keep follow-up requests attached to the right conversation.": [
+    "У агентских клиентов и Claude Code CLI разные интерфейсы. Мост должен преобразовывать сообщения, передавать потоковые ответы и вызовы инструментов, связывать следующие запросы с нужным диалогом.",
+    "Агентські клієнти та Claude Code CLI мають різні інтерфейси. Міст має перетворювати повідомлення, передавати потокові відповіді й виклики інструментів, пов’язувати наступні запити з потрібним діалогом."
+  ],
+  "Built the OpenAI-compatible request and response layer around Claude Code.": [
+    "Создал OpenAI-совместимый слой запросов и ответов вокруг Claude Code.",
+    "Створив OpenAI-сумісний шар запитів і відповідей навколо Claude Code."
+  ],
+  "Implemented streamed output, tool-result continuation, image and file inputs, and session reuse.": [
+    "Реализовал стриминг, продолжение после результатов инструментов, входные изображения и файлы, повторное использование сессий.",
+    "Реалізував стримінг, продовження після результатів інструментів, вхідні зображення й файли, повторне використання сесій."
+  ],
+  "Added authentication, structured logs, metrics and credential-free tests using a fake CLI.": [
+    "Добавил аутентификацию, структурированные логи, метрики и тесты без credentials с подставным CLI.",
+    "Додав автентифікацію, структуровані логи, метрики й тести без credentials із підставним CLI."
+  ],
+  "Keep the client interface familiar": [
+    "Сохранить знакомый интерфейс клиента",
+    "Зберегти знайомий інтерфейс клієнта"
+  ],
+  "Applications can use a chat-completions interface. Configuration examples cover Hermes Agent and OpenClaw.": [
+    "Приложения используют интерфейс chat completions. Примеры настроек охватывают Hermes Agent и OpenClaw.",
+    "Застосунки використовують інтерфейс chat completions. Приклади налаштувань охоплюють Hermes Agent та OpenClaw."
+  ],
+  "Preserve conversation continuity": [
+    "Сохранить связность диалога",
+    "Зберегти зв’язність діалогу"
+  ],
+  "Follow-up requests can reuse a live session; request history provides a recovery path when the original session is gone.": [
+    "Следующие запросы используют живую сессию; история запросов позволяет восстановить контекст, если исходная сессия исчезла.",
+    "Наступні запити використовують живу сесію; історія запитів дозволяє відновити контекст, якщо початкова сесія зникла."
+  ],
+  "Test the integration boundary": [
+    "Тестировать границу интеграции",
+    "Тестувати межу інтеграції"
+  ],
+  "A fake CLI exercises the gateway without credentials. Deployment smoke checks separately test real streaming, tools, images and session behavior.": [
+    "Подставной CLI проверяет шлюз без credentials. Отдельные smoke-тесты развёртывания проверяют реальный стриминг, инструменты, изображения и сессии.",
+    "Підставний CLI перевіряє шлюз без credentials. Окремі smoke-тести розгортання перевіряють реальний стримінг, інструменти, зображення та сесії."
+  ],
+  "The public package includes a server command, a configuration doctor, health and model endpoints, metrics, and integration documentation. Reviewers can inspect both the adapter and its test suite.": [
+    "Публичный пакет включает команду сервера, диагностику конфигурации, health- и model-эндпоинты, метрики и документацию интеграций. Можно изучить адаптер и набор тестов.",
+    "Публічний пакет містить команду сервера, діагностику конфігурації, health- і model-ендпоінти, метрики та документацію інтеграцій. Можна вивчити адаптер і набір тестів."
+  ],
+  "Requires an installed and authenticated Claude Code CLI. Compatibility is documented per feature; the gateway does not implement every OpenAI parameter. Coding-agent execution requires restricted access and an appropriate service account.": [
+    "Требуется установленный Claude Code CLI с авторизацией. Совместимость описана по функциям; поддерживаются не все параметры OpenAI. Запуск coding-агента требует ограниченного доступа и подходящего сервисного аккаунта.",
+    "Потрібен установлений Claude Code CLI з авторизацією. Сумісність описана за функціями; підтримуються не всі параметри OpenAI. Запуск coding-агента потребує обмеженого доступу й належного сервісного акаунта."
+  ],
+  "Measure the API from where it is used.": [
+    "Измерять API там, где им пользуются.",
+    "Вимірювати API там, де ним користуються."
+  ],
+  "A distributed Python monitoring pipeline for regional AI API latency and availability, with open datasets, a JSON API and MCP access.": [
+    "Распределённый Python-мониторинг региональных задержек и доступности AI API с открытыми данными, JSON API и MCP.",
+    "Розподілений Python-моніторинг регіональних затримок і доступності AI API з відкритими даними, JSON API та MCP."
+  ],
+  "Regional probes turn API response measurements into dated, inspectable datasets for people and AI agents.": [
+    "Региональные проверки превращают измерения API в датированные наборы данных, доступные людям и AI-агентам.",
+    "Регіональні перевірки перетворюють вимірювання API на датовані набори даних, доступні людям і AI-агентам."
+  ],
+  "A provider's response time varies by region, request type and measurement window. A single latency number hides those differences and can confuse network responsiveness with model generation speed.": [
+    "Время ответа провайдера зависит от региона, типа запроса и периода измерения. Одно число скрывает различия и смешивает сетевую задержку со скоростью генерации модели.",
+    "Час відповіді провайдера залежить від регіону, типу запиту та періоду вимірювання. Одне число приховує відмінності й змішує мережеву затримку зі швидкістю генерації моделі."
+  ],
+  "Built regional edge probes and optional inference probes for AI providers.": [
+    "Создал региональные edge-проверки и опциональные проверки инференса AI-провайдеров.",
+    "Створив регіональні edge-перевірки та опціональні перевірки інференсу AI-провайдерів."
+  ],
+  "Implemented central aggregation, historical snapshots and regional percentile statistics.": [
+    "Реализовал централизованную агрегацию, исторические снимки и региональную статистику перцентилей.",
+    "Реалізував централізовану агрегацію, історичні знімки та регіональну статистику перцентилів."
+  ],
+  "Published the results through a website, JSON datasets, Markdown pages and MCP.": [
+    "Опубликовал результаты через сайт, JSON-данные, Markdown-страницы и MCP.",
+    "Опублікував результати через сайт, JSON-дані, Markdown-сторінки та MCP."
+  ],
+  "Separate network and inference timing": [
+    "Разделить сетевые задержки и инференс",
+    "Розділити мережеві затримки та інференс"
+  ],
+  "Edge TTFB and inference TTFT are different measurements. Keeping them separate makes the resulting comparisons easier to interpret.": [
+    "Edge TTFB и inference TTFT — разные измерения. Раздельное представление помогает корректно интерпретировать сравнения.",
+    "Edge TTFB та inference TTFT — різні вимірювання. Окреме подання допомагає коректно інтерпретувати порівняння."
+  ],
+  "Keep the probe runtime small": [
+    "Сохранить лёгкую среду проверок",
+    "Зберегти легке середовище перевірок"
+  ],
+  "The edge-probe core uses Python's standard library; optional inference probes use provider credentials.": [
+    "Ядро edge-проверок использует стандартную библиотеку Python; опциональным inference-проверкам нужны credentials провайдеров.",
+    "Ядро edge-перевірок використовує стандартну бібліотеку Python; опціональним inference-перевіркам потрібні credentials провайдерів."
+  ],
+  "Publish the evidence": [
+    "Публиковать исходные измерения",
+    "Публікувати вихідні вимірювання"
+  ],
+  "Daily snapshots and historical data accompany the interface, so results can be reused and checked outside the website.": [
+    "Ежедневные снимки и исторические данные дополняют интерфейс: результаты можно повторно использовать и проверять вне сайта.",
+    "Щоденні знімки й історичні дані доповнюють інтерфейс: результати можна повторно використовувати та перевіряти поза сайтом."
+  ],
+  "The repository contains probe and aggregation code, deployment instructions and dated datasets. The public site exposes rankings and a JSON API, with MCP access for agent workflows.": [
+    "Репозиторий содержит код проверок и агрегации, инструкции развёртывания и датированные данные. Сайт предоставляет рейтинги, JSON API и MCP для агентских сценариев.",
+    "Репозиторій містить код перевірок та агрегації, інструкції розгортання й датовані дані. Сайт надає рейтинги, JSON API та MCP для агентських сценаріїв."
+  ],
+  "Measurements describe a particular region, probe type and time window. Edge TTFB is not a benchmark of model generation speed, and provider rankings change as new measurements arrive.": [
+    "Измерения относятся к определённому региону, типу проверки и периоду. Edge TTFB не измеряет скорость генерации модели; рейтинги провайдеров меняются с новыми измерениями.",
+    "Вимірювання стосуються певного регіону, типу перевірки й періоду. Edge TTFB не вимірює швидкість генерації моделі; рейтинги провайдерів змінюються з новими вимірюваннями."
+  ],
+  "Make browser-agent runs inspectable.": [
+    "Сделать работу браузерного агента обозримой.",
+    "Зробити роботу браузерного агента прозорою."
+  ],
+  "An experimental FastAPI and React application for AI-driven browser tasks, execution history, context checkpoints and reusable patterns.": [
+    "Экспериментальное приложение FastAPI и React для браузерных AI-задач, истории выполнения, контрольных точек контекста и повторных сценариев.",
+    "Експериментальний застосунок FastAPI та React для браузерних AI-завдань, історії виконання, контрольних точок контексту й повторних сценаріїв."
+  ],
+  "A task dashboard around a browser agent, with execution records that help explain what happened during a run.": [
+    "Дашборд задач браузерного агента с записями выполнения, помогающими понять, что произошло во время запуска.",
+    "Дашборд завдань браузерного агента із записами виконання, що допомагають зрозуміти, що сталося під час запуску."
+  ],
+  "A natural-language instruction can start a browser task, but it does not explain the run's progress or failure. Experimentation needs visible execution history and a way to carry useful context into another attempt.": [
+    "Инструкция на естественном языке запускает задачу, но не объясняет прогресс или сбой. Для экспериментов нужны видимая история выполнения и перенос полезного контекста в следующую попытку.",
+    "Інструкція природною мовою запускає завдання, але не пояснює прогрес або збій. Для експериментів потрібні видима історія виконання та перенесення корисного контексту в наступну спробу."
+  ],
+  "Connected natural-language task creation to AI analysis and browser-use execution.": [
+    "Связал создание задач на естественном языке с AI-анализом и исполнением browser-use.",
+    "Пов’язав створення завдань природною мовою з AI-аналізом і виконанням browser-use."
+  ],
+  "Built a React dashboard with WebSocket progress updates and execution history.": [
+    "Создал React-дашборд с прогрессом через WebSocket и историей выполнения.",
+    "Створив React-дашборд із прогресом через WebSocket та історією виконання."
+  ],
+  "Added stored checkpoints, screenshots, reported token usage and pattern suggestions from prior runs.": [
+    "Добавил сохранение контрольных точек, скриншотов, учёт заявленного расхода токенов и подсказки сценариев по прошлым запускам.",
+    "Додав збереження контрольних точок, скриншотів, облік заявленого використання токенів і підказки сценаріїв за минулими запусками."
+  ],
+  "Separate orchestration from the interface": [
+    "Разделить оркестрацию и интерфейс",
+    "Розділити оркестрацію та інтерфейс"
+  ],
+  "FastAPI coordinates execution while React handles task creation and review. REST and WebSockets connect the two.": [
+    "FastAPI координирует выполнение, React — создание и просмотр задач. Их связывают REST и WebSockets.",
+    "FastAPI координує виконання, React — створення та перегляд завдань. Їх пов’язують REST і WebSockets."
+  ],
+  "Retain context for another attempt": [
+    "Сохранить контекст для новой попытки",
+    "Зберегти контекст для нової спроби"
+  ],
+  "Checkpoints preserve execution context rather than claiming to save a live browser session.": [
+    "Контрольные точки сохраняют контекст выполнения, а не живую сессию браузера.",
+    "Контрольні точки зберігають контекст виконання, а не живу сесію браузера."
+  ],
+  "Keep experiments observable": [
+    "Сделать эксперименты наблюдаемыми",
+    "Зробити експерименти спостережуваними"
+  ],
+  "JSON records hold tasks, history and patterns so the execution flow can be inspected during development.": [
+    "JSON-записи хранят задачи, историю и шаблоны, позволяя исследовать ход выполнения при разработке.",
+    "JSON-записи зберігають завдання, історію та шаблони, дозволяючи досліджувати перебіг виконання під час розробки."
+  ],
+  "The public repository contains the application, setup instructions and implementation notes. It demonstrates task orchestration, browser-agent integration and a live progress interface.": [
+    "Публичный репозиторий содержит приложение, инструкции настройки и заметки о реализации. Он демонстрирует оркестрацию задач, интеграцию браузерного агента и интерфейс прогресса в реальном времени.",
+    "Публічний репозиторій містить застосунок, інструкції налаштування та нотатки про реалізацію. Він демонструє оркестрацію завдань, інтеграцію браузерного агента й інтерфейс прогресу в реальному часі."
+  ],
+  "This is an experimental application. Saved patterns do not guarantee better outcomes, and checkpoints do not resume an exact live browser state. The backend has no built-in authentication and should remain local unless access controls are added.": [
+    "Приложение экспериментальное. Сохранённые шаблоны не гарантируют лучший результат, а контрольные точки не восстанавливают точное живое состояние браузера. В бэкенде нет встроенной аутентификации; без контроля доступа его следует запускать локально.",
+    "Застосунок експериментальний. Збережені шаблони не гарантують кращий результат, а контрольні точки не відновлюють точний живий стан браузера. Бекенд не має вбудованої автентифікації; без контролю доступу його слід запускати локально."
+  ],
+  "Review network and device signals together.": [
+    "Исследовать сеть и устройство вместе.",
+    "Досліджувати мережу та пристрій разом."
+  ],
+  "A FastAPI service and browser extensions for collecting and reviewing IP reputation and device-fingerprint diagnostics.": [
+    "FastAPI-сервис и расширения браузера для сбора и просмотра диагностики репутации IP и отпечатков устройств.",
+    "FastAPI-сервіс і розширення браузера для збору та перегляду діагностики репутації IP і відбитків пристроїв."
+  ],
+  "Browser extensions bring diagnostic observations into a service where results can be reviewed alongside the tested environment.": [
+    "Расширения передают наблюдения в сервис, где результаты можно рассмотреть вместе с тестируемым окружением.",
+    "Розширення передають спостереження в сервіс, де результати можна розглянути разом із тестованим середовищем."
+  ],
+  "IP reputation and browser properties describe different parts of a session. Reviewing one score in isolation makes it difficult to tell whether a result reflects the network, the device profile or the diagnostic provider.": [
+    "Репутация IP и свойства браузера описывают разные части сессии. По одной оценке трудно понять, связан ли результат с сетью, профилем устройства или диагностическим провайдером.",
+    "Репутація IP та властивості браузера описують різні частини сесії. За однією оцінкою важко зрозуміти, чи пов’язаний результат із мережею, профілем пристрою або діагностичним провайдером."
+  ],
+  "Built a FastAPI backend for fingerprint and IP-quality diagnostic results.": [
+    "Создал FastAPI-бэкенд для результатов диагностики отпечатков и качества IP.",
+    "Створив FastAPI-бекенд для результатів діагностики відбитків та якості IP."
+  ],
+  "Implemented Chrome and Firefox extension workflows for gathering browser-side observations.": [
+    "Реализовал расширения Chrome и Firefox для сбора наблюдений в браузере.",
+    "Реалізував розширення Chrome і Firefox для збору спостережень у браузері."
+  ],
+  "Organized provider results, device information and recent checks into reviewable interfaces.": [
+    "Организовал результаты провайдеров, данные устройства и недавние проверки в удобные для анализа интерфейсы.",
+    "Організував результати провайдерів, дані пристрою та недавні перевірки в зручні для аналізу інтерфейси."
+  ],
+  "Keep browser collection close to the session": [
+    "Собирать данные внутри проверяемой сессии",
+    "Збирати дані всередині перевірюваної сесії"
+  ],
+  "Extensions operate in the browser being inspected, while the backend organizes the resulting observations.": [
+    "Расширения работают в исследуемом браузере, а бэкенд организует полученные наблюдения.",
+    "Розширення працюють у досліджуваному браузері, а бекенд організовує отримані спостереження."
+  ],
+  "Retain provider context": [
+    "Сохранить контекст провайдера",
+    "Зберегти контекст провайдера"
+  ],
+  "Different diagnostic services report different signals. Their outputs are reviewed with their source rather than treated as a single universal verdict.": [
+    "Диагностические сервисы сообщают разные сигналы. Результаты рассматриваются вместе с источником, а не как единый универсальный вердикт.",
+    "Діагностичні сервіси повідомляють різні сигнали. Результати розглядаються разом із джерелом, а не як єдиний універсальний вердикт."
+  ],
+  "Combine network and device evidence": [
+    "Объединить данные сети и устройства",
+    "Поєднати дані мережі та пристрою"
+  ],
+  "IP reputation, platform properties and rendering characteristics provide complementary information about the environment.": [
+    "Репутация IP, свойства платформы и характеристики рендеринга дополняют картину окружения.",
+    "Репутація IP, властивості платформи й характеристики рендерингу доповнюють картину середовища."
+  ],
+  "The public repository contains the backend, extension code, setup documentation and interface screenshots. It shows work across Python services, browser extensions and diagnostic reporting.": [
+    "Открытый репозиторий содержит бэкенд, код расширений, документацию настройки и скриншоты интерфейса. Он показывает работу с Python-сервисами, расширениями и диагностическими отчётами.",
+    "Відкритий репозиторій містить бекенд, код розширень, документацію налаштування та скриншоти інтерфейсу. Він показує роботу з Python-сервісами, розширеннями й діагностичними звітами."
+  ],
+  "Results depend on the diagnostic provider, browser configuration and time of the check. A score does not establish universal compatibility with anti-bot systems, and this portfolio page does not fingerprint its visitors.": [
+    "Результаты зависят от провайдера, настроек браузера и времени проверки. Оценка не подтверждает универсальную совместимость с антибот-системами; эта страница не собирает отпечатки посетителей.",
+    "Результати залежать від провайдера, налаштувань браузера й часу перевірки. Оцінка не підтверджує універсальну сумісність з антибот-системами; ця сторінка не збирає відбитки відвідувачів."
+  ],
+  "Coordinate Android instances from one control plane.": [
+    "Управлять Android-инстансами из одного места.",
+    "Керувати Android-інстансами з одного місця."
+  ],
+  "A Python and FastAPI control plane for BlueStacks instances, ADB workflows, device-profile configuration and proxy routing.": [
+    "Панель управления BlueStacks на Python и FastAPI: ADB-сценарии, настройки профилей устройств и прокси-маршрутизация.",
+    "Панель керування BlueStacks на Python і FastAPI: ADB-сценарії, налаштування профілів пристроїв та проксі-маршрутизація."
+  ],
+  "An emulator-management application that connects instance lifecycle, Android configuration and network settings through an API and web interface.": [
+    "Приложение связывает жизненный цикл эмуляторов, настройки Android и сети через API и веб-интерфейс.",
+    "Застосунок пов’язує життєвий цикл емуляторів, налаштування Android і мережі через API та вебінтерфейс."
+  ],
+  "Managing several Android environments involves more than launching an emulator. Instance state, resource settings, device properties and network routes need to be configured and inspected together.": [
+    "Управление несколькими Android-средами не заканчивается запуском эмулятора. Состояние инстансов, ресурсы, свойства устройств и сетевые маршруты нужно настраивать и проверять вместе.",
+    "Керування кількома Android-середовищами не закінчується запуском емулятора. Стан інстансів, ресурси, властивості пристроїв і мережеві маршрути потрібно налаштовувати та перевіряти разом."
+  ],
+  "Built instance creation, cloning and lifecycle controls exposed through a FastAPI service and web UI.": [
+    "Создал управление созданием, клонированием и жизненным циклом инстансов через FastAPI и веб-интерфейс.",
+    "Створив керування створенням, клонуванням і життєвим циклом інстансів через FastAPI та вебінтерфейс."
+  ],
+  "Integrated ADB workflows for Android configuration and device-profile management.": [
+    "Интегрировал ADB-сценарии для настройки Android и управления профилями устройств.",
+    "Інтегрував ADB-сценарії для налаштування Android та керування профілями пристроїв."
+  ],
+  "Implemented proxy configuration and validation, with diagnostic checks for the resulting environment.": [
+    "Реализовал настройку и валидацию прокси с диагностикой полученного окружения.",
+    "Реалізував налаштування й валідацію проксі з діагностикою отриманого середовища."
+  ],
+  "Separate the control layers": [
+    "Разделить уровни управления",
+    "Розділити рівні керування"
+  ],
+  "Instance management, device settings and network configuration remain distinct parts of the workflow, making each stage easier to inspect.": [
+    "Управление инстансами, устройствами и сетью остаётся отдельными этапами, каждый из которых проще проверить.",
+    "Керування інстансами, пристроями й мережею залишається окремими етапами, кожен із яких простіше перевірити."
+  ],
+  "Use Android's automation interface": [
+    "Использовать интерфейс автоматизации Android",
+    "Використовувати інтерфейс автоматизації Android"
+  ],
+  "ADB provides the bridge between the Python application and actions inside the Android instance.": [
+    "ADB связывает Python-приложение с действиями внутри Android-инстанса.",
+    "ADB пов’язує Python-застосунок із діями всередині Android-інстанса."
+  ],
+  "Verify the configured environment": [
+    "Проверять полученное окружение",
+    "Перевіряти отримане середовище"
+  ],
+  "Proxy validation and device diagnostics provide feedback about the setup rather than relying only on a successful configuration command.": [
+    "Валидация прокси и диагностика устройства дают обратную связь о настройках — одного успешного ответа команды недостаточно.",
+    "Валідація проксі та діагностика пристрою дають зворотний зв’язок про налаштування — однієї успішної відповіді команди недостатньо."
+  ],
+  "The repository documents instance management, device profiles, network routing and diagnostic workflows. It demonstrates integration across a web API, emulator processes and Android tooling.": [
+    "Репозиторий описывает управление инстансами, профилями, сетевыми маршрутами и диагностикой. Он демонстрирует интеграцию веб-API, процессов эмулятора и Android-инструментов.",
+    "Репозиторій описує керування інстансами, профілями, мережевими маршрутами й діагностикою. Він демонструє інтеграцію веб-API, процесів емулятора та Android-інструментів."
+  ],
+  "Operation depends on a compatible BlueStacks host and Android environment. Device-profile settings and diagnostic scores do not guarantee identical behavior across applications or undetectability.": [
+    "Работа зависит от совместимого хоста BlueStacks и Android-среды. Настройки профиля и диагностические оценки не гарантируют одинаковое поведение во всех приложениях или незаметность.",
+    "Робота залежить від сумісного хоста BlueStacks та Android-середовища. Налаштування профілю й діагностичні оцінки не гарантують однакову поведінку в усіх застосунках або непомітність."
+  ],
+  "Check that the service can finish the job.": [
+    "Проверить, что сервис завершает задачу.",
+    "Перевірити, що сервіс завершує завдання."
+  ],
+  "Linux deployment tooling for a Claude Code API server, with systemd configuration, completion-based probes and end-to-end smoke checks.": [
+    "Инструменты Linux-развёртывания API-сервера Claude Code: systemd, проверки реальной генерации и сквозные smoke-тесты.",
+    "Інструменти Linux-розгортання API-сервера Claude Code: systemd, перевірки реальної генерації та наскрізні smoke-тести."
+  ],
+  "Operations tooling that tests a real model response as well as whether the API process is running.": [
+    "Эксплуатационные инструменты проверяют реальный ответ модели вместе с состоянием процесса API.",
+    "Експлуатаційні інструменти перевіряють реальну відповідь моделі разом зі станом процесу API."
+  ],
+  "An HTTP health endpoint can respond successfully while the service cannot produce a completion. Deployment also needs repeatable service configuration and checks for the capabilities clients actually use.": [
+    "Health-эндпоинт может отвечать успешно, даже если сервис не генерирует ответ. Развёртыванию нужны воспроизводимые настройки и проверки функций, которыми пользуются клиенты.",
+    "Health-ендпоінт може відповідати успішно, навіть якщо сервіс не генерує відповідь. Розгортанню потрібні відтворювані налаштування та перевірки функцій, якими користуються клієнти."
+  ],
+  "Built scripts for configuring a systemd service and preparing its environment.": [
+    "Создал скрипты настройки systemd-службы и подготовки окружения.",
+    "Створив скрипти налаштування systemd-служби та підготовки середовища."
+  ],
+  "Implemented completion-based health probes and smoke checks for text, streaming, tools, images and session behavior.": [
+    "Реализовал проверки реальной генерации и smoke-тесты текста, стриминга, инструментов, изображений и сессий.",
+    "Реалізував перевірки реальної генерації та smoke-тести тексту, стримінгу, інструментів, зображень і сесій."
+  ],
+  "Added scratch-instance support, configurable ports and exit codes suitable for deployment gates.": [
+    "Добавил временные тестовые инстансы, настраиваемые порты и коды завершения для проверок перед выпуском.",
+    "Додав тимчасові тестові інстанси, налаштовувані порти й коди завершення для перевірок перед випуском."
+  ],
+  "Keep the upstream server separate": [
+    "Отделить исходный сервер",
+    "Відокремити вихідний сервер"
+  ],
+  "This repository contains operations tooling for an upstream Claude Code API server, rather than presenting that server implementation as its own.": [
+    "Репозиторий содержит инструменты эксплуатации внешнего API-сервера Claude Code и не выдаёт реализацию этого сервера за собственную.",
+    "Репозиторій містить інструменти експлуатації зовнішнього API-сервера Claude Code й не видає реалізацію цього сервера за власну."
+  ],
+  "Check meaningful behavior": [
+    "Проверять полезное поведение",
+    "Перевіряти корисну поведінку"
+  ],
+  "The smoke suite exercises actual client flows, including streaming and tool continuations.": [
+    "Smoke-набор проверяет реальные клиентские сценарии, включая стриминг и продолжение после вызова инструментов.",
+    "Smoke-набір перевіряє реальні клієнтські сценарії, зокрема стримінг і продовження після виклику інструментів."
+  ],
+  "Make checks usable in deployment": [
+    "Встроить проверки в развёртывание",
+    "Вбудувати перевірки в розгортання"
+  ],
+  "Dry-run installation and failure exit codes help integrate verification into a controlled release process.": [
+    "Пробная установка без изменений и коды ошибок помогают включить проверки в контролируемый процесс выпуска.",
+    "Пробне встановлення без змін і коди помилок допомагають включити перевірки в контрольований процес випуску."
+  ],
+  "The repository provides service scripts, a Python standard-library smoke suite, configuration examples and troubleshooting notes. Reviewers can inspect the exact checks used to accept a deployment.": [
+    "Репозиторий предоставляет сервисные скрипты, smoke-набор на стандартной библиотеке Python, примеры настроек и заметки по диагностике. Можно изучить точные проверки приёмки развёртывания.",
+    "Репозиторій надає сервісні скрипти, smoke-набір на стандартній бібліотеці Python, приклади налаштувань і нотатки з діагностики. Можна вивчити точні перевірки приймання розгортання."
+  ],
+  "Service installation requires Linux with systemd and a separately installed upstream server. Deep probes make real model calls. Restart and session behavior depend on the upstream version and are checked explicitly.": [
+    "Установка требует Linux с systemd и отдельно установленного исходного сервера. Глубокие проверки вызывают реальную модель. Перезапуск и поведение сессий зависят от версии сервера и проверяются явно.",
+    "Встановлення потребує Linux із systemd та окремо встановленого вихідного сервера. Глибокі перевірки викликають реальну модель. Перезапуск і поведінка сесій залежать від версії сервера та перевіряються явно."
+  ],
+  "Bring different signals into a reviewable pipeline.": [
+    "Собрать разные сигналы в обозримый конвейер.",
+    "Зібрати різні сигнали в прозорий конвеєр."
+  ],
+  "An asynchronous Python application connecting prediction-market data, Claude analysis, weather inputs and breaking-news signals.": [
+    "Асинхронное Python-приложение связывает данные рынков прогнозов, анализ Claude, погоду и срочные новости.",
+    "Асинхронний Python-застосунок пов’язує дані ринків прогнозів, аналіз Claude, погоду й термінові новини."
+  ],
+  "A multi-source research and execution pipeline with separate collection, analysis and risk-checking components.": [
+    "Многоисточниковый конвейер исследований и исполнения с отдельными компонентами сбора, анализа и проверки рисков.",
+    "Багатоджерельний конвеєр досліджень і виконання з окремими компонентами збору, аналізу та перевірки ризиків."
+  ],
+  "Prediction-market workflows draw on market state, forecasts and changing news. Those inputs arrive on different schedules and need to be matched, deduplicated and evaluated before an action is considered.": [
+    "Процессы рынков прогнозов используют состояние рынка, прогнозы и меняющиеся новости. Данные поступают по разным расписаниям; перед действием их нужно сопоставить, очистить от дубликатов и оценить.",
+    "Процеси ринків прогнозів використовують стан ринку, прогнози та мінливі новини. Дані надходять за різними розкладами; перед дією їх потрібно зіставити, очистити від дублікатів та оцінити."
+  ],
+  "Connected market scanning to staged LLM analysis and contextual data sources.": [
+    "Связал сканирование рынка с поэтапным LLM-анализом и контекстными источниками.",
+    "Пов’язав сканування ринку з поетапним LLM-аналізом і контекстними джерелами."
+  ],
+  "Integrated weather data and news-event ingestion into asynchronous workflows.": [
+    "Интегрировал погоду и новостные события в асинхронные процессы.",
+    "Інтегрував погоду й новинні події в асинхронні процеси."
+  ],
+  "Organized risk checks, paper/live execution paths and a dashboard for observing the system.": [
+    "Организовал проверки рисков, тестовый и реальный режимы исполнения и дашборд наблюдения.",
+    "Організував перевірки ризиків, тестовий і реальний режими виконання та дашборд спостереження."
+  ],
+  "Separate source-specific workflows": [
+    "Разделить процессы источников",
+    "Розділити процеси джерел"
+  ],
+  "Weather, market data and news use different collection and analysis paths before feeding into the wider system.": [
+    "Погода, рыночные данные и новости проходят разные пути сбора и анализа перед включением в общую систему.",
+    "Погода, ринкові дані й новини проходять різні шляхи збору та аналізу перед включенням у загальну систему."
+  ],
+  "Keep execution behind explicit checks": [
+    "Допускать исполнение после явных проверок",
+    "Допускати виконання після явних перевірок"
+  ],
+  "Analysis, risk management and execution are separate components, with a paper mode available for experimentation.": [
+    "Анализ, управление рисками и исполнение разделены; для экспериментов предусмотрен paper-режим.",
+    "Аналіз, керування ризиками та виконання розділені; для експериментів передбачено paper-режим."
+  ],
+  "Expose the workflow for review": [
+    "Открыть процесс для анализа",
+    "Відкрити процес для аналізу"
+  ],
+  "The dashboard and event flow make the integration inspectable beyond a single generated prediction.": [
+    "Дашборд и поток событий позволяют исследовать всю интеграцию, а не только отдельный сгенерированный прогноз.",
+    "Дашборд і потік подій дозволяють дослідити всю інтеграцію, а не лише окремий згенерований прогноз."
+  ],
+  "The public repository documents the data pipeline, analysis components, execution paths and dashboard. The case demonstrates asynchronous integration and applied LLM orchestration.": [
+    "Публичный репозиторий описывает конвейер данных, компоненты анализа, пути исполнения и дашборд. Кейс демонстрирует асинхронную интеграцию и прикладную оркестрацию LLM.",
+    "Публічний репозиторій описує конвеєр даних, компоненти аналізу, шляхи виконання й дашборд. Кейс демонструє асинхронну інтеграцію та прикладну оркестрацію LLM."
+  ],
+  "This portfolio case makes no claim of verified profitability or future trading performance. Outputs depend on data freshness, model behavior and execution conditions; live execution is distinct from paper-mode testing.": [
+    "Кейс не заявляет подтверждённую прибыльность или будущие торговые результаты. Выход зависит от свежести данных, поведения модели и условий исполнения; реальная торговля отличается от paper-тестов.",
+    "Кейс не заявляє підтверджену прибутковість або майбутні торгові результати. Вихід залежить від свіжості даних, поведінки моделі й умов виконання; реальна торгівля відрізняється від paper-тестів."
+  ],
+  "See which browser signals a page requests.": [
+    "Увидеть, какие сигналы запрашивает страница.",
+    "Побачити, які сигнали запитує сторінка."
+  ],
+  "A Chrome extension for observing fingerprinting API calls, network activity and browser-signal collection through an event timeline and exports.": [
+    "Расширение Chrome для наблюдения за API фингерпринтинга, сетевой активностью и сбором браузерных сигналов: лента событий и экспорт.",
+    "Розширення Chrome для спостереження за API фінгерпринтингу, мережевою активністю та збором браузерних сигналів: стрічка подій і експорт."
+  ],
+  "Browser instrumentation that turns otherwise hard-to-see API activity into a readable diagnostic record.": [
+    "Браузерные инструменты превращают скрытую активность API в читаемую диагностическую запись.",
+    "Браузерні інструменти перетворюють приховану активність API на читабельний діагностичний запис."
+  ],
+  "Pages can read rendering, platform and runtime properties without an obvious visible interaction. Understanding the collection requires observing API activity and relating it to the page's behavior.": [
+    "Страницы могут читать свойства рендеринга, платформы и среды без видимого взаимодействия. Для понимания сбора нужно наблюдать API-вызовы и связывать их с поведением страницы.",
+    "Сторінки можуть читати властивості рендерингу, платформи й середовища без видимої взаємодії. Для розуміння збору потрібно спостерігати API-виклики та пов’язувати їх із поведінкою сторінки."
+  ],
+  "Implemented instrumentation for Canvas, WebGL and other browser-signal APIs.": [
+    "Реализовал наблюдение за Canvas, WebGL и другими API браузерных сигналов.",
+    "Реалізував спостереження за Canvas, WebGL та іншими API браузерних сигналів."
+  ],
+  "Built a timeline and category-based interface for reviewing observed calls and network activity.": [
+    "Создал ленту событий и интерфейс категорий для просмотра вызовов и сетевой активности.",
+    "Створив стрічку подій та інтерфейс категорій для перегляду викликів і мережевої активності."
+  ],
+  "Added JSON and Markdown exports for analysis outside the extension.": [
+    "Добавил экспорт JSON и Markdown для анализа за пределами расширения.",
+    "Додав експорт JSON і Markdown для аналізу поза розширенням."
+  ],
+  "Observe specific events": [
+    "Наблюдать конкретные события",
+    "Спостерігати конкретні події"
+  ],
+  "Recorded API calls give a reviewer concrete evidence to inspect instead of relying only on an overall label.": [
+    "Записанные API-вызовы дают конкретные данные для проверки вместо одной общей метки.",
+    "Записані API-виклики дають конкретні дані для перевірки замість однієї загальної мітки."
+  ],
+  "Group related signals": [
+    "Группировать связанные сигналы",
+    "Групувати пов’язані сигнали"
+  ],
+  "Categories such as rendering, platform and network activity help navigate a large event stream.": [
+    "Категории рендеринга, платформы и сетевой активности помогают ориентироваться в большом потоке событий.",
+    "Категорії рендерингу, платформи й мережевої активності допомагають орієнтуватися у великому потоці подій."
+  ],
+  "Support both human and programmatic review": [
+    "Поддержать ручной и программный анализ",
+    "Підтримати ручний і програмний аналіз"
+  ],
+  "Markdown reports and JSON exports serve different review workflows while drawing on the same observations.": [
+    "Markdown-отчёты и JSON-экспорт обслуживают разные способы анализа одних и тех же наблюдений.",
+    "Markdown-звіти та JSON-експорт обслуговують різні способи аналізу тих самих спостережень."
+  ],
+  "The public extension contains the instrumentation, event dashboard and export functionality. It demonstrates browser API knowledge, extension architecture and diagnostic interfaces.": [
+    "Открытое расширение содержит инструменты наблюдения, дашборд событий и экспорт. Оно демонстрирует знание браузерных API, архитектуры расширений и диагностических интерфейсов.",
+    "Відкрите розширення містить інструменти спостереження, дашборд подій та експорт. Воно демонструє знання браузерних API, архітектури розширень і діагностичних інтерфейсів."
+  ],
+  "An observed API call does not by itself prove malicious tracking. Coverage depends on the browser, page and instrumentation; this case makes no universal stealth or detection-coverage guarantee.": [
+    "Сам по себе API-вызов не доказывает вредоносное отслеживание. Охват зависит от браузера, страницы и инструментов; кейс не гарантирует универсальную скрытность или полноту обнаружения.",
+    "Сам по собі API-виклик не доводить шкідливе відстеження. Охоплення залежить від браузера, сторінки та інструментів; кейс не гарантує універсальну прихованість або повноту виявлення."
+  ],
+  "Connect a native interface to realtime AI.": [
+    "Связать нативный интерфейс с AI в реальном времени.",
+    "Пов’язати нативний інтерфейс з AI у реальному часі."
+  ],
+  "A private native AI-assistant project connecting SwiftUI interfaces, realtime voice, WebRTC and a Python backend with Apple integrations.": [
+    "Приватный нативный AI-ассистент: SwiftUI, голос в реальном времени, WebRTC, Python-бэкенд и интеграции Apple.",
+    "Приватний нативний AI-асистент: SwiftUI, голос у реальному часі, WebRTC, Python-бекенд та інтеграції Apple."
+  ],
+  "A voice-assistant architecture spanning Apple clients and a Python backend, with the public overview focused on engineering scope.": [
+    "Архитектура голосового ассистента объединяет Apple-клиенты и Python-бэкенд; публичный обзор описывает инженерную работу.",
+    "Архітектура голосового асистента поєднує Apple-клієнти й Python-бекенд; публічний огляд описує інженерну роботу."
+  ],
+  "A native voice assistant combines an interface, realtime audio transport, model integration and platform capabilities. Those parts must work together across the client and backend rather than ending at a chat screen.": [
+    "Нативный голосовой ассистент объединяет интерфейс, передачу аудио в реальном времени, модель и возможности платформы. Они должны работать вместе на клиенте и бэкенде, не ограничиваясь экраном чата.",
+    "Нативний голосовий асистент поєднує інтерфейс, передавання аудіо в реальному часі, модель і можливості платформи. Вони мають працювати разом на клієнті й бекенді, не обмежуючись екраном чату."
+  ],
+  "Developed native SwiftUI interfaces across Apple platforms.": [
+    "Разработал нативные SwiftUI-интерфейсы для платформ Apple.",
+    "Розробив нативні SwiftUI-інтерфейси для платформ Apple."
+  ],
+  "Connected realtime voice over WebRTC to a Python backend.": [
+    "Подключил голос в реальном времени через WebRTC к Python-бэкенду.",
+    "Підключив голос у реальному часі через WebRTC до Python-бекенду."
+  ],
+  "Worked on Apple integrations including reminders, shortcuts, music and cross-device synchronization.": [
+    "Работал над интеграциями Apple: напоминаниями, командами, музыкой и синхронизацией устройств.",
+    "Працював над інтеграціями Apple: нагадуваннями, командами, музикою та синхронізацією пристроїв."
+  ],
+  "Use a native client layer": [
+    "Использовать нативный клиент",
+    "Використовувати нативний клієнт"
+  ],
+  "SwiftUI provides the interface and the integration point for Apple-platform capabilities.": [
+    "SwiftUI обеспечивает интерфейс и точку интеграции с возможностями платформ Apple.",
+    "SwiftUI забезпечує інтерфейс і точку інтеграції з можливостями платформ Apple."
+  ],
+  "Separate audio transport from application logic": [
+    "Разделить передачу аудио и логику приложения",
+    "Розділити передавання аудіо та логіку застосунку"
+  ],
+  "WebRTC carries realtime audio while the backend coordinates the AI-facing application flow.": [
+    "WebRTC передаёт аудио в реальном времени, а бэкенд координирует взаимодействие приложения с AI.",
+    "WebRTC передає аудіо в реальному часі, а бекенд координує взаємодію застосунку з AI."
+  ],
+  "Connect to platform workflows": [
+    "Подключить процессы платформы",
+    "Підключити процеси платформи"
+  ],
+  "Reminders, shortcuts, music and synchronization connect the assistant to capabilities of the Apple clients.": [
+    "Напоминания, команды, музыка и синхронизация связывают ассистента с возможностями Apple-клиентов.",
+    "Нагадування, команди, музика й синхронізація пов’язують асистента з можливостями Apple-клієнтів."
+  ],
+  "The project brings together native interfaces, voice transport, backend integration and platform workflows. The public project website and this overview are available; implementation details can be discussed directly.": [
+    "Проект объединяет нативные интерфейсы, передачу голоса, бэкенд и платформенные процессы. Доступны публичный сайт и этот обзор; детали реализации можно обсудить напрямую.",
+    "Проєкт поєднує нативні інтерфейси, передавання голосу, бекенд і платформні процеси. Доступні публічний сайт і цей огляд; деталі реалізації можна обговорити безпосередньо."
+  ],
+  "The implementation is private. This page covers the architecture and my contribution; platform support and integration details can be discussed directly.": [
+    "Реализация закрыта. Страница описывает архитектуру и мой вклад; поддержку платформ и детали интеграций можно обсудить напрямую.",
+    "Реалізація закрита. Сторінка описує архітектуру й мій внесок; підтримку платформ і деталі інтеграцій можна обговорити безпосередньо."
+  ],
+  "Separate profile control from page interaction.": [
+    "Разделить управление профилями и действия на странице.",
+    "Розділити керування профілями й дії на сторінці."
+  ],
+  "Handle limits without an endless retry loop.": [
+    "Обрабатывать лимиты без бесконечных повторов.",
+    "Обробляти ліміти без нескінченних повторів."
+  ],
+  "Support remote browser environments.": [
+    "Поддержать удалённые браузеры.",
+    "Підтримати віддалені браузери."
+  ],
+  "Keep the pipeline in separate parts.": [
+    "Разделить этапы конвейера.",
+    "Розділити етапи конвеєра."
+  ],
+  "Use two stages of analysis.": [
+    "Использовать два этапа анализа.",
+    "Використовувати два етапи аналізу."
+  ],
+  "Keep access failures visible.": [
+    "Показывать ошибки доступа.",
+    "Показувати помилки доступу."
+  ],
+  "Treat configuration and diagnostics as different jobs.": [
+    "Разделить настройку и диагностику.",
+    "Розділити налаштування й діагностику."
+  ],
+  "Look below high-level browser wrappers.": [
+    "Работать глубже высокоуровневых обёрток.",
+    "Працювати глибше високорівневих обгорток."
+  ],
+  "Keep network and device evidence in view.": [
+    "Учитывать сеть и устройство вместе.",
+    "Враховувати мережу та пристрій разом."
+  ],
+  "Keep the client interface familiar.": [
+    "Сохранить знакомый интерфейс клиента.",
+    "Зберегти знайомий інтерфейс клієнта."
+  ],
+  "Preserve conversation continuity.": [
+    "Сохранить связность диалога.",
+    "Зберегти зв’язність діалогу."
+  ],
+  "Test the integration boundary.": [
+    "Тестировать границу интеграции.",
+    "Тестувати межу інтеграції."
+  ],
+  "Separate network and inference timing.": [
+    "Разделить сетевые задержки и инференс.",
+    "Розділити мережеві затримки та інференс."
+  ],
+  "Keep the probe runtime small.": [
+    "Сохранить лёгкую среду проверок.",
+    "Зберегти легке середовище перевірок."
+  ],
+  "Publish the evidence.": [
+    "Публиковать исходные измерения.",
+    "Публікувати вихідні вимірювання."
+  ],
+  "Separate orchestration from the interface.": [
+    "Разделить оркестрацию и интерфейс.",
+    "Розділити оркестрацію та інтерфейс."
+  ],
+  "Retain context for another attempt.": [
+    "Сохранить контекст для новой попытки.",
+    "Зберегти контекст для нової спроби."
+  ],
+  "Keep experiments observable.": [
+    "Сделать эксперименты наблюдаемыми.",
+    "Зробити експерименти спостережуваними."
+  ],
+  "Keep browser collection close to the session.": [
+    "Собирать данные внутри проверяемой сессии.",
+    "Збирати дані всередині перевірюваної сесії."
+  ],
+  "Retain provider context.": [
+    "Сохранить контекст провайдера.",
+    "Зберегти контекст провайдера."
+  ],
+  "Combine network and device evidence.": [
+    "Объединить данные сети и устройства.",
+    "Поєднати дані мережі та пристрою."
+  ],
+  "Separate the control layers.": [
+    "Разделить уровни управления.",
+    "Розділити рівні керування."
+  ],
+  "Use Android's automation interface.": [
+    "Использовать интерфейс автоматизации Android.",
+    "Використовувати інтерфейс автоматизації Android."
+  ],
+  "Verify the configured environment.": [
+    "Проверять полученное окружение.",
+    "Перевіряти отримане середовище."
+  ],
+  "Keep the upstream server separate.": [
+    "Отделить исходный сервер.",
+    "Відокремити вихідний сервер."
+  ],
+  "Check meaningful behavior.": [
+    "Проверять полезное поведение.",
+    "Перевіряти корисну поведінку."
+  ],
+  "Make checks usable in deployment.": [
+    "Встроить проверки в развёртывание.",
+    "Вбудувати перевірки в розгортання."
+  ],
+  "Separate source-specific workflows.": [
+    "Разделить процессы источников.",
+    "Розділити процеси джерел."
+  ],
+  "Keep execution behind explicit checks.": [
+    "Допускать исполнение после явных проверок.",
+    "Допускати виконання після явних перевірок."
+  ],
+  "Expose the workflow for review.": [
+    "Открыть процесс для анализа.",
+    "Відкрити процес для аналізу."
+  ],
+  "Observe specific events.": [
+    "Наблюдать конкретные события.",
+    "Спостерігати конкретні події."
+  ],
+  "Group related signals.": [
+    "Группировать связанные сигналы.",
+    "Групувати пов’язані сигнали."
+  ],
+  "Support both human and programmatic review.": [
+    "Поддержать ручной и программный анализ.",
+    "Підтримати ручний і програмний аналіз."
+  ],
+  "Use a native client layer.": [
+    "Использовать нативный клиент.",
+    "Використовувати нативний клієнт."
+  ],
+  "Separate audio transport from application logic.": [
+    "Разделить передачу аудио и логику приложения.",
+    "Розділити передавання аудіо та логіку застосунку."
+  ],
+  "Connect to platform workflows.": [
+    "Подключить процессы платформы.",
+    "Підключити процеси платформи."
+  ]
+}

@@ -44,7 +44,7 @@ def metadata(path='/', title=TITLE, description=DESCRIPTION, image='maxbob-v2.jp
     rows = [START, '<title>' + escape(title) + '</title>']
     for key, value in [('description', description), ('author', NAME),
                        ('robots', 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'),
-                       ('color-scheme', 'light'), ('theme-color', '#f9f7ef')]:
+                       ('color-scheme', 'light dark'), ('theme-color', '#f9f7ef')]:
         rows.append(f'<meta name="{key}" content="{escape(value, quote=True)}">')
     rows.append(f'<link rel="canonical" href="{url}">')
     for key, value in [('type', 'website'), ('site_name', 'MaxBob'), ('locale', 'en_US'),
@@ -80,5 +80,5 @@ def shared_layout(text, prefix):
     text = text.replace('href="#top"', 'href="' + prefix + '"')
     for anchor in ['work', 'experience', 'expertise']:
         text = text.replace('href="#' + anchor + '"', 'href="' + prefix + '#' + anchor + '"')
-    return re.sub(r'(href|src)="(assets/|vendor/|style\.css|light-theme\.css|projects\.css|motion\.js)',
+    return re.sub(r'(href|src)="(assets/|vendor/|style\.css|light-theme\.css|projects\.css|dark-theme\.css|settings\.js|motion\.js)',
                   lambda m: m[1] + '="' + prefix + m[2], text)
