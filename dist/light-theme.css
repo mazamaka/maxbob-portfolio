@@ -58,7 +58,7 @@
 :root[data-theme=light] .section{max-width:1200px}
 :root[data-theme=light] .experience{max-width:none;background:#f9faf7;border-block:0}
 :root[data-theme=light] .experience>.wrap,:root[data-theme=light] .footer>.wrap{max-width:1200px}
-:root[data-theme=light] .section-label{font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;letter-spacing:.06em}
+:root[data-theme=light] .section-label{font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;letter-spacing:.06em;display:none}
 :root[data-theme=light] .section-heading h2,:root[data-theme=light] .experience h2{font-size:clamp(38px,4vw,54px);line-height:1.1}
 :root[data-theme=light] h2 em{color:#2c2c2c}
 :root[data-theme=light] .section-heading>p{color:#646464;max-width:430px}
