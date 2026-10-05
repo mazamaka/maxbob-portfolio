@@ -1,6 +1,7 @@
 import * as React from "react";
 import {X,LockKeyhole,Star,SlidersHorizontal,ArrowUpRight,BookOpen,Globe,Workflow,AudioLines,ScanText,Bot,CodeXml,RefreshCw} from "lucide-react";
 import {InteractiveTravelCard} from "@/components/ui/3d-card";
+import {ProjectTags} from "@/components/project-tags";
 import {ActionSearchBar,type Action} from "@/components/ui/action-search-bar";
 import {projects,starsUpdatedAt} from "@/src/projects";
 import {allProjects,searchHits,directions,stacks,highlightParts,type CatalogProject} from "@/src/search";
@@ -34,6 +35,17 @@ export function ProjectGallery(){
  React.useEffect(()=>{if(selected){previousFocus.current=document.activeElement as HTMLElement;dialog.current?.showModal();}},[selected]);
  function reset(){setQuery("");setDirection("all");setVisibility("all");setStack("all");setBrowseAll(false);}
  function explore(term:string){setQuery(term);setDirection("all");setVisibility("all");setStack("all");}
+ function exploreTag(tag:string){
+  previousFocus.current=null;
+  dialog.current?.close();setSelected(null);
+  explore(tag);setBrowseAll(false);
+  history.replaceState(null,"",`${location.pathname}?q=${encodeURIComponent(tag)}#work`);
+  requestAnimationFrame(()=>{
+   resultRegion.current?.focus({preventScroll:true});
+   const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches||document.documentElement.classList.contains("motion-paused");
+   document.getElementById("work")?.scrollIntoView({block:"start",behavior:reduced?"instant":"smooth"});
+  });
+ }
  function showResults(){setBrowseAll(true);requestAnimationFrame(()=>{resultRegion.current?.focus({preventScroll:true});resultRegion.current?.scrollIntoView({behavior:"instant",block:"start"});});}
  function rememberPosition(){try{sessionStorage.setItem("maxbob-return-y",String(scrollY));sessionStorage.setItem("maxbob-return-search",location.search);}catch{}}
  const actions=React.useMemo<Action[]>(()=>query.trim()?hits.slice(0,5).map(hit=>({id:hit.project.id,label:hit.project.title,icon:hit.project.visibility==="private"?<LockKeyhole size={18}/>:<CodeXml size={18}/>,description:<Highlight text={hit.excerpt} query={query}/>,end:hit.project.visibility==="private"?"Overview":"Project",onSelect:()=>setSelected(hit.project)})):interests.map(item=>({id:item.query,label:item.query,icon:<item.icon size={18}/>,description:item.detail,end:String(searchHits(item.query).length),onSelect:()=>{setQuery(item.query);setDirection("all");setStack("all");setVisibility("all");}})),[query,hits]);
@@ -51,12 +63,12 @@ export function ProjectGallery(){
   </div>
   <div className="catalog-status"><p role="status" aria-live="polite" aria-atomic="true">{active?<><strong>{hits.length}</strong> {hits.length===1?"project":"projects"} found{hits.length>0&&<span className="result-breakdown"> · {hits.filter(h=>h.project.visibility==="public").length} public / {hits.filter(h=>h.project.visibility==="private").length} private</span>}</>:<>Selected work <span>· Explore {allProjects.length} projects</span></>}</p><button onClick={()=>active?reset():setBrowseAll(true)} disabled={!ready}>{active?"Back to selected":"Browse all projects"}<ArrowUpRight size={14}/></button></div>
   <div id="catalog-results" ref={resultRegion} tabIndex={-1} aria-label="Project results">
-   {!active?<div className="p-grid">{projects.map(project=><InteractiveTravelCard key={project.title} {...project} stars={currentStars(project.repo,project.stars,githubStars.snapshot)} subtitle={project.category} actionHref={project.caseHref??project.live??project.href} actionText={project.caseHref?(project.repo?"Read case study":"Project overview"):project.live?"Explore live project":"View on GitHub"}/>)}</div>
+   {!active?<div className="p-grid">{projects.map(project=><InteractiveTravelCard key={project.title} {...project} stars={currentStars(project.repo,project.stars,githubStars.snapshot)} subtitle={project.category} onTagSelect={ready?exploreTag:undefined} actionHref={project.caseHref??project.live??project.href} actionText={project.caseHref?(project.repo?"Read case study":"Project overview"):project.live?"Explore live project":"View on GitHub"}/>)}</div>
    :hits.length?<div className="catalog-list">{hits.map(({project,excerpt,matchedIn})=><article key={project.id} className="catalog-result">
     <div><div className="result-meta"><span>{project.category}</span><span>{project.visibility==="private"?<><LockKeyhole size={13} aria-hidden="true"/>Private project</>:"Public repository"}</span>{project.stars!==undefined&&<span aria-label={`${project.stars} GitHub stars`}><Star size={13} aria-hidden="true"/>{project.stars}</span>}</div>
      <h3><Highlight text={project.title} query={query}/></h3><p><Highlight text={project.description} query={query}/></p>
      {query.trim()&&excerpt!==project.description&&<div className="result-match"><BookOpen size={14}/><p><span>{matchedIn}</span><Highlight text={excerpt} query={query}/></p></div>}
-     <ul className="p-tags" aria-label={`${project.title} technologies`}>{project.tags.map(tag=><li key={tag}><Highlight text={tag} query={query}/></li>)}</ul></div>
+     <ProjectTags tags={project.tags} label={`${project.title} technologies`} onSelect={exploreTag} renderTag={tag=><Highlight text={tag} query={query}/>}/></div>
     <div className="result-actions">{project.caseHref&&<a className="p-primary" href={project.caseHref} onClick={rememberPosition}>{project.visibility==="private"?"Project overview":"Read case study"}</a>}
      {project.visibility==="public"&&project.href&&<a className={project.caseHref?"p-source":"p-primary"} href={project.href} target="_blank" rel="noreferrer">View on GitHub<ArrowUpRight size={14}/></a>}
      <button className={project.visibility==="private"&&!project.caseHref?"p-primary":"result-details"} onClick={()=>setSelected(project)}>{project.visibility==="private"&&!project.caseHref?"Project overview":"Project details"}</button>
@@ -70,7 +82,7 @@ export function ProjectGallery(){
    {selected&&<><div className="overview-top"><span>{selected.visibility==="private"?<LockKeyhole size={15}/>:<CodeXml size={15}/>} {selected.visibility==="private"?"Private project":"Public project"}</span><button autoFocus aria-label="Close project overview" onClick={()=>dialog.current?.close()}><X size={21}/></button></div>
     <p className="project-kicker">{selected.category}</p><h2 id="overview-title">{selected.title}</h2><p className="overview-description">{selected.description}</p>
     {!!selected.searchContent?.length&&<><h3>Inside the project</h3><ul className="overview-content">{selected.searchContent.map(text=><li key={text}><Highlight text={text} query={query}/></li>)}</ul></>}
-    <h3>Engineering focus</h3><ul className="p-tags">{selected.tags.map(tag=><li key={tag}>{tag}</li>)}</ul>
+    <h3>Engineering focus</h3><ProjectTags tags={selected.tags} label={`${selected.title} technologies`} onSelect={exploreTag}/>
     {selected.visibility==="private"?<><p className="overview-note">The implementation is private. I can discuss the architecture and my contribution without sharing source code or client data.</p><a className="p-primary" href={`mailto:mazamaka603@gmail.com?subject=${encodeURIComponent(`Let's discuss ${selected.title}`)}`}>Discuss this project</a></>:<a className="p-primary" href={selected.href} target="_blank" rel="noreferrer">Explore the source<ArrowUpRight size={15}/></a>}
     {selected.caseHref&&<a className="overview-case" href={selected.caseHref} onClick={rememberPosition}>{selected.visibility==="private"?"Read the project overview →":"Read the case study →"}</a>}
    </>}
