@@ -47,6 +47,7 @@ assert.ok(searchProjects('голосовий').some(p=>p.id==='maxbob-ai'));
 assert.ok(searchProjects('відбитки').some(p=>p.id==='nodriver-antidetect'));
 assert.ok(searchProjects('нагадування').some(p=>p.id==='maxbob-ai'));
 assert.ok(searchProjects('распознаёт').some(p=>p.id==='VoiceHelper'));
+for(const q of ['game','игра','гра','Godot'])assert.ok(searchProjects(q).some(p=>p.id==='ember-foundry-game'),`${q} must find the game`);
 console.log(`PASS: ${allProjects.length} unique catalog entries; Google/content regressions; trilingual search and highlights; ranking; combined filters; private repository guard`);
 
 const page=await readFile('dist/index.html','utf8');
