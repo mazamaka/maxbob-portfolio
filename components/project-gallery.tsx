@@ -1,6 +1,6 @@
 import * as React from "react";
 import {useT,useLocale} from "@/src/i18n";
-import {X,LockKeyhole,Star,SlidersHorizontal,ArrowUpRight,BookOpen,Globe,Workflow,AudioLines,ScanText,Bot,CodeXml,RefreshCw} from "lucide-react";
+import {X,LockKeyhole,Star,SlidersHorizontal,BookOpen,Globe,Workflow,AudioLines,ScanText,Bot,CodeXml,RefreshCw} from "lucide-react";
 import {InteractiveTravelCard} from "@/components/ui/3d-card";
 import {ProjectTags} from "@/components/project-tags";
 import {ActionSearchBar,type Action} from "@/components/ui/action-search-bar";
@@ -67,7 +67,7 @@ export function ProjectGallery(){
    </div>}
    {filterCount>0?<div className="active-filters" aria-label={t("Active filters")}>{direction!=="all"&&<button onClick={()=>setDirection("all")}>{t(direction)}<X size={13}/><span className="sr-only">{t("Remove focus filter")}</span></button>}{stack!=="all"&&<button onClick={()=>setStack("all")}>{stack}<X size={13}/><span className="sr-only">{t("Remove technology filter")}</span></button>}{visibility!=="all"&&<button onClick={()=>setVisibility("all")}>{t(visibility==="private"?"Private projects":"Public repositories")}<X size={13}/><span className="sr-only">{t("Remove availability filter")}</span></button>}</div>:<div className="search-caption"><span><BookOpen size={13}/> {t("Search inside the projects · EN / RU / UK")}</span><span className="search-examples">{t("Try")} {['Google','AI','OCR'].map(term=><button key={term} onClick={()=>explore(term)} disabled={!ready}>{term}</button>)}</span></div>}
   </div>
-  <div className="catalog-status"><p role="status" aria-live="polite" aria-atomic="true">{active?<>{t(hits.length===1?"{count} project found":"{count} projects found",{count:hits.length})}{hits.length>0&&<span className="result-breakdown"> · {hits.filter(h=>h.project.visibility==="public").length} {t("public")} / {hits.filter(h=>h.project.visibility==="private").length} {t("private")}</span>}</>:<>{t("Selected work")} <span>· {t("Explore {count} projects",{count:allProjects.length})}</span></>}</p><button onClick={()=>active?reset():setBrowseAll(true)} disabled={!ready}>{t(active?"Back to selected":"Browse all projects")}<ArrowUpRight size={14}/></button></div>
+  <div className="catalog-status"><p role="status" aria-live="polite" aria-atomic="true">{active?<>{t(hits.length===1?"{count} project found":"{count} projects found",{count:hits.length})}{hits.length>0&&<span className="result-breakdown"> · {hits.filter(h=>h.project.visibility==="public").length} {t("public")} / {hits.filter(h=>h.project.visibility==="private").length} {t("private")}</span>}</>:<>{t("Selected work")} <span>· {t("Explore {count} projects",{count:allProjects.length})}</span></>}</p><button onClick={()=>active?reset():setBrowseAll(true)} disabled={!ready}>{t(active?"Back to selected":"Browse all projects")}</button></div>
   <div id="catalog-results" ref={resultRegion} tabIndex={-1} aria-label={t("Project results")}>
    {!active?<div className="p-grid">{projects.map(project=><InteractiveTravelCard key={project.title} {...project} stars={currentStars(project.repo,project.stars,githubStars.snapshot)} subtitle={t(project.category)} onTagSelect={ready?exploreTag:undefined} actionHref={project.caseHref??project.live??project.href} actionText={project.caseHref?(project.repo?"Read case study":"Project overview"):project.live?"Explore live project":"View on GitHub"}/>)}</div>
    :hits.length?<div className="catalog-list">{hits.map(({project,excerpt,matchedIn})=><article key={project.id} data-reading-anchor={`result:${project.id}`} className="catalog-result">
@@ -76,7 +76,7 @@ export function ProjectGallery(){
      {query.trim()&&excerpt!==project.description&&<div className="result-match"><BookOpen size={14}/><p><span>{t(matchedIn)}</span><Highlight text={t(excerpt)} query={query}/></p></div>}
      <ProjectTags tags={project.tags} label={t("{name} technologies",{name:project.title})} onSelect={exploreTag} renderTag={tag=><Highlight text={tag} query={query}/>}/></div>
     <div className="result-actions">{project.caseHref&&<a className="p-primary" href={project.caseHref} onClick={rememberPosition}>{t(project.visibility==="private"?"Project overview":"Read case study")}</a>}
-     {project.visibility==="public"&&project.href&&<a className={project.caseHref?"p-source":"p-primary"} href={project.href} target="_blank" rel="noreferrer">{t("View on GitHub")}<ArrowUpRight size={14}/></a>}
+     {project.visibility==="public"&&project.href&&<a className={project.caseHref?"p-source":"p-primary"} href={project.href} target="_blank" rel="noreferrer">{t("View on GitHub")}</a>}
      <button className={project.visibility==="private"&&!project.caseHref?"p-primary":"result-details"} onClick={()=>setSelected(project)}>{t(project.visibility==="private"&&!project.caseHref?"Project overview":"Project details")}</button>
      {project.live&&<a className="p-source" href={project.live} target="_blank" rel="noreferrer">{t("Visit product")}</a>}
     </div>
@@ -89,8 +89,8 @@ export function ProjectGallery(){
     <p className="project-kicker">{t(selected.category)}</p><h2 id="overview-title">{selected.title}</h2><p className="overview-description">{t(selected.description)}</p>
     {!!selected.searchContent?.length&&<><h3>{t("Inside the project")}</h3><ul className="overview-content">{selected.searchContent.map(text=><li key={text}><Highlight text={t(text)} query={query}/></li>)}</ul></>}
     <h3>{t("Engineering focus")}</h3><ProjectTags tags={selected.tags} label={t("{name} technologies",{name:selected.title})} onSelect={exploreTag}/>
-    {selected.visibility==="private"?<><p className="overview-note">{t("The implementation is private. I can discuss the architecture and my contribution without sharing source code or client data.")}</p><a className="p-primary" href={`mailto:mazamaka603@gmail.com?subject=${encodeURIComponent(`Let's discuss ${selected.title}`)}`}>{t("Discuss this project")}</a></>:<a className="p-primary" href={selected.href} target="_blank" rel="noreferrer">{t("Explore the source")}<ArrowUpRight size={15}/></a>}
-    {selected.caseHref&&<a className="overview-case" href={selected.caseHref} onClick={rememberPosition}>{t(selected.visibility==="private"?"Read the project overview →":"Read the case study →")}</a>}
+    {selected.visibility==="private"?<><p className="overview-note">{t("The implementation is private. I can discuss the architecture and my contribution without sharing source code or client data.")}</p><a className="p-primary" href={`mailto:mazamaka603@gmail.com?subject=${encodeURIComponent(`Let's discuss ${selected.title}`)}`}>{t("Discuss this project")}</a></>:<a className="p-primary" href={selected.href} target="_blank" rel="noreferrer">{t("Explore the source")}</a>}
+    {selected.caseHref&&<a className="overview-case" href={selected.caseHref} onClick={rememberPosition}>{t(selected.visibility==="private"?"Read the project overview":"Read the case study")}</a>}
    </>}
   </dialog>
  </div>;

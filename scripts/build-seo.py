@@ -39,10 +39,10 @@ for index, (category, entries) in enumerate(groups.items(), 1):
         public = p['visibility'] == 'public'
         links = ''
         if public and p.get('href'):
-            links += f'<a href="{escape(p["href"], quote=True)}" target="_blank" rel="noopener noreferrer">View public repository ↗</a>'
+            links += f'<a href="{escape(p["href"], quote=True)}" target="_blank" rel="noopener noreferrer">View public repository</a>'
         if p['id'] in case_links:
             label = 'Read case study' if public else 'Project overview'
-            links += f'<a href="/cases/{case_links[p["id"]]}/">{label} →</a>'
+            links += f'<a href="/cases/{case_links[p["id"]]}/">{label}</a>'
         note = 'Public source' if public else 'Private project · overview only'
         cards.append(f'''<article class="directory-entry" id="{escape(p['id'], quote=True)}">
 <div class="directory-entry-top"><h3>{escape(p['title'])}</h3><span>{note}</span></div>
@@ -55,7 +55,7 @@ html = f'''<!doctype html><html lang="en" data-theme="light">{h}<body class="cas
 <main class="wrap directory-main" id="top"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>Project directory</span></nav>
 <section class="directory-intro"><p class="workshop-eyebrow">THE PROJECT DIRECTORY</p><h1>Systems, tools<br>and <em>working code.</em></h1>
 <p>AI agents, browser engineering, automation and infrastructure by Maksym Babenko. Explore public repositories and reviewed overviews of private work.</p>
-<div class="directory-intro-links"><a class="button-primary" href="/#work">Search projects interactively →</a><a class="text-link" href="/assets/Maksym-Babenko-CV.pdf?v=20261005">Download CV</a></div></section>
+<div class="directory-intro-links"><a class="button-primary" href="/#work">Search projects interactively</a><a class="text-link" href="/assets/Maksym-Babenko-CV.pdf?v=20261005">Download CV</a></div></section>
 <nav class="directory-contents" aria-label="Project categories">{''.join(contents)}</nav><div id="directory">{''.join(sections)}</div>
 </main>{shared_layout(footer, '../')}</body></html>'''
 (DIST / 'projects').mkdir(exist_ok=True)

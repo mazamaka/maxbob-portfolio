@@ -2,7 +2,7 @@
 import * as React from "react";
 import {useT} from "@/src/i18n";
 import {AnimatePresence,motion,useReducedMotion} from "framer-motion";
-import {Search,X,ArrowUpRight,CornerDownLeft,Command} from "lucide-react";
+import {Search,X,CornerDownLeft,Command} from "lucide-react";
 import {Input} from "@/components/ui/input";
 
 export interface Action {id:string;label:string;icon:React.ReactNode;description?:React.ReactNode;end?:string;onSelect:()=>void;}
@@ -47,11 +47,11 @@ export function ActionSearchBar({query,onQueryChange,actions,disabled,resultCoun
    <div className="suggestion-heading"><span>{t(query.trim()?"QUICK MATCHES":"EXPLORE BY INTEREST")}</span><span>{query.trim()?t("{count} found",{count:resultCount}):"EN / RU / UK"}</span></div>
    <ul id="project-suggestions" role="listbox" aria-label={t("Project suggestions")}>
     {actions.map((action,i)=><li id={`suggestion-${action.id}`} role="option" aria-selected={i===active} key={action.id} className={i===active?"suggestion active":"suggestion"} onPointerDown={e=>e.preventDefault()} onMouseEnter={()=>setActive(i)} onClick={()=>choose(action)}>
-      <span className="suggestion-icon" aria-hidden="true">{action.icon}</span><span className="suggestion-copy"><strong>{action.label}</strong>{action.description&&<small>{action.description}</small>}</span><span className="suggestion-end">{action.end}<ArrowUpRight size={14}/></span>
+      <span className="suggestion-icon" aria-hidden="true">{action.icon}</span><span className="suggestion-copy"><strong>{action.label}</strong>{action.description&&<small>{action.description}</small>}</span><span className="suggestion-end">{action.end}</span>
     </li>)}
    </ul>
    {!actions.length&&<p className="suggestion-empty">{t("No matches yet. Try Google, voice or browser automation.")}</p>}
-   <div className="suggestion-footer"><span><CornerDownLeft size={12}/> {t("Enter to explore")} <i>·</i> {t("Esc to close")}</span><button onClick={()=>{setOpen(false);onShowResults();}}>{query.trim()?t("View {count} results",{count:resultCount}):t("Browse all projects")}<ArrowUpRight size={14}/></button></div>
+   <div className="suggestion-footer"><span><CornerDownLeft size={12}/> {t("Enter to explore")} <i>·</i> {t("Esc to close")}</span><button onClick={()=>{setOpen(false);onShowResults();}}>{query.trim()?t("View {count} results",{count:resultCount}):t("Browse all projects")}</button></div>
   </motion.div>}</AnimatePresence>
  </div>;
 }

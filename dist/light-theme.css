@@ -173,6 +173,6 @@
 .bench-evidence>div{display:flex;flex-wrap:wrap;gap:8px 17px}
 .bench-evidence a{display:inline-flex;align-items:center;gap:7px;color:#405e42;font-size:12px;line-height:1.5;border-bottom:1px solid transparent}
 .bench-evidence a:hover{border-bottom-color:currentColor}
-.bench-evidence a>span:last-child{color:#85956f;font-size:15px}
+
 @media(min-width:701px) and (max-width:1100px){.expertise-expanded .expertise-benches{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.expertise-expanded .expertise-benches{grid-template-columns:1fr;gap:16px}.expertise-expanded .expertise-bench{padding:22px 22px 0}.expertise-expanded .bench-top{margin-bottom:17px}.expertise-expanded .expertise-bench h3{font-size:27px}.expertise-expanded .bench-tools{margin:19px 0 23px}.bench-evidence{margin-inline:-22px;padding-inline:22px}}

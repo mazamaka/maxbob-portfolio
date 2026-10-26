@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from "framer-motion";
-import { ArrowUpRight, CodeXml, Globe, Star, type LucideIcon } from "lucide-react";
+import { CodeXml, Globe, Star, type LucideIcon } from "lucide-react";
 import {useT} from "@/src/i18n";
 import {ThemeImage} from "@/components/theme-image";
 import { cn } from "@/lib/utils";
@@ -77,8 +77,7 @@ export const InteractiveTravelCard = React.forwardRef<HTMLDivElement, Interactiv
         <div className="p-card-top pb:flex pb:items-center pb:justify-between">
           <span className="p-card-label">{label ? t(label) : rank && rank <= 3 ? t("FEATURED CASE") : repository ? t("OPEN SOURCE") : t("LIVE PRODUCT")}</span>
           <a className="p-top-link" href={href} {...linkProps} aria-label={`${repository ? t("GitHub repository") : t("Visit website")}: ${title}${stars !== undefined ? t(", {count} stars",{count:stars}) : ""}`} title={stars !== undefined ? t("{count} total GitHub stars",{count:stars}) : t("Visit {name}",{name:title})}>
-            {stars !== undefined && <><Star size={14} aria-hidden="true"/><span>{stars}</span></>}
-            <ArrowUpRight size={16} aria-hidden="true"/>
+            {stars !== undefined ? <><Star size={14} aria-hidden="true"/><span>{stars}</span></> : <Globe size={16} aria-hidden="true"/>}
           </a>
         </div>
         <div className="p-content">
