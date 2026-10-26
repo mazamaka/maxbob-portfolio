@@ -1734,5 +1734,25 @@
   "Data services": [
     "Сервисы данных",
     "Сервіси даних"
+  ],
+  "Game development / Godot": [
+    "Разработка игр / Godot",
+    "Розробка ігор / Godot"
+  ],
+  "A factory-building tower defense in Godot 4, with code-built 3D art, procedural maps and Windows/macOS installers.": [
+    "Фабрика и tower defense на Godot 4: 3D-модели из кода, процедурные карты и установщики для Windows и macOS.",
+    "Фабрика й tower defense на Godot 4: 3D-моделі з коду, процедурні мапи та інсталятори для Windows і macOS."
+  ],
+  "FREE GAME": [
+    "БЕСПЛАТНАЯ ИГРА",
+    "БЕЗКОШТОВНА ГРА"
+  ],
+  "Game website": [
+    "Сайт игры",
+    "Сайт гри"
+  ],
+  "Games": [
+    "Игры",
+    "Ігри"
   ]
 }

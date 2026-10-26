@@ -42,6 +42,9 @@
 @media(min-width:1200px){.p-card{min-height:480px}.p-art{height:218px}}
 @media(max-width:1040px){.p-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.p-card{min-height:430px}}
 @media(max-width:650px){.p-grid{grid-template-columns:1fr;gap:22px}.p-card{min-height:0}.p-art{height:auto;aspect-ratio:16/10}.p-content{padding:23px}.p-content>p{max-width:34em}.p-gallery-note{display:block;line-height:1.8}.p-gallery-note a{display:inline-block;margin-top:9px}}
+/* A wide card spans the whole row (it closes the grid evenly at 3 and 2 columns); art beside the text above phone width. */
+.p-card-wrap.is-wide{grid-column:1/-1}
+@media(min-width:651px){.is-wide .p-card{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);min-height:0}.is-wide .p-art{height:auto;min-height:330px;border-radius:15px 0 0 15px}.is-wide .p-card-top{right:43.5%}.is-wide .p-content{padding:34px 36px;justify-content:center}.project-board .p-card-wrap.is-wide .p-content h3{font-size:34px}.is-wide .p-actions{margin-top:24px}}
 @media(prefers-reduced-motion:reduce){.p-card{transform:none!important}.p-content{transform:none}}
 .motion-paused .p-card{transform:none!important}
 /* Compact command-style search, adapted to the illustrated paper palette. */

@@ -224,6 +224,30 @@
         "weather"
       ],
       "updated_at": "2026-09-15T22:15:33Z"
+    },
+    {
+      "archived": false,
+      "description": "Ember Foundry \u2014 Keepers of the Forest: factory building + tower defense made with Godot 4. Website and free downloads for Windows & macOS.",
+      "fork": false,
+      "forks_count": 0,
+      "homepage": "https://mazamaka.github.io/ember-foundry-game/",
+      "html_url": "https://github.com/mazamaka/ember-foundry-game",
+      "language": "HTML",
+      "name": "ember-foundry-game",
+      "pushed_at": "2026-10-26T13:23:55Z",
+      "stargazers_count": 0,
+      "topics": [
+        "factory-game",
+        "game",
+        "gamedev",
+        "gdscript",
+        "github-pages",
+        "godot",
+        "godot4",
+        "indie-game",
+        "tower-defense"
+      ],
+      "updated_at": "2026-10-26T13:23:57Z"
     }
   ]
 }

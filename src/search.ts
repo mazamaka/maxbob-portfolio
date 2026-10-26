@@ -17,7 +17,7 @@ export const allProjects:CatalogProject[]=[
   }),
   ...records.filter(item=>!projects.some(feature=>feature.repo?item.repo===feature.repo:key(item.title)===key(feature.title)))
 ];
-export const directions=["AI & agents","Automation","Antifraud","Backend & ops","Data & bots","Markets & Web3"];
+export const directions=["AI & agents","Automation","Antifraud","Backend & ops","Data & bots","Games","Markets & Web3"];
 export function projectDirections(project:CatalogProject){
   const value=`${project.title} ${project.description} ${project.tags.join(" ")}`.toLowerCase(), result=new Set([project.category]);
   if(/agent|llm|mcp|\bai\b|ocr|semantic|voice|claude|openai|embedding|zero-shot/.test(value))result.add("AI & agents");

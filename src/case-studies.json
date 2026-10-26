@@ -706,6 +706,74 @@
         ],
         "font": 67
       }
+    },
+    {
+      "projectId": "ember-foundry-game",
+      "slug": "ember-foundry",
+      "name": "Ember Foundry",
+      "type": "GAME DEVELOPMENT / GODOT",
+      "title": "A factory by day, a siege by night.",
+      "description": "A factory-building tower defense game in Godot 4 with code-built 3D art, procedural maps, automated tests and one-command installers for Windows and macOS.",
+      "lead": "Production chains by day, a castle siege at night: a complete game loop with its own art, sound and release pipeline.",
+      "stack": "Godot 4 · GDScript · Blender Python · Inno Setup",
+      "scope": "Playable release · website and installers public, game source private",
+      "problem": "A factory game and a tower defense pull in opposite directions: the factory needs room and time, the defense needs pressure. The game also had to stay readable at night, run smoothly on a late-game factory and install on a player's Windows PC or Mac without a developer setup.",
+      "role": [
+        "Designed the day/night loop: production by day, enemy waves at night, and two ways to win a region — the sixth night's boss or a fortress assault.",
+        "Built the game in Godot 4: 25,000+ lines of GDScript, 45 buildings, 11 towers with 22 upgrade branches, a 119-talent atlas and mod support.",
+        "Generated the buildings in Blender from Python (10,000+ lines) and built 545 sound files from licensed recordings with a script.",
+        "Automated quality and shipping: 138 test scenarios, frame-pacing probes on real saves and one command that builds and checks both installers."
+      ],
+      "flow": [
+        "Day: production",
+        "Belts and workshops",
+        "Night: waves",
+        "Towers and squad",
+        "Boss or fortress"
+      ],
+      "decisions": [
+        [
+          "Build the art from code",
+          "Buildings are assembled by Blender Python scripts with color baked into vertices, so a model changes as quickly as the code that uses it."
+        ],
+        [
+          "Let tests guard every change",
+          "138 headless and windowed scenarios cover the economy, belts, combat and interface frames; frame-pacing probes run on copies of real player saves."
+        ],
+        [
+          "Ship from one machine",
+          "One command builds the Windows installer and the macOS disk image on Windows through WSL, then checks the Windows build's sandboxed install, first launch and uninstall and smoke-tests the Mac game pack."
+        ]
+      ],
+      "result": "Version 0.9.33 is public: a website with real gameplay footage, free installers for Windows and macOS with SHA-256 checksums, and release notes on GitHub.",
+      "limits": "An early build: the interface is in Russian only, the installers are not code-signed or notarized yet, and the game's source code is private — the public repository holds the website and releases.",
+      "links": [
+        [
+          "Game website",
+          "https://mazamaka.github.io/ember-foundry-game/"
+        ],
+        [
+          "Download for Windows & macOS",
+          "https://github.com/mazamaka/ember-foundry-game/releases/latest"
+        ],
+        [
+          "Website repository",
+          "https://github.com/mazamaka/ember-foundry-game"
+        ]
+      ],
+      "primary_label": "Visit the game website",
+      "related": "maxbob-ai",
+      "related_name": "MaxBob AI: a voice assistant for iOS and macOS",
+      "social": {
+        "title": [
+          "Ember Foundry"
+        ],
+        "copy": [
+          "A factory by day.",
+          "A siege by night."
+        ],
+        "font": 66
+      }
     }
   ]
 }

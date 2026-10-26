@@ -862,5 +862,113 @@
   "Connect to platform workflows.": [
     "Подключить процессы платформы.",
     "Підключити процеси платформи."
+  ],
+  "GAME DEVELOPMENT / GODOT": [
+    "РАЗРАБОТКА ИГР / GODOT",
+    "РОЗРОБКА ІГОР / GODOT"
+  ],
+  "A factory by day, a siege by night.": [
+    "Днём — фабрика, ночью — осада.",
+    "Удень — фабрика, уночі — облога."
+  ],
+  "A factory-building tower defense game in Godot 4 with code-built 3D art, procedural maps, automated tests and one-command installers for Windows and macOS.": [
+    "Игра на Godot 4 — фабрика и tower defense: 3D-модели из кода, процедурные карты, автотесты и установщики для Windows и macOS, собираемые одной командой.",
+    "Гра на Godot 4 — фабрика й tower defense: 3D-моделі з коду, процедурні мапи, автотести та інсталятори для Windows і macOS, що збираються однією командою."
+  ],
+  "Production chains by day, a castle siege at night: a complete game loop with its own art, sound and release pipeline.": [
+    "Днём — производственные цепочки, ночью — осада замка: законченный игровой цикл со своей графикой, звуком и конвейером выпуска.",
+    "Удень — виробничі ланцюги, уночі — облога замку: завершений ігровий цикл із власною графікою, звуком і конвеєром випуску."
+  ],
+  "Playable release · website and installers public, game source private": [
+    "Готовая к игре версия · сайт и установщики открыты, код игры закрыт",
+    "Версія, готова до гри · сайт та інсталятори відкриті, код гри закритий"
+  ],
+  "A factory game and a tower defense pull in opposite directions: the factory needs room and time, the defense needs pressure. The game also had to stay readable at night, run smoothly on a late-game factory and install on a player's Windows PC or Mac without a developer setup.": [
+    "Фабрика и tower defense тянут в разные стороны: фабрике нужны место и время, обороне — давление. Кроме того, игра должна оставаться читаемой ночью, плавно работать на большой поздней фабрике и устанавливаться на Windows или Mac игрока без среды разработчика.",
+    "Фабрика й tower defense тягнуть у різні боки: фабриці потрібні місце й час, обороні — тиск. Крім того, гра мала лишатися читабельною вночі, плавно працювати на великій пізній фабриці та встановлюватися на Windows чи Mac гравця без середовища розробника."
+  ],
+  "Designed the day/night loop: production by day, enemy waves at night, and two ways to win a region — the sixth night's boss or a fortress assault.": [
+    "Спроектировал цикл дня и ночи: днём производство, ночью волны врагов и два пути к победе в регионе — босс шестой ночи или штурм крепости.",
+    "Спроєктував цикл дня й ночі: удень виробництво, уночі хвилі ворогів і два шляхи до перемоги в регіоні — бос шостої ночі або штурм фортеці."
+  ],
+  "Built the game in Godot 4: 25,000+ lines of GDScript, 45 buildings, 11 towers with 22 upgrade branches, a 119-talent atlas and mod support.": [
+    "Написал игру на Godot 4: 25 000+ строк GDScript, 45 построек, 11 башен с 22 ветками улучшений, атлас из 119 талантов и поддержка модов.",
+    "Написав гру на Godot 4: 25 000+ рядків GDScript, 45 будівель, 11 веж із 22 гілками покращень, атлас із 119 талантів і підтримка модів."
+  ],
+  "Generated the buildings in Blender from Python (10,000+ lines) and built 545 sound files from licensed recordings with a script.": [
+    "Сгенерировал здания в Blender из Python (10 000+ строк) и собрал скриптом 545 звуков из лицензированных записей.",
+    "Згенерував будівлі в Blender з Python (10 000+ рядків) і зібрав скриптом 545 звуків із ліцензованих записів."
+  ],
+  "Automated quality and shipping: 138 test scenarios, frame-pacing probes on real saves and one command that builds and checks both installers.": [
+    "Автоматизировал качество и выпуск: 138 тестовых сценариев, замеры плавности на реальных сохранениях и одна команда, которая собирает и проверяет оба установщика.",
+    "Автоматизував якість і випуск: 138 тестових сценаріїв, вимірювання плавності на реальних збереженнях і одна команда, що збирає й перевіряє обидва інсталятори."
+  ],
+  "Day: production": [
+    "День: производство",
+    "День: виробництво"
+  ],
+  "Belts and workshops": [
+    "Ленты и мастерские",
+    "Стрічки й майстерні"
+  ],
+  "Night: waves": [
+    "Ночь: волны",
+    "Ніч: хвилі"
+  ],
+  "Towers and squad": [
+    "Башни и отряд",
+    "Вежі й загін"
+  ],
+  "Boss or fortress": [
+    "Босс или крепость",
+    "Бос або фортеця"
+  ],
+  "Build the art from code": [
+    "Собирать графику из кода",
+    "Збирати графіку з коду"
+  ],
+  "Buildings are assembled by Blender Python scripts with color baked into vertices, so a model changes as quickly as the code that uses it.": [
+    "Здания собираются скриптами Blender на Python, цвет запекается в вершины — модель меняется так же быстро, как код, который её использует.",
+    "Будівлі збираються скриптами Blender на Python, колір запікається у вершини — модель змінюється так само швидко, як код, що її використовує."
+  ],
+  "Let tests guard every change": [
+    "Проверять каждое изменение тестами",
+    "Перевіряти кожну зміну тестами"
+  ],
+  "138 headless and windowed scenarios cover the economy, belts, combat and interface frames; frame-pacing probes run on copies of real player saves.": [
+    "138 сценариев — без окна и в окне — проверяют экономику, ленты, бой и кадры интерфейса; замеры плавности идут на копиях реальных сохранений игроков.",
+    "138 сценаріїв — без вікна й у вікні — перевіряють економіку, стрічки, бій і кадри інтерфейсу; вимірювання плавності йдуть на копіях реальних збережень гравців."
+  ],
+  "Ship from one machine": [
+    "Выпускать с одной машины",
+    "Випускати з однієї машини"
+  ],
+  "One command builds the Windows installer and the macOS disk image on Windows through WSL, then checks the Windows build's sandboxed install, first launch and uninstall and smoke-tests the Mac game pack.": [
+    "Одна команда собирает установщик Windows и образ macOS на Windows через WSL, затем проверяет в песочнице установку, первый запуск и удаление Windows-версии и прогоняет игровой пакет для Mac.",
+    "Одна команда збирає інсталятор Windows та образ macOS на Windows через WSL, потім перевіряє в пісочниці встановлення, перший запуск і видалення Windows-версії та проганяє ігровий пакет для Mac."
+  ],
+  "Version 0.9.33 is public: a website with real gameplay footage, free installers for Windows and macOS with SHA-256 checksums, and release notes on GitHub.": [
+    "Версия 0.9.33 опубликована: сайт с реальными кадрами игры, бесплатные установщики для Windows и macOS с контрольными суммами SHA-256 и описание выпуска на GitHub.",
+    "Версію 0.9.33 опубліковано: сайт із реальними кадрами гри, безкоштовні інсталятори для Windows і macOS з контрольними сумами SHA-256 та опис випуску на GitHub."
+  ],
+  "An early build: the interface is in Russian only, the installers are not code-signed or notarized yet, and the game's source code is private — the public repository holds the website and releases.": [
+    "Ранняя версия: интерфейс пока только на русском, установщики не подписаны и не нотаризованы, исходный код игры закрыт — в открытом репозитории только сайт и выпуски.",
+    "Рання версія: інтерфейс поки лише російською, інсталятори не підписані й не нотаризовані, вихідний код гри закритий — у відкритому репозиторії лише сайт і випуски."
+  ],
+  "Download for Windows & macOS": [
+    "Скачать для Windows и macOS",
+    "Завантажити для Windows і macOS"
+  ],
+  "Website repository": [
+    "Репозиторий сайта",
+    "Репозиторій сайту"
+  ],
+  "Visit the game website": [
+    "Открыть сайт игры",
+    "Відкрити сайт гри"
+  ],
+  "MaxBob AI: a voice assistant for iOS and macOS": [
+    "MaxBob AI: голосовой ассистент для iOS и macOS",
+    "MaxBob AI: голосовий асистент для iOS і macOS"
   ]
 }

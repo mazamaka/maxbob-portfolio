@@ -49,7 +49,7 @@ for file in DIST.rglob('*.html'):
     gallery=re.search(r'<!-- PROJECT-GALLERY:START -->(.*?)<!-- PROJECT-GALLERY:END -->',text,re.S)
     assert not gallery or 'data-i18n-node' not in gallery[1],'React owns the gallery translations'
     count+=1
-assert count==42
-assert len(list(DIST.glob('assets/**/*night-v1.webp')))==13
-print('PASS: 42 language routes, equivalent language links, hreflang, full catalog/case translations and 13 night illustrations')
+assert count==45
+assert len(list(DIST.glob('assets/**/*night-v1.webp')))==14
+print('PASS: 45 language routes, equivalent language links, hreflang, full catalog/case translations and 14 night illustrations')
 print('PASS: inline EN/RU/UK bindings on every page; no image, style or React-state replacement')

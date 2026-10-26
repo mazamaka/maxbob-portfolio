@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from "framer-motion";
-import { ArrowUpRight, CodeXml, Star, type LucideIcon } from "lucide-react";
+import { ArrowUpRight, CodeXml, Globe, Star, type LucideIcon } from "lucide-react";
 import {useT} from "@/src/i18n";
 import {ThemeImage} from "@/components/theme-image";
 import { cn } from "@/lib/utils";
@@ -27,11 +27,18 @@ export interface InteractiveTravelCardProps {
   imagePosition?: string;
   visual?: string;
   rank?: number;
+  /** Overrides the FEATURED / OPEN SOURCE / LIVE PRODUCT label. */
+  label?: string;
+  /** A website shown beside the repository link when liveLabel names it. */
+  live?: string;
+  liveLabel?: string;
+  /** Spans the whole grid row, with the art beside the text. */
+  wide?: boolean;
 }
 
 // Adapted from the supplied travel-card template for a readable project portfolio.
 export const InteractiveTravelCard = React.forwardRef<HTMLDivElement, InteractiveTravelCardProps>(
-  ({title, subtitle, imageUrl, nightImageUrl, actionText, href, onActionClick, actionHref, description, tags = [], onTagSelect, stars, icon: Icon, className, id, imagePosition = "50% 50%", visual = "ai", rank}, ref) => {
+  ({title, subtitle, imageUrl, nightImageUrl, actionText, href, onActionClick, actionHref, description, tags = [], onTagSelect, stars, icon: Icon, className, id, imagePosition = "50% 50%", visual = "ai", rank, label, live, liveLabel, wide}, ref) => {
     const t=useT();
     const mouseX = useMotionValue(0), mouseY = useMotionValue(0);
     const springX = useSpring(mouseX, {damping: 24, stiffness: 150});
@@ -56,7 +63,7 @@ export const InteractiveTravelCard = React.forwardRef<HTMLDivElement, Interactiv
     };
     const repository = href.startsWith("https://github.com/");
     const linkProps = {target: "_blank", rel: "noopener noreferrer"};
-    return <article data-reading-anchor={`card:${title}`} className="p-card-wrap" id={id} data-visual={visual} data-phase="work">
+    return <article data-reading-anchor={`card:${title}`} className={cn("p-card-wrap", wide && "is-wide")} id={id} data-visual={visual} data-phase="work">
       <motion.div ref={ref} onPointerMove={handleMove} onPointerLeave={reset} onPointerCancel={reset}
         style={{rotateX, rotateY, transformStyle: "preserve-3d"}}
         className={cn("p-card pb:relative pb:w-full pb:rounded-2xl", className)}>
@@ -68,7 +75,7 @@ export const InteractiveTravelCard = React.forwardRef<HTMLDivElement, Interactiv
           <span className="p-art-caption">{t(subtitle)}</span>
         </div>
         <div className="p-card-top pb:flex pb:items-center pb:justify-between">
-          <span className="p-card-label">{rank && rank <= 3 ? t("FEATURED CASE") : repository ? t("OPEN SOURCE") : t("LIVE PRODUCT")}</span>
+          <span className="p-card-label">{label ? t(label) : rank && rank <= 3 ? t("FEATURED CASE") : repository ? t("OPEN SOURCE") : t("LIVE PRODUCT")}</span>
           <a className="p-top-link" href={href} {...linkProps} aria-label={`${repository ? t("GitHub repository") : t("Visit website")}: ${title}${stars !== undefined ? t(", {count} stars",{count:stars}) : ""}`} title={stars !== undefined ? t("{count} total GitHub stars",{count:stars}) : t("Visit {name}",{name:title})}>
             {stars !== undefined && <><Star size={14} aria-hidden="true"/><span>{stars}</span></>}
             <ArrowUpRight size={16} aria-hidden="true"/>
@@ -81,6 +88,7 @@ export const InteractiveTravelCard = React.forwardRef<HTMLDivElement, Interactiv
             {actionHref ? <a className="p-primary" href={actionHref} {...(actionHref.startsWith("https:") ? linkProps : {})}>{t(actionText)}</a>
               : <button type="button" className="p-primary" onClick={onActionClick}>{t(actionText)}</button>}
             {actionHref !== href && <a className="p-source" href={href} {...linkProps}>{repository && <CodeXml size={16} aria-hidden="true"/>}{repository ? "GitHub" : t("Website")}</a>}
+            {live && liveLabel && live !== href && <a className="p-source" href={live} {...linkProps}><Globe size={16} aria-hidden="true"/>{t(liveLabel)}</a>}
           </div>
         </div>
       </motion.div>
