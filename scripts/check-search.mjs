@@ -37,6 +37,11 @@ assert.ok(searchProjects('Google','all','private').every(p=>p.visibility==='priv
 assert.ok(searchProjects('Google OAuth').some(p=>p.id==='automation-control-platform'),'All terms must match across project content');
 assert.ok(searchProjects('time to first token').some(p=>p.id==='llm-latency-tracker'),'Content-only phrases must be indexed');
 assert.ok(searchProjects('speech recognition').some(p=>p.id==='VoiceHelper'));
+// normalize() folds «й», «ё», «ї» into «и», «е», «і»: an alias spelled with them must still open its group.
+for(const [word,english] of [['голосовой','voice'],['голосовий','voice'],['семантический','semantic'],['деплой','deploy']]){
+ const found=searchProjects(word).map(p=>p.id);
+ assert.ok(searchProjects(english).length&&searchProjects(english).every(p=>found.includes(p.id)),`«${word}» must find what «${english}» finds`);
+}
 assert.ok(searchProjects('Gemini').some(p=>p.id==='ai_playwright'));
 assert.ok(searchProjects('AI').every(p=>p.id!=='car_iaai'&&p.id!=='account-issuance-bot'),'Short AI query must not match IAAI, email or unrelated account names');
 assert.equal(searchProjects('octo-mcp')[0].id,'octo-mcp','Exact project name takes priority');

@@ -47,7 +47,9 @@ export const normalize=(value:string)=>value.normalize("NFKD").replace(/\p{M}/gu
 const exactTechnologies=new Set(["react","swiftui","rabbitmq","celery","pgvector","embeddings","web3","blockchain","llm","ocr","rpa","claude","openai","gemini"]);
 const stopWords=new Set(["the","a","an","with","for","and","in","on","по","для","с","и","на","опыт","проекты","проект","проєкти","проєкт","досвід","і","та","з","experience","projects"]);
 export const queryTerms=(query:string)=>normalize(query).split(/\s+/).filter(token=>token&&!stopWords.has(token));
-const alternatives=(term:string)=>exactTechnologies.has(term)?[term]:(groups.find(group=>group.includes(term))??[term]);
+// Query terms are normalized («й» → «и», «ё» → «е», «ї» → «і»), so the alias groups are compared in the same form.
+const normalizedGroups=groups.map(group=>group.map(normalize));
+const alternatives=(term:string)=>exactTechnologies.has(term)?[term]:(normalizedGroups.find(group=>group.includes(term))??[term]);
 function matchesWord(part:string,term:string){return term.length<=2?part===term:part.startsWith(term);}
 export function matchesTerm(text:string,term:string){
  const words=normalize(text).split(" ");
