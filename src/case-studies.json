@@ -774,6 +774,80 @@
         ],
         "font": 66
       }
+    },
+    {
+      "projectId": "maxbob-minecraft-companion",
+      "slug": "maxbob",
+      "name": "MaxBob Legacy",
+      "type": "GAME AI / MINECRAFT",
+      "title": "Ask in words. Keep playing.",
+      "description": "A Minecraft Java server where every player gets a personal AI companion bot: a Forge mod body, a Python LLM planner that verifies its steps and a launcher with signed updates.",
+      "lead": "Each player's companion, Bob, takes requests in chat or by voice, plans the job, does it in the shared world and reports when something fails. A free open beta since 14 October 2026.",
+      "stack": "Java 17 · Minecraft Forge · Python · C# / .NET",
+      "scope": "Open beta · website and showcase repository public, source private",
+      "problem": "A companion that takes requests in plain words has to turn a loose sentence into actions that work in a modded world: get a tool, gather, craft through the pack's real recipes, bring the result back — and say so when it fails. Every player on the server has their own bot, so jobs need fair limits, and the modpack has to install on a player's Windows PC without manual setup.",
+      "role": [
+        "Built the body as a Forge mod in Java 17 for Minecraft 1.19.2: the bot entity, movement with pathing, breathing, the way back, jetpack flight and portals, inventory and storage, combat and machines; every owner's bot keeps its profile, inventory and held tasks.",
+        "Built the brain as a Python service: an LLM planner turns a request into steps that are checked before the bot acts, and world skills are verified by postconditions.",
+        "Wrote a crafting planner over the modpack's real recipes — a knowledge base built from the pack export, one recipe per item, prices solved as a fixpoint — and domain modules: an IC2 reactor simulator, Forestry bee breeding, BuildCraft and Pretty Pipes factory lines, lava power.",
+        "Shipped a native Windows launcher in C#: it installs the pack, Java 17 and Forge (about 300 MB on the first run), updates through a signed release channel and keeps settings, worlds and maps with backups. A static website shows live AI usage statistics."
+      ],
+      "flow": [
+        "Chat or voice request",
+        "LLM planner",
+        "Verified steps",
+        "Forge mod acts",
+        "Result or report"
+      ],
+      "decisions": [
+        [
+          "Check the world, not the wording",
+          "Asking for a farm or a house succeeds only when the structure stands, not when an item with a similar name turns up. Crafting follows a knowledge base built from the pack export, so plans use recipes that exist in this modpack."
+        ],
+        [
+          "Keep a shared server fair",
+          "Commands carry epochs and leases and can be cancelled; only the owner's latest line is retried, and only once. A fair bounded queue with load limits and quotas shares the planner between players, and each owner's memory stays private."
+        ],
+        [
+          "Release through a test gate",
+          "Lab copies of the server run scenario tests, a test gate runs before every release, and craft matrices are compared with a baseline after planner changes. Releases ship from a tagged commit with a world backup and a rollback."
+        ]
+      ],
+      "result": "A free open beta has run since 14 October 2026, with no payment or card required. Build 2.0.37 and launcher 1.4.3 (22 October 2026) are public, and the website has a player guide and live seven-day AI statistics: active bots, planner calls and counted tokens.",
+      "limits": "A beta: Bob can misunderstand a request or not know a way, and complex jobs are still being improved. The website is in Russian, and the source code is private — the public repository is a showcase. An unofficial project, not approved by or associated with Mojang or Microsoft.",
+      "links": [
+        [
+          "Server website",
+          "https://mc.maxbob.xyz"
+        ],
+        [
+          "Player guide",
+          "https://mc.maxbob.xyz/guide.html"
+        ],
+        [
+          "Live AI statistics",
+          "https://mc.maxbob.xyz/stats.html"
+        ],
+        [
+          "Showcase repository",
+          "https://github.com/mazamaka/maxbob-minecraft-companion"
+        ]
+      ],
+      "primary_label": "Visit the server website",
+      "related": "ember-foundry",
+      "related_name": "Ember Foundry: a factory and tower defense game in Godot 4",
+      "social": {
+        "slug": "maxbob-minecraft",
+        "image": "projects/maxbob-minecraft-companion-night-v1.webp",
+        "title": [
+          "MaxBob Legacy"
+        ],
+        "copy": [
+          "A big world.",
+          "Your AI companion."
+        ],
+        "font": 66
+      }
     }
   ]
 }

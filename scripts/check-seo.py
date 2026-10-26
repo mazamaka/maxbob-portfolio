@@ -104,6 +104,10 @@ directory = (DIST / 'projects/index.html').read_text()
 doc = Document(directory)
 for project in catalog:
     assert project['id'] in doc.ids, project['id']
+    assert project['visibility'] in ('public', 'private', 'showcase'), project['id']
+    if project['visibility'] == 'showcase':
+        section = directory.split('id="' + project['id'] + '"', 1)[1].split('</article>', 1)[0]
+        assert project.get('href') and 'Public showcase · source private' in section and 'Public source' not in section, project['id']
     if project['visibility'] == 'private':
         assert not project.get('href'), 'Private repository link must never be generated'
         section = directory.split('id="' + project['id'] + '"', 1)[1].split('</article>', 1)[0]

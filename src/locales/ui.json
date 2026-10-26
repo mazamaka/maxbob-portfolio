@@ -1746,5 +1746,37 @@
   "Games": [
     "Игры",
     "Ігри"
+  ],
+  "Game AI / Minecraft": [
+    "Игровой ИИ / Minecraft",
+    "Ігровий ШІ / Minecraft"
+  ],
+  "A Minecraft server where every player gets a personal AI companion bot: a Forge mod body and an LLM planner brain.": [
+    "Сервер Minecraft, где у каждого игрока свой ИИ-напарник — бот с телом на Forge-моде и мозгом на LLM-планировщике.",
+    "Сервер Minecraft, де кожен гравець має власного ШІ-напарника — бота з тілом на Forge-моді та мозком на LLM-планувальнику."
+  ],
+  "AI COMPANION": [
+    "ИИ-НАПАРНИК",
+    "ШІ-НАПАРНИК"
+  ],
+  "Public showcase": [
+    "Публичная витрина",
+    "Публічна вітрина"
+  ],
+  "Open the showcase": [
+    "Открыть витрину",
+    "Відкрити вітрину"
+  ],
+  "The source code is private; the repository is a public showcase of the project.": [
+    "Исходный код закрыт; репозиторий — публичная витрина проекта.",
+    "Вихідний код закритий; репозиторій — публічна вітрина проєкту."
+  ],
+  "Public showcase · source private": [
+    "Публичная витрина · код закрыт",
+    "Публічна вітрина · код закритий"
+  ],
+  "View public repository": [
+    "Смотреть репозиторий",
+    "Переглянути репозиторій"
   ]
 }

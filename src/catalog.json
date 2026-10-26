@@ -1152,7 +1152,7 @@
         "GDScript",
         "Blender Python"
       ],
-      "visibility": "public",
+      "visibility": "showcase",
       "href": "https://github.com/mazamaka/ember-foundry-game",
       "stars": 0,
       "searchContent": [
@@ -1161,6 +1161,29 @@
         "A bilingual website with real gameplay footage offers free downloads for Windows and macOS with SHA-256 checksums."
       ],
       "keywords": "game games gameplay gamedev игра игры игру игровой гра гри гру ігри ігровий"
+    },
+    {
+      "id": "maxbob-minecraft-companion",
+      "title": "MaxBob Legacy",
+      "repo": "maxbob-minecraft-companion",
+      "description": "A Minecraft Java server with a personal AI companion bot for every player: a Forge mod body, an LLM planner brain and a launcher with signed updates.",
+      "category": "Games",
+      "tags": [
+        "Minecraft Forge",
+        "Java",
+        "Python",
+        "LLM",
+        "C#"
+      ],
+      "visibility": "showcase",
+      "href": "https://github.com/mazamaka/maxbob-minecraft-companion",
+      "stars": 0,
+      "searchContent": [
+        "Players ask in chat or by voice; the bot gathers and crafts, works with storage and the first machines of IC² Classic, BuildCraft, Immersive Engineering and Thermal, explores the Nether and the Twilight Forest and reports when something fails.",
+        "A Python brain turns requests into verified steps: a crafting planner over the modpack's real recipes, world skills checked by postconditions, cancellable commands, a fair queue with quotas and private memory per owner.",
+        "A C# launcher installs the modpack, Java 17 and Forge and updates through a signed release channel; the free open beta started on 14 October 2026."
+      ],
+      "keywords": "minecraft майнкрафт майнкрафта майнкрафте bot bots бот боты бота ботов companion companions напарник напарника напарники ии-напарник ші-напарник game games gameplay игра игры игру игровой гра гри гру ігри ігровий"
     }
   ],
   "searchIndexReviewedAt": "2026-10-04"

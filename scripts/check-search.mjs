@@ -7,6 +7,7 @@ const {allProjects,searchProjects,searchHits,highlightParts}=await import(`data:
 assert.equal(new Set(allProjects.map(p=>p.id)).size,allProjects.length,'Catalog IDs must be unique');
 assert.ok(allProjects.length>=60,'Expanded catalog should be present');
 for(const project of allProjects){
+  assert.ok(['public','private','showcase'].includes(project.visibility),`${project.id}: unknown visibility ${project.visibility}`);
   if(project.visibility==='private'){
     assert.ok(!project.href&&!project.repo,'Private projects must not expose a repository');
     assert.ok(!JSON.stringify(project).includes('github.com'),'Private overview must not contain GitHub URLs');
@@ -20,6 +21,10 @@ assert.ok(searchProjects('react').length>0);
 assert.ok(searchProjects('react').every(p=>/react/i.test(JSON.stringify(p))),'Exact technology queries must not expand to unrelated frameworks');
 assert.ok(searchProjects('','all','private').length>0);
 assert.ok(searchProjects('','all','private').every(p=>p.visibility==='private'));
+// Public repository pages with private source code are showcases, never open source; they filter with public pages.
+const showcases=allProjects.filter(p=>p.visibility==='showcase').map(p=>p.id);
+for(const id of ['ember-foundry-game','maxbob-minecraft-companion'])assert.ok(showcases.includes(id),`${id} is a showcase, not open source`);
+assert.ok(showcases.every(id=>searchProjects('','all','public').some(p=>p.id===id)),'Showcases list with public repository pages');
 assert.ok(searchProjects('','AI & agents','private','OCR').some(p=>p.title==='Document AI Pipeline'));
 assert.ok(searchProjects('','all','all','FastAPI').every(p=>p.tags.includes('FastAPI')));
 assert.equal(searchProjects('no-such-framework-987654321').length,0);
@@ -48,6 +53,8 @@ assert.ok(searchProjects('відбитки').some(p=>p.id==='nodriver-antidetect
 assert.ok(searchProjects('нагадування').some(p=>p.id==='maxbob-ai'));
 assert.ok(searchProjects('распознаёт').some(p=>p.id==='VoiceHelper'));
 for(const q of ['game','игра','гра','Godot'])assert.ok(searchProjects(q).some(p=>p.id==='ember-foundry-game'),`${q} must find the game`);
+for(const q of ['minecraft','майнкрафт','bot','бот','AI companion','ИИ-напарник','ШІ-напарник','game','игра','гра'])assert.ok(searchProjects(q).some(p=>p.id==='maxbob-minecraft-companion'),`${q} must find MaxBob`);
+for(const q of ['игра','гра','майнкрафт'])assert.ok(searchHits(q).every(h=>h.matchedIn!=='Related terms'),`${q}: hidden keywords must not be shown as the match`);
 console.log(`PASS: ${allProjects.length} unique catalog entries; Google/content regressions; trilingual search and highlights; ranking; combined filters; private repository guard`);
 
 const page=await readFile('dist/index.html','utf8');
@@ -57,6 +64,10 @@ assert.equal(new Set(cases.map(c=>c.projectId)).size,cases.length,'Each project 
 const directory=await readFile('dist/projects/index.html','utf8');
 const gallery=page.split('<!-- PROJECT-GALLERY:START -->')[1].split('<!-- PROJECT-GALLERY:END -->')[0];
 assert.equal((gallery.match(/class="p-primary"/g)??[]).length,cases.length,'Every featured card needs a case action');
+for(const p of allProjects.filter(p=>p.visibility==='showcase')){
+ const card=gallery.split('<article').find(a=>a.includes(`href="${p.href}"`));
+ assert.ok(!card?.includes('OPEN SOURCE'),`${p.id}: a showcase card must not claim open source`);
+}
 for(const c of cases){
  const href=`cases/${c.slug}/`;
  assert.equal(allProjects.find(p=>p.id===c.projectId)?.caseHref,href,`${c.projectId}: search must link to its own case`);

@@ -248,6 +248,33 @@
         "tower-defense"
       ],
       "updated_at": "2026-10-26T13:23:57Z"
+    },
+    {
+      "archived": false,
+      "description": "MaxBob — a personal AI companion for Minecraft: a Forge mod body, an LLM planner brain and a signed Windows launcher. Free open beta at mc.maxbob.xyz. Showcase; the source code is private.",
+      "fork": false,
+      "forks_count": 0,
+      "homepage": "https://mc.maxbob.xyz",
+      "html_url": "https://github.com/mazamaka/maxbob-minecraft-companion",
+      "language": null,
+      "name": "maxbob-minecraft-companion",
+      "pushed_at": "2026-10-26T15:30:01Z",
+      "stargazers_count": 0,
+      "topics": [
+        "ai-agent",
+        "ai-companion",
+        "csharp",
+        "forge-mod",
+        "game-ai",
+        "java",
+        "llm",
+        "minecraft",
+        "minecraft-forge",
+        "minecraft-server",
+        "planning",
+        "python"
+      ],
+      "updated_at": "2026-10-26T15:30:06Z"
     }
   ]
 }

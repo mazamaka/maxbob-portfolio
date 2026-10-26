@@ -927,6 +927,10 @@
     "Собирать графику из кода",
     "Збирати графіку з коду"
   ],
+  "Build the art from code.": [
+    "Собирать графику из кода.",
+    "Збирати графіку з коду."
+  ],
   "Buildings are assembled by Blender Python scripts with color baked into vertices, so a model changes as quickly as the code that uses it.": [
     "Здания собираются скриптами Blender на Python, цвет запекается в вершины — модель меняется так же быстро, как код, который её использует.",
     "Будівлі збираються скриптами Blender на Python, колір запікається у вершини — модель змінюється так само швидко, як код, що її використовує."
@@ -935,6 +939,10 @@
     "Проверять каждое изменение тестами",
     "Перевіряти кожну зміну тестами"
   ],
+  "Let tests guard every change.": [
+    "Проверять каждое изменение тестами.",
+    "Перевіряти кожну зміну тестами."
+  ],
   "138 headless and windowed scenarios cover the economy, belts, combat and interface frames; frame-pacing probes run on copies of real player saves.": [
     "138 сценариев — без окна и в окне — проверяют экономику, ленты, бой и кадры интерфейса; замеры плавности идут на копиях реальных сохранений игроков.",
     "138 сценаріїв — без вікна й у вікні — перевіряють економіку, стрічки, бій і кадри інтерфейсу; вимірювання плавності йдуть на копіях реальних збережень гравців."
@@ -942,6 +950,10 @@
   "Ship from one machine": [
     "Выпускать с одной машины",
     "Випускати з однієї машини"
+  ],
+  "Ship from one machine.": [
+    "Выпускать с одной машины.",
+    "Випускати з однієї машини."
   ],
   "One command builds the Windows installer and the macOS disk image on Windows through WSL, then checks the Windows build's sandboxed install, first launch and uninstall and smoke-tests the Mac game pack.": [
     "Одна команда собирает установщик Windows и образ macOS на Windows через WSL, затем проверяет в песочнице установку, первый запуск и удаление Windows-версии и прогоняет игровой пакет для Mac.",
@@ -970,5 +982,133 @@
   "MaxBob AI: a voice assistant for iOS and macOS": [
     "MaxBob AI: голосовой ассистент для iOS и macOS",
     "MaxBob AI: голосовий асистент для iOS і macOS"
+  ],
+  "GAME AI / MINECRAFT": [
+    "ИГРОВОЙ ИИ / MINECRAFT",
+    "ІГРОВИЙ ШІ / MINECRAFT"
+  ],
+  "Ask in words. Keep playing.": [
+    "Попроси словами. Продолжай играть.",
+    "Попроси словами. Грай далі."
+  ],
+  "A Minecraft Java server where every player gets a personal AI companion bot: a Forge mod body, a Python LLM planner that verifies its steps and a launcher with signed updates.": [
+    "Сервер Minecraft Java, где у каждого игрока свой ИИ-напарник: тело — Forge-мод, мозг — LLM-планировщик на Python, который проверяет свои шаги, и лаунчер с подписанными обновлениями.",
+    "Сервер Minecraft Java, де кожен гравець має власного ШІ-напарника: тіло — Forge-мод, мозок — LLM-планувальник на Python, що перевіряє свої кроки, і лаунчер із підписаними оновленнями."
+  ],
+  "Each player's companion, Bob, takes requests in chat or by voice, plans the job, does it in the shared world and reports when something fails. A free open beta since 14 October 2026.": [
+    "Напарник каждого игрока, Боб, принимает просьбы в чате или голосом, строит план, выполняет его в общем мире и сообщает, если что-то не получилось. Бесплатный открытый бета-тест — с 14 октября 2026 года.",
+    "Напарник кожного гравця, Боб, приймає прохання в чаті або голосом, складає план, виконує його в спільному світі й повідомляє, якщо щось не вдалося. Безкоштовний відкритий бета-тест — із 14 жовтня 2026 року."
+  ],
+  "Open beta · website and showcase repository public, source private": [
+    "Открытая бета · сайт и витринный репозиторий открыты, исходный код закрыт",
+    "Відкрита бета · сайт і вітринний репозиторій відкриті, вихідний код закритий"
+  ],
+  "A companion that takes requests in plain words has to turn a loose sentence into actions that work in a modded world: get a tool, gather, craft through the pack's real recipes, bring the result back — and say so when it fails. Every player on the server has their own bot, so jobs need fair limits, and the modpack has to install on a player's Windows PC without manual setup.": [
+    "Напарник, которого просят обычными словами, должен превратить расплывчатую фразу в действия, которые работают в мире с модами: взять инструмент, добыть, скрафтить по настоящим рецептам сборки, принести результат — и сказать, если не вышло. Свой бот есть у каждого игрока на сервере, поэтому заданиям нужны справедливые лимиты, а сборка должна устанавливаться на Windows-ПК игрока без ручной настройки.",
+    "Напарник, якого просять звичайними словами, має перетворити розмиту фразу на дії, що працюють у світі з модами: взяти інструмент, добути, скрафтити за справжніми рецептами збірки, принести результат — і сказати, якщо не вийшло. Власний бот є в кожного гравця на сервері, тож завданням потрібні справедливі ліміти, а збірка має встановлюватися на Windows-ПК гравця без ручного налаштування."
+  ],
+  "Built the body as a Forge mod in Java 17 for Minecraft 1.19.2: the bot entity, movement with pathing, breathing, the way back, jetpack flight and portals, inventory and storage, combat and machines; every owner's bot keeps its profile, inventory and held tasks.": [
+    "Сделал тело — Forge-мод на Java 17 для Minecraft 1.19.2: сущность бота, передвижение с поиском пути, дыханием, дорогой назад, полётом на джетпаке и порталами, инвентарь и хранилища, бой и машины; бот каждого владельца хранит профиль, инвентарь и отложенные задачи.",
+    "Зробив тіло — Forge-мод на Java 17 для Minecraft 1.19.2: сутність бота, пересування з пошуком шляху, диханням, дорогою назад, польотом на джетпаку й порталами, інвентар і сховища, бій і машини; бот кожного власника зберігає профіль, інвентар і відкладені завдання."
+  ],
+  "Built the brain as a Python service: an LLM planner turns a request into steps that are checked before the bot acts, and world skills are verified by postconditions.": [
+    "Сделал мозг — сервис на Python: LLM-планировщик превращает просьбу в шаги, которые проверяются до того, как бот начнёт действовать, а навыки в мире проверяются постусловиями.",
+    "Зробив мозок — сервіс на Python: LLM-планувальник перетворює прохання на кроки, які перевіряються ще до того, як бот почне діяти, а навички у світі перевіряються постумовами."
+  ],
+  "Wrote a crafting planner over the modpack's real recipes — a knowledge base built from the pack export, one recipe per item, prices solved as a fixpoint — and domain modules: an IC2 reactor simulator, Forestry bee breeding, BuildCraft and Pretty Pipes factory lines, lava power.": [
+    "Написал планировщик крафта по настоящим рецептам сборки — база знаний из экспорта сборки, один рецепт на предмет, цены как неподвижная точка — и доменные модули: симулятор реактора IC2, разведение пчёл Forestry, фабричные линии BuildCraft и Pretty Pipes, энергия из лавы.",
+    "Написав планувальник крафту за справжніми рецептами збірки — база знань з експорту збірки, один рецепт на предмет, ціни як нерухома точка — і доменні модулі: симулятор реактора IC2, розведення бджіл Forestry, фабричні лінії BuildCraft і Pretty Pipes, енергія з лави."
+  ],
+  "Shipped a native Windows launcher in C#: it installs the pack, Java 17 and Forge (about 300 MB on the first run), updates through a signed release channel and keeps settings, worlds and maps with backups. A static website shows live AI usage statistics.": [
+    "Выпустил нативный лаунчер для Windows на C#: он ставит сборку, Java 17 и Forge (около 300 МБ при первом запуске), обновляется через подписанный канал релизов и сохраняет настройки, миры и карты с резервными копиями. Статический сайт показывает живую статистику работы ИИ.",
+    "Випустив нативний лаунчер для Windows на C#: він встановлює збірку, Java 17 і Forge (близько 300 МБ під час першого запуску), оновлюється через підписаний канал релізів і зберігає налаштування, світи й мапи з резервними копіями. Статичний сайт показує живу статистику роботи ШІ."
+  ],
+  "Chat or voice request": [
+    "Просьба в чате или голосом",
+    "Прохання в чаті чи голосом"
+  ],
+  "LLM planner": [
+    "LLM-планировщик",
+    "LLM-планувальник"
+  ],
+  "Verified steps": [
+    "Проверенные шаги",
+    "Перевірені кроки"
+  ],
+  "Forge mod acts": [
+    "Действует Forge-мод",
+    "Діє Forge-мод"
+  ],
+  "Result or report": [
+    "Результат или отчёт",
+    "Результат або звіт"
+  ],
+  "Check the world, not the wording": [
+    "Проверять мир, а не формулировку",
+    "Перевіряти світ, а не формулювання"
+  ],
+  "Check the world, not the wording.": [
+    "Проверять мир, а не формулировку.",
+    "Перевіряти світ, а не формулювання."
+  ],
+  "Asking for a farm or a house succeeds only when the structure stands, not when an item with a similar name turns up. Crafting follows a knowledge base built from the pack export, so plans use recipes that exist in this modpack.": [
+    "Просьба о ферме или доме засчитывается, только когда постройка действительно стоит, а не когда нашёлся предмет с похожим названием. Крафт идёт по базе знаний из экспорта сборки, поэтому планы используют рецепты, которые в ней есть.",
+    "Прохання про ферму чи будинок зараховується, лише коли споруда справді стоїть, а не коли знайшовся предмет зі схожою назвою. Крафт іде за базою знань з експорту збірки, тож плани використовують рецепти, які в ній є."
+  ],
+  "Keep a shared server fair": [
+    "Держать общий сервер честным",
+    "Тримати спільний сервер чесним"
+  ],
+  "Keep a shared server fair.": [
+    "Держать общий сервер честным.",
+    "Тримати спільний сервер чесним."
+  ],
+  "Commands carry epochs and leases and can be cancelled; only the owner's latest line is retried, and only once. A fair bounded queue with load limits and quotas shares the planner between players, and each owner's memory stays private.": [
+    "У команд есть эпохи и аренды, их можно отменить; повторяется только последняя реплика владельца и только один раз. Справедливая ограниченная очередь с лимитами нагрузки и квотами делит планировщик между игроками, а память каждого владельца остаётся личной.",
+    "Команди мають епохи й оренди, їх можна скасувати; повторюється лише остання репліка власника й лише один раз. Справедлива обмежена черга з лімітами навантаження та квотами ділить планувальник між гравцями, а пам’ять кожного власника лишається приватною."
+  ],
+  "Release through a test gate": [
+    "Выпускать через тестовый шлюз",
+    "Випускати через тестовий шлюз"
+  ],
+  "Release through a test gate.": [
+    "Выпускать через тестовый шлюз.",
+    "Випускати через тестовий шлюз."
+  ],
+  "Lab copies of the server run scenario tests, a test gate runs before every release, and craft matrices are compared with a baseline after planner changes. Releases ship from a tagged commit with a world backup and a rollback.": [
+    "Лабораторные копии сервера прогоняют сценарные тесты, перед каждым релизом стоит тестовый шлюз, а после изменений планировщика матрицы крафта сверяются с эталоном. Релизы выходят из коммита с тегом, с резервной копией мира и откатом.",
+    "Лабораторні копії сервера проганяють сценарні тести, перед кожним релізом стоїть тестовий шлюз, а після змін планувальника матриці крафту звіряються з еталоном. Релізи виходять із коміту з тегом, із резервною копією світу та відкатом."
+  ],
+  "A free open beta has run since 14 October 2026, with no payment or card required. Build 2.0.37 and launcher 1.4.3 (22 October 2026) are public, and the website has a player guide and live seven-day AI statistics: active bots, planner calls and counted tokens.": [
+    "Бесплатный открытый бета-тест идёт с 14 октября 2026 года — без оплаты и привязки карты. Опубликованы версия 2.0.37 и лаунчер 1.4.3 (22 октября 2026), на сайте есть памятка игрока и живая статистика ИИ за семь дней: активные боты, вызовы планировщика и учтённые токены.",
+    "Безкоштовний відкритий бета-тест триває з 14 жовтня 2026 року — без оплати й прив’язки картки. Опубліковано версію 2.0.37 і лаунчер 1.4.3 (22 жовтня 2026), на сайті є пам’ятка гравця й жива статистика ШІ за сім днів: активні боти, виклики планувальника та враховані токени."
+  ],
+  "A beta: Bob can misunderstand a request or not know a way, and complex jobs are still being improved. The website is in Russian, and the source code is private — the public repository is a showcase. An unofficial project, not approved by or associated with Mojang or Microsoft.": [
+    "Это бета: Боб может неправильно понять просьбу или не знать способа, а сложные задания ещё дорабатываются. Сайт на русском, исходный код закрыт — открытый репозиторий служит витриной. Неофициальный проект, не одобрен Mojang или Microsoft и не связан с ними.",
+    "Це бета: Боб може неправильно зрозуміти прохання або не знати способу, а складні завдання ще допрацьовуються. Сайт російською, вихідний код закритий — відкритий репозиторій слугує вітриною. Неофіційний проєкт, не схвалений Mojang чи Microsoft і не пов’язаний із ними."
+  ],
+  "Server website": [
+    "Сайт сервера",
+    "Сайт сервера"
+  ],
+  "Player guide": [
+    "Памятка игрока",
+    "Пам’ятка гравця"
+  ],
+  "Live AI statistics": [
+    "Живая статистика ИИ",
+    "Жива статистика ШІ"
+  ],
+  "Showcase repository": [
+    "Витринный репозиторий",
+    "Вітринний репозиторій"
+  ],
+  "Visit the server website": [
+    "Открыть сайт сервера",
+    "Відкрити сайт сервера"
+  ],
+  "Ember Foundry: a factory and tower defense game in Godot 4": [
+    "Ember Foundry: фабрика и tower defense на Godot 4",
+    "Ember Foundry: фабрика й tower defense на Godot 4"
   ]
 }

@@ -9,7 +9,7 @@ export function useGitHubStars() {
   React.useEffect(() => {
     let storage: Storage | undefined;
     try { storage = window.localStorage; } catch { /* Private browsing can disable storage. */ }
-    const client = createStarsClient(allProjects.filter(p => p.visibility === "public" && p.repo).map(p => p.repo!), {storage});
+    const client = createStarsClient(allProjects.filter(p => p.visibility !== "private" && p.repo).map(p => p.repo!), {storage});
     let active = true, busy = false, timer: ReturnType<typeof setTimeout> | undefined;
     setState(client.getState());
     async function refresh() {

@@ -3,7 +3,8 @@ import {translate} from "./i18n";
 import { projects } from "./projects";
 export interface CatalogProject {
   id:string; title:string; description:string; category:string; tags:string[];
-  visibility:"public"|"private"; repo?:string; href?:string; stars?:number;
+  // showcase: a public repository page (website, README, releases) for a project whose source code is private.
+  visibility:"public"|"private"|"showcase"; repo?:string; href?:string; stars?:number;
   keywords?:string; overview?:string; live?:string; caseHref?:string;
   aliases?:string[]; searchContent?:string[];
 }
@@ -72,7 +73,8 @@ export function searchHits(query:string,direction="all",visibility="all",stack="
  const terms=queryTerms(query), phrase=normalize(query);
  return index.flatMap(({project,fields})=>{
   if(direction!=="all"&&!projectDirections(project).includes(direction))return [];
-  if(visibility!=="all"&&project.visibility!==visibility)return [];
+  // The access filter is about repository pages: a showcase lists with the public ones.
+  if(visibility!=="all"&&(project.visibility==="private"?"private":"public")!==visibility)return [];
   if(stack!=="all"&&!project.tags.some(tag=>normalize(tag)===normalize(stack)))return [];
   if(!terms.every(term=>fields.some(field=>matchesTerm(field.normalized,term))))return [];
   const scored=fields.map(field=>({...field,hits:terms.filter(term=>matchesTerm(field.normalized,term)).length}));
@@ -82,7 +84,8 @@ export function searchHits(query:string,direction="all",visibility="all",stack="
    +(phrase&&project.aliases?.some(alias=>normalize(alias)===phrase)?50:0);
   // Prefer a useful content sentence to a lone tag when it explains the same match.
   const detail=scored.filter(field=>field.hits>0&&["Inside the project","Project overview","Project summary"].includes(field.label)).sort((a,b)=>b.hits-a.hits||b.weight-a.weight)[0];
-  const best=detail??scored.filter(field=>field.hits>0).sort((a,b)=>b.hits-a.hits||b.weight-a.weight)[0];
+  // Related terms are hidden aliases: a match only there shows the summary, never the raw keyword list.
+  const best=detail??scored.filter(field=>field.hits>0&&field.label!=="Related terms").sort((a,b)=>b.hits-a.hits||b.weight-a.weight)[0];
   return [{project,score,excerpt:best?.text??project.description,matchedIn:best?.label??"Project summary"}];
  }).sort((a,b)=>b.score-a.score);
 }

@@ -754,5 +754,21 @@
   "A bilingual website with real gameplay footage offers free downloads for Windows and macOS with SHA-256 checksums.": [
     "Двуязычный сайт с реальными кадрами игры: бесплатные загрузки для Windows и macOS с контрольными суммами SHA-256.",
     "Двомовний сайт із реальними кадрами гри: безкоштовні завантаження для Windows і macOS з контрольними сумами SHA-256."
+  ],
+  "A Minecraft Java server with a personal AI companion bot for every player: a Forge mod body, an LLM planner brain and a launcher with signed updates.": [
+    "Сервер Minecraft Java с личным ИИ-напарником для каждого игрока: тело — Forge-мод, мозг — LLM-планировщик, плюс лаунчер с подписанными обновлениями.",
+    "Сервер Minecraft Java з особистим ШІ-напарником для кожного гравця: тіло — Forge-мод, мозок — LLM-планувальник, а також лаунчер із підписаними оновленнями."
+  ],
+  "Players ask in chat or by voice; the bot gathers and crafts, works with storage and the first machines of IC² Classic, BuildCraft, Immersive Engineering and Thermal, explores the Nether and the Twilight Forest and reports when something fails.": [
+    "Игроки просят в чате или голосом; бот добывает и крафтит, работает с хранилищами и первыми машинами IC² Classic, BuildCraft, Immersive Engineering и Thermal, исследует Незер и Сумеречный лес и сообщает, если что-то не вышло.",
+    "Гравці просять у чаті або голосом; бот добуває й крафтить, працює зі сховищами та першими машинами IC² Classic, BuildCraft, Immersive Engineering і Thermal, досліджує Незер і Сутінковий ліс і повідомляє, якщо щось не вдалося."
+  ],
+  "A Python brain turns requests into verified steps: a crafting planner over the modpack's real recipes, world skills checked by postconditions, cancellable commands, a fair queue with quotas and private memory per owner.": [
+    "Мозг на Python превращает просьбы в проверенные шаги: планировщик крафта по настоящим рецептам сборки, навыки в мире с проверкой постусловиями, отменяемые команды, справедливая очередь с квотами и личная память каждого владельца.",
+    "Мозок на Python перетворює прохання на перевірені кроки: планувальник крафту за справжніми рецептами збірки, навички у світі з перевіркою постумовами, команди, які можна скасувати, справедлива черга з квотами й особиста пам’ять кожного власника."
+  ],
+  "A C# launcher installs the modpack, Java 17 and Forge and updates through a signed release channel; the free open beta started on 14 October 2026.": [
+    "Лаунчер на C# ставит сборку, Java 17 и Forge и обновляется через подписанный канал релизов; бесплатный открытый бета-тест начался 14 октября 2026 года.",
+    "Лаунчер на C# встановлює збірку, Java 17 і Forge та оновлюється через підписаний канал релізів; безкоштовний відкритий бета-тест почався 14 жовтня 2026 року."
   ]
 }

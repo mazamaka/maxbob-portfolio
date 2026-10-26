@@ -12,6 +12,10 @@ for project in json.loads((ROOT/'src/catalog.json').read_text())['projects']:
     for value in [project['description'],*project['searchContent'],*([project['overview']] if project.get('overview') else [])]:assert value in dictionary,value
 for case in json.loads((ROOT/'src/case-studies.json').read_text())['cases']:
     for value in [case[k] for k in ('title','description','lead','problem','result','limits','scope','type','related_name')]+case['role']+[x for pair in case['decisions'] for x in pair]:assert value in dictionary,value
+    for title,_ in case['decisions']:assert title+'.' in dictionary,title+'. (pages render decision titles with a period)'
+# Showcase copy (public repository page, private source) in the gallery dialog, search results and /projects/.
+SHOWCASE=('Public showcase','Open the showcase','The source code is private; the repository is a public showcase of the project.','Public showcase · source private','View public repository')
+for value in SHOWCASE:assert value in dictionary,value
 class Page(HTMLParser):
     def __init__(self,text):
         super().__init__();self.lang=None;self.alternates={};self.languages={};self.assets=[];self.feed(text)
@@ -31,7 +35,10 @@ for file in DIST.rglob('*.html'):
         assert doc.alternates[lang]==SITE+expected
     assert doc.alternates['x-default']==SITE+base
     for asset in doc.assets:assert (DIST/asset.lstrip('/')).is_file(),asset
-    assert '/settings.js?v=26' in file.read_text() and '/dark-theme.css?v=25' in file.read_text()
+    assert '/settings.js?v=27' in file.read_text() and '/dark-theme.css?v=25' in file.read_text()
+    if base=='/projects/':
+        for value in ('Public showcase · source private','Open the showcase','View public repository'):
+            assert (value if locale=='en' else dictionary[value][0 if locale=='ru' else 1]) in file.read_text(),(file,value)
     text=file.read_text()
     bundles=re.findall(r'<script id="page-translations" type="application/json">(.*?)</script>',text,re.S)
     assert len(bundles)==1,(file,'one inline translation bundle required')
@@ -49,7 +56,8 @@ for file in DIST.rglob('*.html'):
     gallery=re.search(r'<!-- PROJECT-GALLERY:START -->(.*?)<!-- PROJECT-GALLERY:END -->',text,re.S)
     assert not gallery or 'data-i18n-node' not in gallery[1],'React owns the gallery translations'
     count+=1
-assert count==45
-assert len(list(DIST.glob('assets/**/*night-v1.webp')))==14
-print('PASS: 45 language routes, equivalent language links, hreflang, full catalog/case translations and 14 night illustrations')
+assert count==48
+assert len(list(DIST.glob('assets/**/*night-v1.webp')))==15
+print('PASS: 48 language routes, equivalent language links, hreflang, full catalog/case translations and 15 night illustrations')
 print('PASS: inline EN/RU/UK bindings on every page; no image, style or React-state replacement')
+print(f'PASS: {len(SHOWCASE)} showcase strings translated; /projects/ shows them in EN/RU/UK')

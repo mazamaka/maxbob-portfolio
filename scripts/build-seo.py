@@ -36,14 +36,17 @@ for index, (category, entries) in enumerate(groups.items(), 1):
     for p in entries:
         details = ''.join('<li>' + escape(line) + '</li>' for line in p.get('searchContent', []))
         tags = ''.join('<li>' + escape(tag) + '</li>' for tag in p['tags'])
-        public = p['visibility'] == 'public'
+        # A showcase is a public repository page for a project whose source code is private: never "Public source".
+        showcase = p['visibility'] == 'showcase'
+        public = p['visibility'] == 'public' or showcase
         links = ''
         if public and p.get('href'):
-            links += f'<a href="{escape(p["href"], quote=True)}" target="_blank" rel="noopener noreferrer">View public repository</a>'
+            label = 'Open the showcase' if showcase else 'View public repository'
+            links += f'<a href="{escape(p["href"], quote=True)}" target="_blank" rel="noopener noreferrer">{label}</a>'
         if p['id'] in case_links:
             label = 'Read case study' if public else 'Project overview'
             links += f'<a href="/cases/{case_links[p["id"]]}/">{label}</a>'
-        note = 'Public source' if public else 'Private project · overview only'
+        note = 'Public showcase · source private' if showcase else 'Public source' if public else 'Private project · overview only'
         cards.append(f'''<article class="directory-entry" id="{escape(p['id'], quote=True)}">
 <div class="directory-entry-top"><h3>{escape(p['title'])}</h3><span>{note}</span></div>
 <p>{escape(p['description'])}</p><ul class="directory-details">{details}</ul>

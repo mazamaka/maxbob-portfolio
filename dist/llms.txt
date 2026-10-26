@@ -25,6 +25,7 @@ This index describes the public portfolio. Private work is represented only by r
 - [Antifraud Spy](https://cv.maxbob.xyz/cases/antifraud-spy/): A Chrome extension for observing fingerprinting API calls, network activity and browser-signal collection through an event timeline and exports.
 - [MaxBob AI](https://cv.maxbob.xyz/cases/maxbob-ai/): A private native AI-assistant project connecting SwiftUI interfaces, realtime voice, WebRTC and a Python backend with Apple integrations.
 - [Ember Foundry](https://cv.maxbob.xyz/cases/ember-foundry/): A factory-building tower defense game in Godot 4 with code-built 3D art, procedural maps, automated tests and one-command installers for Windows and macOS.
+- [MaxBob Legacy](https://cv.maxbob.xyz/cases/maxbob/): A Minecraft Java server where every player gets a personal AI companion bot: a Forge mod body, a Python LLM planner that verifies its steps and a launcher with signed updates.
 
 ## Public profiles
 

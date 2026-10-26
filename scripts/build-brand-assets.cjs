@@ -33,8 +33,10 @@ async function main() {
   ];
   const {cases} = JSON.parse(await fs.readFile(path.join(root, 'src/case-studies.json'), 'utf8'));
   for (const c of cases) {
-    if (cards.some(card => card.slug === c.slug)) continue;
-    cards.push({slug:c.slug, image:`projects/${c.projectId}-v1.webp`,
+    // social.slug names the card when the case slug is taken (the MaxBob case is not the home page's maxbob card).
+    const slug = c.social?.slug ?? c.slug;
+    if (cards.some(card => card.slug === slug)) continue;
+    cards.push({slug, image:`projects/${c.projectId}-v1.webp`,
       kicker:c.private ? 'PRIVATE PROJECT OVERVIEW' : 'ENGINEERING CASE STUDY',
       ...c.social, foot:c.stack});
   }

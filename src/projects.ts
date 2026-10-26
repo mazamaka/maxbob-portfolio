@@ -1,4 +1,4 @@
-import { Bot, Radar, Fingerprint, Network, Activity, Workflow, ScanEye, Smartphone, Server, ChartNoAxesCombined, ShieldCheck, AudioLines, Castle } from "lucide-react";
+import { Bot, Radar, Fingerprint, Network, Activity, Workflow, ScanEye, Smartphone, Server, ChartNoAxesCombined, ShieldCheck, AudioLines, Castle, Pickaxe } from "lucide-react";
 import snapshot from "./repositories.json";
 import caseStudies from "./case-studies.json";
 
@@ -15,7 +15,9 @@ const items = [
   {repo:"polymarket-bot", title:"Polymarket Bot", category:"Applied AI / Market research", icon:ChartNoAxesCombined, visual:"automation", description:"Explore prediction-market signals with LLM analysis, weather data and breaking news.", tags:["Python","Claude","asyncio"]},
   {repo:"antifraud-spy", title:"Antifraud Spy", category:"Browser instrumentation", icon:ShieldCheck, visual:"antifraud", description:"A browser extension for observing fingerprinting techniques and antifraud checks.", tags:["JavaScript","Chrome","Diagnostics"]},
   {repo:null, title:"MaxBob AI", category:"Voice / Native applications", icon:AudioLines, visual:"ai", description:"A native voice assistant connecting iOS and macOS to realtime AI and a Python backend.", tags:["SwiftUI","WebRTC","Python"], live:"https://maxbob.xyz"},
-  // A game, not open source: the public repository holds its website and releases. The wide card fills the last row.
+  // A Minecraft server with an AI companion: the public repository is a showcase README, the source is private.
+  {repo:"maxbob-minecraft-companion", title:"MaxBob Legacy", category:"Game AI / Minecraft", icon:Pickaxe, visual:"game", id:"project-maxbob", description:"A Minecraft server where every player gets a personal AI companion bot: a Forge mod body and an LLM planner brain.", tags:["Minecraft Forge","Java","Python","LLM"], live:"https://mc.maxbob.xyz", liveLabel:"Website", label:"AI COMPANION"},
+  // A game, not open source: the public repository holds its website and releases. The wide card fills the rest of the last row.
   {repo:"ember-foundry-game", title:"Ember Foundry", category:"Game development / Godot", icon:Castle, visual:"game", id:"project-ember", description:"A factory-building tower defense in Godot 4, with code-built 3D art, procedural maps and Windows/macOS installers.", tags:["Godot 4","GDScript","Blender Python"], live:"https://mazamaka.github.io/ember-foundry-game/", liveLabel:"Game website", label:"FREE GAME", wide:true}
 ];
 export const projects = items.map((project, index) => {
