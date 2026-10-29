@@ -18,7 +18,8 @@ const items = [
   // A Minecraft server with an AI companion: the public repository is a showcase README, the source is private.
   {repo:"maxbob-minecraft-companion", title:"MaxBob Legacy", category:"Game AI / Minecraft", icon:Pickaxe, visual:"game", id:"project-maxbob", description:"A Minecraft server where every player gets a personal AI companion bot: a Forge mod body and an LLM planner brain.", tags:["Minecraft Forge","Java","Python","LLM"], live:"https://mc.maxbob.xyz", liveLabel:"Website", label:"AI COMPANION"},
   // A game, not open source: the public repository holds its website and releases. The wide card fills the rest of the last row.
-  {repo:"ember-foundry-game", title:"Ember Foundry", category:"Game development / Godot", icon:Castle, visual:"game", id:"project-ember", description:"A factory-building tower defense in Godot 4, with code-built 3D art, procedural maps and Windows/macOS installers.", tags:["Godot 4","GDScript","Blender Python"], live:"https://mazamaka.github.io/ember-foundry-game/", liveLabel:"Game website", label:"FREE GAME", wide:true}
+  // imageVersion names its frames (-v2: the game's 0.9.36 look); a new name gets past the CDN's four-hour cache.
+  {repo:"ember-foundry-game", title:"Ember Foundry", category:"Game development / Godot", icon:Castle, visual:"game", id:"project-ember", imageVersion:2, description:"A factory-building tower defense in Godot 4, with code-built 3D art, procedural maps and Windows/macOS installers.", tags:["Godot 4","GDScript","Blender Python"], live:"https://mazamaka.github.io/ember-foundry-game/", liveLabel:"Game website", label:"FREE GAME", wide:true}
 ];
 export const projects = items.map((project, index) => {
   const repo = snapshot.repositories.find(item => item.name === project.repo);
@@ -26,6 +27,6 @@ export const projects = items.map((project, index) => {
   const caseStudy = caseStudies.cases.find(item => item.projectId === (project.repo ?? "maxbob-ai"));
   if (!caseStudy) throw new Error(`Missing project case study: ${project.title}`);
   return {...project, caseHref:`cases/${caseStudy.slug}/`, rank:index + 1, href:repo?.html_url ?? project.live!, stars:repo?.stargazers_count,
-    imageUrl:`/assets/projects/${project.repo ?? "maxbob-ai"}-v1.webp`, imagePosition:"50% 50%", nightImageUrl:`/assets/projects/${project.repo ?? "maxbob-ai"}-night-v1.webp`};
+    imageUrl:`/assets/projects/${project.repo ?? "maxbob-ai"}-v${project.imageVersion ?? 1}.webp`, imagePosition:"50% 50%", nightImageUrl:`/assets/projects/${project.repo ?? "maxbob-ai"}-night-v${project.imageVersion ?? 1}.webp`};
 });
 export const starsUpdatedAt = snapshot.updatedAt;

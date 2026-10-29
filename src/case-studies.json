@@ -745,7 +745,7 @@
           "One command builds the Windows installer and the macOS disk image on Windows through WSL, then checks the Windows build's sandboxed install, first launch and uninstall and smoke-tests the Mac game pack."
         ]
       ],
-      "result": "Version 0.9.33 is public: a website with real gameplay footage, free installers for Windows and macOS with SHA-256 checksums, and release notes on GitHub.",
+      "result": "Version 0.9.36 is public: a website with real gameplay footage, free installers for Windows and macOS with SHA-256 checksums, and release notes on GitHub.",
       "limits": "An early build: the interface is in Russian only, the installers are not code-signed or notarized yet, and the game's source code is private — the public repository holds the website and releases.",
       "links": [
         [
@@ -772,7 +772,9 @@
           "A factory by day.",
           "A siege by night."
         ],
-        "font": 66
+        "font": 66,
+        "version": 2,
+        "image": "projects/ember-foundry-game-v2.webp"
       }
     },
     {

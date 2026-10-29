@@ -959,9 +959,9 @@
     "Одна команда собирает установщик Windows и образ macOS на Windows через WSL, затем проверяет в песочнице установку, первый запуск и удаление Windows-версии и прогоняет игровой пакет для Mac.",
     "Одна команда збирає інсталятор Windows та образ macOS на Windows через WSL, потім перевіряє в пісочниці встановлення, перший запуск і видалення Windows-версії та проганяє ігровий пакет для Mac."
   ],
-  "Version 0.9.33 is public: a website with real gameplay footage, free installers for Windows and macOS with SHA-256 checksums, and release notes on GitHub.": [
-    "Версия 0.9.33 опубликована: сайт с реальными кадрами игры, бесплатные установщики для Windows и macOS с контрольными суммами SHA-256 и описание выпуска на GitHub.",
-    "Версію 0.9.33 опубліковано: сайт із реальними кадрами гри, безкоштовні інсталятори для Windows і macOS з контрольними сумами SHA-256 та опис випуску на GitHub."
+  "Version 0.9.36 is public: a website with real gameplay footage, free installers for Windows and macOS with SHA-256 checksums, and release notes on GitHub.": [
+    "Версия 0.9.36 опубликована: сайт с реальными кадрами игры, бесплатные установщики для Windows и macOS с контрольными суммами SHA-256 и описание выпуска на GitHub.",
+    "Версію 0.9.36 опубліковано: сайт із реальними кадрами гри, безкоштовні інсталятори для Windows і macOS з контрольними сумами SHA-256 та опис випуску на GitHub."
   ],
   "An early build: the interface is in Russian only, the installers are not code-signed or notarized yet, and the game's source code is private — the public repository holds the website and releases.": [
     "Ранняя версия: интерфейс пока только на русском, установщики не подписаны и не нотаризованы, исходный код игры закрыт — в открытом репозитории только сайт и выпуски.",

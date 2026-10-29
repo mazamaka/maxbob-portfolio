@@ -26,7 +26,7 @@ for case in CASES:
             {'@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': SITE + '/'},
             {'@type': 'ListItem', 'position': 2, 'name': case['name'], 'item': SITE + path}]}})
     h = shared(replace_metadata(head, metadata(path, page_title, case['description'],
-        image=case.get('social', {}).get('slug', case['slug']) + '-v1.jpg', image_alt=case['name'] + ' — ' + page_kind.lower() + ' by Maksym Babenko.', data=data)))
+        image=case.get('social', {}).get('slug', case['slug']) + '-v' + str(case.get('social', {}).get('version', 1)) + '.jpg', image_alt=case['name'] + ' — ' + page_kind.lower() + ' by Maksym Babenko.', data=data)))
     links=''.join('<a href="'+url+'" target="_blank" rel="noreferrer">'+escape(label)+'</a>' for label,url in case['links'])
     role=''.join('<li>'+escape(item)+'</li>' for item in case['role'])
     decisions=''.join('<p><strong>'+escape(title)+'.</strong> '+escape(body)+'</p>' for title,body in case['decisions'])
